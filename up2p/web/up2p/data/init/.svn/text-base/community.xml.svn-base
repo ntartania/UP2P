@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Defines the Root Community of U-P2P.
+    
+    Author: Neal Arthorne, Alan Davoust, Alexander Craig
+    Home page: http://u-p2p.sourceforge.net
+-->
+<community title="Root Community">
+  <communityDisplayLocation>file:community-comm-display.xsl</communityDisplayLocation>
+  <displayLocation>file:community-display.xsl</displayLocation>
+  <searchLocation>file:community-search.html</searchLocation>
+  <homeLocation>file:community-home.xsl</homeLocation>
+  <!-- Create location is special for the Root Community to allow for the
+    ability to configure a network adapter. -->
+  <createLocation>file:community-create.jsp</createLocation>
+  <schemaLocation>file:community.xsd</schemaLocation>
+  <name>RootCommunity</name>
+  <category>U-P2P</category>
+  <keywords>U-P2P root community</keywords>
+  <description>The root community of Universal Peer to Peer.</description>
+  <titleLocation>/community/@title</titleLocation>
+</community>

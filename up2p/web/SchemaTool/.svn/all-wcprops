@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/u-p2p/!svn/ver/244/u-p2p/trunk/web/SchemaTool
+END
+main.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/main.jsp
+END
+header.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/header.jsp
+END
+createEnum.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/createEnum.jsp
+END
+typeHelp.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/typeHelp.jsp
+END
+createIntRange.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/createIntRange.jsp
+END
+footer.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/footer.jsp
+END
+createTimeRange.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/createTimeRange.jsp
+END
+createCustomType.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/createCustomType.jsp
+END
+createListType.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/createListType.jsp
+END
+createAtomicType.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/createAtomicType.jsp
+END
+facetHelp.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/facetHelp.html
+END
+createType.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/createType.jsp
+END
+index.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/index.jsp
+END
+view.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/view.jsp
+END
+finishedCreate.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/finishedCreate.jsp
+END
+createUnionType.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/createUnionType.jsp
+END
+createDateRange.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/createDateRange.jsp
+END
+renameResource.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/renameResource.jsp
+END
+addConstraints.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/addConstraints.jsp
+END
+main.css
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/u-p2p/!svn/ver/244/u-p2p/trunk/web/SchemaTool/main.css
+END
+nameType.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/nameType.jsp
+END

@@ -1,0 +1,258 @@
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web
+Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+    <display-name>up2p</display-name>
+    <description>
+      Share and create files over an existing Peer-to-Peer network.
+    </description>
+
+	<filter>
+		<filter-name>AccessFilter</filter-name>
+		<description>Restricts access to the U-P2P client.</description>
+		<filter-class>up2p.servlet.AccessFilter</filter-class>
+		<init-param>
+		    <param-name>allow_remote_access</param-name>
+		    <param-value>true</param-value>
+		</init-param>
+		<init-param>
+		    <param-name>force_IP</param-name>
+		    <param-value>134.117.60.69</param-value>
+ 		</init-param>
+ 		<init-param>
+		    <param-name>tomcat_port</param-name>
+		    <param-value>8080</param-value>
+ 		</init-param>
+		<init-param>
+			<param-name>user_authentication</param-name>
+			<param-value>false</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>AccessFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<listener>
+		<listener-class>up2p.servlet.ShutdownListener</listener-class>
+	</listener>
+
+	<servlet>
+	  <servlet-name>download</servlet-name>
+	  <display-name>Download Servlet</display-name>
+	  <description>Maps download requests to real files and filters outgoing
+	  resources.</description>
+	  <servlet-class>up2p.servlet.DownloadServlet</servlet-class>
+	  <load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet>
+	  <servlet-name>retrieve</servlet-name>
+	  <display-name>Retrieve Servlet</display-name>
+	  <description>Retrieves search results from the network.</description>
+	  <servlet-class>up2p.servlet.RetrieveServlet</servlet-class>
+	  <load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet>
+		  <servlet-name>context</servlet-name>
+		  <display-name>Context Servlet</display-name>
+		  <description>Provides an XML view of the repository to be used dynamically by jsps</description>
+		  <servlet-class>up2p.servlet.ContextServlet</servlet-class>
+		  <load-on-startup>1</load-on-startup>
+	</servlet>
+	
+    <servlet>
+        <servlet-name>upload</servlet-name>
+        <display-name>Upload Servlet</display-name>
+        <description>Handles HTTP file uploads.</description>
+        <servlet-class>up2p.servlet.UploadServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>create</servlet-name>
+        <display-name>Create Servlet</display-name>
+        <description>Handles object creation using HTML forms.</description>
+        <servlet-class>up2p.servlet.CreateServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>search</servlet-name>
+        <display-name>Search Servlet</display-name>
+        <description>Handles searching using HTML forms.</description>
+        <servlet-class>up2p.servlet.SearchServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+	
+	<servlet>
+        <servlet-name>graph-query</servlet-name>
+        <display-name>Graph Query Servlet</display-name>
+        <description>Handles complex graph queries.</description>
+        <servlet-class>up2p.servlet.GraphQueryServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>XPathSearch</servlet-name>
+        <display-name>XPath Query Servlet</display-name>
+        <description>Accepts XPath queries that are sent to the peer network.</description>
+        <servlet-class>up2p.servlet.XPathSearchServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+	<servlet>
+        <servlet-name>database</servlet-name>
+        <display-name>Diagnostic Database Viewer</display-name>
+        <description>Used for examining the local repository.</description>
+        <servlet-class>up2p.servlet.DatabaseViewer</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+	<servlet>
+        <servlet-name>fileUpload</servlet-name>
+        <display-name>File Upload</display-name>
+        <servlet-class>up2p.servlet.FileUploadServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>push</servlet-name>
+        <display-name>Push Handler</display-name>
+        <description>Used for handling incoming HTTP connections initiated by Gnutella PUSH messages.</description>
+        <servlet-class>up2p.servlet.PushServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+	
+	<servlet>
+        <servlet-name>config</servlet-name>
+        <display-name>Configuration Servlet</display-name>
+        <description>Allows U-P2P configuration options to be modified through an HTTP request</description>
+        <servlet-class>up2p.servlet.ConfigServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>user</servlet-name>
+        <display-name>User Servlet</display-name>
+        <description>Provides first time account creation service.</description>
+        <servlet-class>up2p.servlet.UserServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>relay</servlet-name>
+        <display-name>Relay Servlet</display-name>
+        <description>Allows HTTP requests to be relayed between peers which cannot connect directly.</description>
+        <servlet-class>up2p.servlet.RelayServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+	<servlet-mapping>
+	  <servlet-name>fileUpload</servlet-name>
+	  <url-pattern>/fileUpload</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+	  <servlet-name>download</servlet-name>
+	  <url-pattern>/community/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	  <servlet-name>download</servlet-name>
+	  <url-pattern>/comm_attach/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+	  <servlet-name>retrieve</servlet-name>
+	  <url-pattern>/retrieve</url-pattern>
+	</servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>upload</servlet-name>
+        <url-pattern>/upload</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>create</servlet-name>
+        <url-pattern>/create</url-pattern>
+    </servlet-mapping>
+	
+	<servlet-mapping>
+        <servlet-name>graph-query</servlet-name>
+        <url-pattern>/graph-query</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>search</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>push</servlet-name>
+        <url-pattern>/push</url-pattern>
+    </servlet-mapping>
+	
+	<servlet-mapping>
+        <servlet-name>config</servlet-name>
+        <url-pattern>/config</url-pattern>
+    </servlet-mapping>
+	
+	<servlet-mapping>
+        <servlet-name>user</servlet-name>
+        <url-pattern>/user</url-pattern>
+    </servlet-mapping>
+	
+	<servlet-mapping>
+        <servlet-name>relay</servlet-name>
+        <url-pattern>/relay</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>XPathSearch</servlet-name>
+        <url-pattern>/XPathSearch</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>database</servlet-name>
+        <url-pattern>/database.xml</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+            <servlet-name>context</servlet-name>
+            <url-pattern>/context/*</url-pattern>
+    </servlet-mapping>
+	
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+	<mime-mapping>
+	  <extension>xml</extension>
+	  <mime-type>text/xml</mime-type>
+	</mime-mapping>
+	
+    <welcome-file-list>
+        <welcome-file>init.jsp</welcome-file>
+    </welcome-file-list>
+
+	<taglib>
+		<taglib-uri>http://u-p2p.sourceforge.net/up2p-taglib</taglib-uri>
+		<taglib-location>/WEB-INF/up2p-taglib.tld</taglib-location>
+	</taglib>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>NoAccess</web-resource-name>
+			<url-pattern>/data/*</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+			<http-method>DELETE</http-method>
+			<http-method>PUT</http-method>
+		</web-resource-collection>
+		<auth-constraint></auth-constraint>
+	</security-constraint>
+
+</web-app>

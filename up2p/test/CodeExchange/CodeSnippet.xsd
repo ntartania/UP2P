@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Code Exchange Community Schema
+	
+	By: Alexander Craig
+	    alexcraig1@gmail.com
+		
+	This file is part of the Universal Peer to Peer Project
+	http://www.nmai.ca/research-projects/universal-peer-to-peer
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"><xsd:element name="CodeSnippet"><xsd:complexType><xsd:all><xsd:element name="Title" type="xsd:string"/><xsd:element name="Language" type="xsd:string"/><xsd:element name="Author" type="xsd:string"/><xsd:element name="Snippet" type="xsd:string"/><xsd:element name="Tags" type="xsd:string"/><xsd:element name="Description" type="xsd:string"/><xsd:element name="License" type="xsd:string"/></xsd:all></xsd:complexType></xsd:element></xsd:schema>

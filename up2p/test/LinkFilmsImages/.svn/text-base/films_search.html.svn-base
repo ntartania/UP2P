@@ -1,0 +1,47 @@
+<div class="link-community">
+<h1>Search Film Community</h1>
+<form action="search" method="post">
+<div id="search-tabs">
+	<ul>
+		<li><a href="#tabs-required">Required Fields</a></li>
+		<li><a href="#tabs-optional">Optional Fields</a></li>
+	</ul>
+	<div id="tabs-required">
+		<table>
+		<tr><td><input type="text" size="65" name="/film/name"></td><td> Search by <strong>title</strong></td></tr>
+		<tr><td><input type="text" size="65" name="/film/initial_release_date"></td><td> Search by <strong>release year</strong></td></tr>
+		</table>
+	</div>
+	<div id="tabs-optional">
+		<table>
+		<tr><td><input type="text" size="65" name="/film/credits/directed_by" /></td><td> Search by <strong>director</strong></td></tr>
+		<tr><td><input type="text" size="65" name="/film/credits/produced_by" /></td><td> Search by <strong>producer</strong></td></tr>
+		<tr><td><input type="text" size="65" name="/film/credits/written_by" /></td><td> Search by <strong>writer</strong></td></tr>
+		<tr><td><input type="text" size="65" name="/film/credits/cinematography" /></td><td> Search by <strong>cinematographer</strong></td></tr>
+		<tr><td><input type="text" size="65" name="/film/credits/edited_by" /></td><td> Search by <strong>editor</strong></td></tr>
+		<tr><td><input type="text" size="65" name="/film/credits/music" /></td><td> Search by <strong>musician</strong></td></tr>
+		<tr><td><input type="text" size="65" name="/film/language"></td><td> Search by <strong>language</strong></td></tr>
+		<tr><td><input type="text" size="65" name="/film/country"></td><td> Search by <strong>country of origin</strong></td></tr>
+		</table>
+	</div>
+</div>
+<br />
+<input type="submit" value="Search" /> 
+<input type="reset" value="Reset Form" />
+</form>
+
+</div>
+
+<script>
+$(document).ready(function(){
+	var counter = 0;
+	$("*.link-community input:submit, *.link-community input:reset").button();
+	$("*.link-community input:submit").click(function() { 
+		// Onclick function goes here
+	});
+	
+	$("*.link-community button").button();
+	
+	$("#search-tabs").tabs();
+});
+</script>

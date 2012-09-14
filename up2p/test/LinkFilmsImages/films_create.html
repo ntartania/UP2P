@@ -1,0 +1,94 @@
+<div class="link-community">
+<h1>Create a New Film Entry</h2>
+<form action="create" method="post" enctype="multipart/form-data">
+<div id="input-tabs">
+	<ul>
+		<li><a href="#tabs-required">Required Information</a></li>
+		<li><a href="#tabs-optional">Optional Information</a></li>
+	</ul>
+	
+	<!-- Required data entry -->
+	<div id="tabs-required">
+		<table>
+		<tr><td><input type="text" size="65" name="/film/name"></td><td> The name of the film</td></tr>
+		<tr><td><input type="text" size="65" name="/film/initial_release_date"></td><td> The year the film was released</td></tr>
+		<tr><td><input type="file" name="/film/image"></td><td> A poster or cover art for the film</td></tr>
+		</table>
+	</div>
+	
+	<!-- Optional data entry -->
+	<div id="tabs-optional">
+		<input type="text" size="65" name="up2p:filename" /> Filename (Optional)<br /><br />
+		<div id="optional-accordion">
+			<h3><a href="#">Directors</a></h3>
+				<div><table class="input-table">
+					<tr><td id="directed_by" class="input-td"><input type="text" size="65" name="/film/credits/directed_by[1]" /></td>
+					<td><button add-id="directed_by" type="button">Add Director</button></td></tr>
+				</table></div>
+			<h3><a href="#">Producers</a></h3>
+				<div><table class="input-table">
+					<tr><td id="produced_by" class="input-td"><input type="text" size="65" name="/film/credits/produced_by[1]" /></td>
+					<td><button add-id="produced_by" type="button">Add Producer</button></td></tr>
+				</table></div>
+			<h3><a href="#">Writers</a></h3>
+				<div><table class="input-table">
+					<tr><td id="written_by" class="input-td"><input type="text" size="65" name="/film/credits/written_by[1]" /></td>
+					<td><button add-id="written_by" type="button">Add Writer</button></td></tr>
+				</table></div>
+			<h3><a href="#">Cinematography</a></h3>
+				<div><table class="input-table">
+					<tr><td id="cinematography" class="input-td"><input type="text" size="65" name="/film/credits/cinematography[1]" /></td>
+					<td><button add-id="cinematography" type="button">Add Cinematography Credit</button></td></tr>
+				</table></div>
+			<h3><a href="#">Editors</a></h3>
+				<div><table class="input-table">
+					<tr><td id="edited_by" class="input-td"><input type="text" size="65" name="/film/credits/edited_by[1]" /></td>
+					<td><button add-id="edited_by" type="button">Add Editor</button></td></tr>
+				</table></div>
+			<h3><a href="#">Music</a></h3>
+				<div><table class="input-table">
+					<tr><td id="music" class="input-td"><input type="text" size="65" name="/film/credits/music[1]" /></td>
+					<td><button add-id="music" type="button">Add Music Credit</button></td></tr>
+				</table></div>
+			<h3><a href="#">Language / Country</a></h3>
+			<div id="language">
+				<table class="input-table">
+					<tr><td class="input-td"><input type="text" size="65" name="/film/language"></td><td> Language</td></tr>
+					<tr><td class="input-td"><input type="text" size="65" name="/film/country"></td><td> Country of origin</td></tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<br />
+<input type="submit" value="Submit Film" /> 
+<input type="reset" value="Reset Form" />
+</form>
+
+</div>
+
+<script>
+$(document).ready(function(){
+	var counter = 0;
+	$("*.link-community input:submit, *.link-community input:reset").button();
+	$("*.link-community input:submit").click(function() { 
+		// Onclick function goes here
+	});
+	
+	$("*.link-community button").button();
+	$("#optional-accordion").accordion({ autoHeight: false });
+	$("#input-tabs").tabs();
+	
+	$("*.link-community button").attr("counter", "2");
+	
+	$("*.link-community button").click(function () {
+		var counter = parseInt($(this).attr("counter"));
+		var newContent = $("<input type=\"text\" size=\"65\" name=\"/film/credits/" 
+			+ $(this).attr("add-id") + "[" + counter + "]\">");
+		$(this).attr("counter", (counter + 1));
+		newContent.hide();
+		$("#" + $(this).attr("add-id")).append(newContent);
+		newContent.show('fast');
+    });
+});
+</script>

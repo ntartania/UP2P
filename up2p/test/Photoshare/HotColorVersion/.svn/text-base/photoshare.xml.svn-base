@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<community title="Photoshare"><category>photos</category><createLocation>file:PhotoShare-create.html</createLocation><description>A community for sharing images.</description><displayLocation>file:PhotoShare-display.xsl</displayLocation><name>Photoshare</name><schemaLocation>file:PhotoShare.xsd</schemaLocation><searchLocation>file:PhotoShare-search.html</searchLocation><titleLocation>//name</titleLocation></community>

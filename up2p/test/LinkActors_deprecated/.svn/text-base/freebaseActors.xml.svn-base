@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><community title="Freebase Actors"><category>cinema</category><description>Actor listings from Freebase.</description><displayLocation>file:actorXSL2.xsl</displayLocation><keywords>actor film</keywords><name>act</name><schemaLocation>file:FreebaseActors2.xsd</schemaLocation><titleLocation>/actor/name</titleLocation></community>

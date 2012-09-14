@@ -1,0 +1,9 @@
+
+div.region {
+	position: absolute;
+	padding: 0px;
+	background-color: #ffffff;
+	color: #000000;
+	overflow: auto;
+	font-size: 14px;
+}

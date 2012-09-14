@@ -1,0 +1,21 @@
+<div class="link-community">
+<h1>Search Actor Community</h1>
+<form action="search" method="post">
+<div class="search-view">
+	<table>
+	<tr><td><input type="text" size="65" name="/actor/name"></td><td> Search by actor <strong>name</strong></td></tr>
+	<tr><td><input type="text" size="65" name="/actor/gender"></td><td> Search by actor <strong>gender</strong></td></tr>
+	</table>
+</div>
+<br />
+<input type="submit" value="Search" /> 
+<input type="reset" value="Reset Form" />
+</form>
+
+</div>
+
+<script>
+$(document).ready(function(){
+	$("*.link-community input:submit, *.link-community input:reset").button();
+});
+</script>

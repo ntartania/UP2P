@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:element name="RDFLink">
+<xsd:complexType>
+<xsd:all>
+<xsd:element name="SubjectTitle" type="xsd:string"/>
+<xsd:element name="SubjectUri" type="xsd:string"/>
+<xsd:element name="Predicate" type="xsd:string"/>
+<xsd:element name="ObjectTitle" type="xsd:string"/>
+<xsd:element name="ObjectUri" type="xsd:string"/>
+<xsd:element name="Title" type="xsd:string"/>
+<xsd:element minOccurs="0" name="Comment" type="xsd:string"/>
+</xsd:all>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>

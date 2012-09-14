@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><article><attachments><filename>file:up2p_logo.png</filename></attachments><revision>1</revision><author>Anonymous</author><title>P2Pedia Syntax Cheat Sheet</title><timestamp>2011-06-21T15:33:36Z</timestamp><content>= Overview =
+This article provides a summary of the wiki formatting options supported by P2Pedia. P2Pedia uses the [[http://www.wikicreole.org/|Creole wiki syntax]]. Edit this article to see examples of all supported elements.
+
+= Text Formatting Elements =
+**Bold text** 
+\\ (Forced line breaks) \\
+//Italic text//
+
+Empty line starts a new paragraph.
+
+= Structure Elements =
+
+= Heading 1 =
+== Heading 2 ==
+=== Heading 3
+
+Up to 6 levels of headings are supported, and the trailing = symbols are optional.
+
+* Unordered List Item
+** Nested Unordered List Item
+
+# Ordered List Item
+## Nested Ordered List Item
+
+|=  |= table |= header |
+| a | table | row |
+| b | table | row |
+
+{{{
+**Escaped wiki formatting**
+}}}
+
+(Horizontal Rule)
+----
+
+= Link Elements =
+
+P2Pedia search link: [[P2Pedia Syntax Cheat Sheet|Syntax Cheat Sheet]] or [[P2Pedia Syntax Cheat Sheet]]
+
+Link to Wikipedia page: [[Wikipedia:Ferrari|Ferrari Wikipedia Page]] or [[Wikipedia:Ferrari]]
+
+External link: [[http://www.google.ca|Google]] or [[http://www.google.ca]] or http://www.google.ca
+
+U-P2P URI link (use the database browser provided in the "U-P2P URI Link" tool to determine the U-P2P URI):\\
+[[up2p:d9643ccbea26fc2545acc76b14190c91/d9643ccbea26fc2545acc76b14190c91|Root Community]]
+
+Image attachment (must be on its own line): 
+{{file:up2p_logo.png|The Universal Peer to Peer Logo}}
+
+Image link:
+{{https://www.google.com/a/cpanel/nmai.ca/images/logo.gif|NMAI Logo}}</content></article>

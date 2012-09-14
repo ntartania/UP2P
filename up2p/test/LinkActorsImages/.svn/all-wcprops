@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/u-p2p/!svn/ver/530/u-p2p/trunk/test/LinkActorsImages
+END
+actors_res_XSL.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/u-p2p/!svn/ver/530/u-p2p/trunk/test/LinkActorsImages/actors_res_XSL.xsl
+END
+actors_comm_XSL.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/u-p2p/!svn/ver/529/u-p2p/trunk/test/LinkActorsImages/actors_comm_XSL.xsl
+END
+actors_create.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/u-p2p/!svn/ver/529/u-p2p/trunk/test/LinkActorsImages/actors_create.html
+END
+actors_style.css
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/u-p2p/!svn/ver/529/u-p2p/trunk/test/LinkActorsImages/actors_style.css
+END
+actors_search.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/u-p2p/!svn/ver/529/u-p2p/trunk/test/LinkActorsImages/actors_search.html
+END
+linked_actors_images.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/u-p2p/!svn/ver/529/u-p2p/trunk/test/LinkActorsImages/linked_actors_images.xml
+END
+actors_schema.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/u-p2p/!svn/ver/529/u-p2p/trunk/test/LinkActorsImages/actors_schema.xsd
+END

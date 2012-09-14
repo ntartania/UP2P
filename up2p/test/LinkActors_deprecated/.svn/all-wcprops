@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/u-p2p/!svn/ver/525/u-p2p/trunk/test/LinkActors_deprecated
+END
+actorXSL2.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/u-p2p/!svn/ver/525/u-p2p/trunk/test/LinkActors_deprecated/actorXSL2.xsl
+END
+FreebaseActors2.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/u-p2p/!svn/ver/525/u-p2p/trunk/test/LinkActors_deprecated/FreebaseActors2.xsd
+END
+freebaseActors.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/u-p2p/!svn/ver/525/u-p2p/trunk/test/LinkActors_deprecated/freebaseActors.xml
+END

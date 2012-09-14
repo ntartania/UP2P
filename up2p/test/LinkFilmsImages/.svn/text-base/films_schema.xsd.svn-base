@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+<!-- Root element-->
+<xsd:element name="film">
+<xsd:complexType>
+	<xsd:all>
+		<xsd:element name="name" type="xsd:string" />
+		<xsd:element name="initial_release_date" type="xsd:string" />
+		<xsd:element name="image" type="xsd:anyURI" />
+		<xsd:element name="language" type="xsd:string" minOccurs="0"/>
+		<xsd:element name="country" type="xsd:string" minOccurs="0" />
+		<xsd:element ref="credits" minOccurs="0" />
+	</xsd:all>
+</xsd:complexType>
+</xsd:element>
+
+<!-- Optional element -->
+<xsd:element name="credits">
+<xsd:complexType>
+	<xsd:choice minOccurs="0" maxOccurs="unbounded" >
+		<xsd:element name="directed_by" type="xsd:string" />
+		<xsd:element name="produced_by" type="xsd:string" />
+		<xsd:element name="written_by" type="xsd:string" />
+		<xsd:element name="cinematography" type="xsd:string" />
+		<xsd:element name="edited_by" type="xsd:string" />
+		<xsd:element name="music" type="xsd:string" />
+	</xsd:choice>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>
+
+
+
+
+
+
+
+
+

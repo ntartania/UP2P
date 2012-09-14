@@ -1,0 +1,504 @@
+<!-- 
+	The build targets in this Ant file compile and assemble the U-P2P client. 
+	The client and server are deployed to a Jakarta	Tomcat Servlet
+	engine (e.g. Tomcat 5.5.x) whose location is given by the catalina.home
+	parameter. The compile targets can be omitted with the noCompile property
+	to allow for an external tool to build the class files (i.e. use
+	noCompile if your IDE compiles the files). Class files must be made
+	available in the 'build' directory.
+
+	Required Parameters:
+		catalina.home - The base of the Tomcat directory tree. The client
+						and server are deployed to this Tomcat installation.
+
+	Optional Parameters:
+		noCompile - If set to any value then the compile target will not
+			be called, otherwise Ant will call the compile target as needed.
+			Additionally, the clean targets will not remove compiled class
+			files if the noCompile parameter is set.
+
+	You can specify parameters on the command-line.
+	e.g. -Dcatalina.home=C:\tomcat5
+
+-->
+<project name="up2p" default="rebuild" basedir=".">
+
+	<!-- General Properties -->
+	<property name="build.classes" value="build/WEB-INF/classes" />
+	
+
+	<!-- Common excluded files (JUnit tests are excluded) -->
+	<patternset id="common.exclude">
+		<exclude name="**/test/" />
+	</patternset>
+
+	<!-- Client Properties -->
+	<property name="client.name" value="up2p" />
+	<property name="client.version" value="2.0.3" />
+	<property name="build.home" value="build" />
+	<property name="deploy.home" value="${catalina.home}/webapps/${client.name}" />
+	<property name="schematool.home" value="${catalina.home}/webapps/SchemaTool" />
+	<property name="xindice.home" value="${catalina.home}/webapps/xindice" />
+	<property name="schematool.files" value="web/SchemaTool" />
+	<property name="xindice.files" value="web/xindice" />
+	<property name="prepare.files" value="web/up2p" />
+		
+	<patternset id="client.build.files">
+		<patternset refid="common.exclude" />
+		<exclude name="schematool/" />
+	</patternset>
+
+	
+	
+	
+	<!-- ==================== Rebuild Target ============================== -->
+	<target name="rebuild" description="rebuilds and deploys UP2P to Tomcat.">
+		<antcall target="catalina check" />
+		<antcall target="client build" />
+	</target>
+
+	<!-- ==================== Catalina Check ============================== -->
+	<target name="catalina check" unless="catalina.home" description="Displays an error message and exits if the catalina.home property is not set.">
+		<echo message="The catalina.home property must be set. It can be passed as a command-line parameter (e.g. -Dcatalina.home=C:\tomcat5)." level="error"/>
+		<fail message="The catalina.home property must be set. It can be passed as a command-line parameter (e.g. -Dcatalina.home=C:\tomcat5)." />
+	</target>
+
+	<!-- ==================== U-P2P Build Target =================== -->
+	<target name="client build" description="Deploys U-P2P to the Tomcat directory.">
+		<antcall target="deploy">
+			<param name="name" value="${client.name}" />
+			<param name="version" value="${client.version}" />
+			<param name="build.files" value="client.build.files" />
+		</antcall>
+	</target>
+	
+	<!-- ==================== P2Pedia  Build Target =================== -->
+		<target name="P2Pedia build" description="Deploys the P2Pedia-specific version of U-P2P to the Tomcat directory.">
+			<echo message="About to compile and deploy P2Pedia" level="info"/>
+			<antcall target="catalina check" />
+			<antcall target="deploy P2Pedia">
+				<param name="name" value="p2pedia" />
+				<param name="version" value="${client.version}" />
+				<param name="build.files" value="client.build.files" />
+			</antcall>
+		</target>
+	
+	
+	<!-- ==================== Deploy Target =============================== -->
+	<target name="deploy" depends="prepare" if="catalina.home" description="Called by client build target to prepare and deploy.">
+		
+
+		<!-- Copy build to deploy directory. -->
+		<echo message="Deploying build files to ${deploy.home}" level="info"/>
+		<mkdir dir="${deploy.home}" />
+		<copy todir="${deploy.home}">
+			<fileset dir="${build.home}" />
+		</copy>
+		
+		<echo message="Deploying SchemaTool to ${schematool.home}" level="info" />
+		<mkdir dir="${schematool.home}" />
+		<copy todir="${schematool.home}" >
+			<fileset dir="${schematool.files}" />
+		</copy>
+		
+		<echo message="Deploying Xindice to ${xindice.home}" level="info" />
+		<mkdir dir="${xindice.home}" />
+		<copy todir="${xindice.home}" >
+			<fileset dir="${xindice.files}" />
+		</copy>
+		
+		<echo message="Deploying robots.txt" level="info" />
+		<copy file="${prepare.files}/robots.txt" todir="${catalina.home}/webapps/ROOT/" /> 
+		
+	</target>
+
+	
+	<!-- ==================== Deploy P2Pedia Target =============================== -->
+		<target name="deploy P2Pedia" depends="prepare P2Pedia" if="catalina.home" description="Called by P2Pedia build target to prepare and deploy.">	
+
+			<!-- Copy build to deploy directory. -->
+			<echo message="Deploying build files to ${deploy.home}" level="info"/>
+			<mkdir dir="${deploy.home}" />
+			<copy todir="${deploy.home}">
+				<fileset dir="${build.home}" />
+			</copy>
+			
+			<echo message="Deploying Xindice to ${xindice.home}" level="info" />
+			<mkdir dir="${xindice.home}" />
+			<copy todir="${xindice.home}" >
+				<fileset dir="${xindice.files}" />
+			</copy>
+			
+			<echo message="Deploying robots.txt" level="info" />
+			<copy file="${prepare.files}/robots.txt" todir="${catalina.home}/webapps/ROOT/" /> 
+			
+		</target>
+	
+	
+	<!-- ==================== Deploy To Server Target =============================== -->
+	<target name="deploy to server" description="Deploys U-P2P to remote server.">
+		
+	<!-- Copy build to deploy directory. -->
+	
+	<!--
+	 SSH info:
+		<property name="user" value= user name to login to server [to be configured in eclipse]  />
+		<property name="password" value= password for remote server [to be configured in eclipse] />
+		<property name="server" value= IP of server [to be configured in eclipse] />
+		<property name="remote.home" value= directory to deploy to on server [configure in eclipse]/>
+		<property name="remote.webapps" value= webapps directory of tomcat on server (for up2p nodes) [configure in eclipse]/>
+		<property name="remote.tomcatdb" value= webapps directory of tomcat server where xindice should be depoyed on server [configure in eclipse]/>
+	 -->
+
+	<echo message="Deploying up2p build files to ${server}" level="info"/>	
+	<scp remoteTodir="${user}@${server}:${remote.webapps}/${client.name}"
+	password="${password}"
+	trust="yes"
+	sftp="true">
+	<fileset dir="${build.home}">
+	<include name="**/*"/>
+	</fileset>
+	</scp>
+		
+	<echo message="Deploying SchemaTool to ${server}" level="info" />
+		<scp remoteTodir="${user}@${server}:${remote.webapps}/schematool"
+			password="${password}"
+			trust="yes"
+			sftp="true">
+			<fileset dir="${schematool.files}" >
+				<include name="**/*"/>
+			</fileset>
+		</scp>
+				
+	<echo message="Deploying Xindice to ${server}" level="info" />
+		<scp remoteTodir="${user}@${server}:${remote.tomcatdb}/xindice"
+					password="${password}"
+					trust="yes"
+					sftp="true">
+					<fileset dir="${xindice.files}" />
+		</scp>
+				
+		<echo message="Deploying robots.txt" level="info" />
+		<scp remoteTodir="${user}@${server}:${remote.webapps}/ROOT/"
+			password="${password}"
+			trust="yes"
+			sftp="true"
+			file="${prepare.files}/robots.txt"  /> 
+	</target>
+	
+	<!-- ==================== Update Server Duplicate Nodes =============================== -->
+	<target name="update duplicates on server" description="Updates class files on remote multiple-node deployment.">
+			
+	<!-- Copy build to deploy directory. -->
+	<echo message="Updating multiple nodes on ${server}" level="info"/>
+	<sshexec host="${server}"
+	username="${user}"
+	password="${password}"
+	trust="yes"
+	command="python up2p_dup.py ${remote.webapps}/${client.name} ${remote.webapps} ${duplicates.names}"
+	/>
+	
+	</target> 
+
+	
+	<!-- ==================== Clean Server Deployment Target ================================ -->
+	<!-- =TODO: make a script to clean selectively all up2p nodes (webapps) and not remove the rest-->
+		<target name="clean server" description="Cleans server deployment.">
+
+	   <sshexec host="${server}"
+		username="${user}"
+		password="${password}"
+		trust="yes"
+		command="rm -rf ${remote.webapps}/*; rm -rf ${remote.tomcatdb}/*"
+		/>
+		<antcall target="make remote dirs"/>
+		</target>
+
+	<!-- ==================== Make Remote Deployment Directory Target ================================ -->
+			<target name="make remote dirs" description="prepares server for remote deployment: makes directories and deploys tomcat stuff">
+
+				<echo message="making remote directories up2p, ROOT, xindice, schematool"/>
+		   <sshexec host="${server}"
+			username="${user}"
+			password="${password}"
+			trust="yes"
+			command="cd ${remote.webapps}; mkdir ${client.name}; mkdir schematool; mkdir ROOT; cd ${remote.tomcatdb}; mkdir xindice"
+			/>
+			
+				<echo message="Copying tomcat material to ROOT (on server)"/>
+				<scp remoteTodir="${user}@${server}:${remote.webapps}/ROOT/"
+							password="${password}"
+							trust="yes"
+							sftp="true"
+							>
+	
+					<fileset dir = "${catalina.home}/webapps/ROOT/"/>
+					</scp>
+			</target>
+
+	<!-- ==================== Clean and build P2Pedia Target ============================ -->
+	<target name="clean build P2Pedia" description="Cleans deployment and rebuilds P2Pedia-specific version.">
+		<antcall target="clean"/>
+		<antcall target="P2Pedia build"/>
+		
+	</target>
+
+	<!-- ==================== Compile Target ============================== -->
+	<target name="compile" if="catalina.home" unless="noCompile" description="Compiles Java classes using Javac.">
+		<echo message="Compiling classes." level="info"/>
+		<mkdir dir="${build.classes}" />
+		
+		<javac srcdir="../polyester/src" destdir="${build.classes}" deprecation="on">
+			<classpath>
+				<fileset dir="../polyester/lib">
+					<include name="*" />
+				</fileset>
+			</classpath>
+		</javac>
+
+		<!-- Compile to class files. -->
+		<javac srcdir="src" destdir="${build.classes}" deprecation="on">
+			<exclude name="**/rdf/**"/>
+			<classpath>
+				<fileset dir="${build.classes}">
+					<include name="*.class" />
+				</fileset>
+				<fileset dir="lib">
+					<include name="**/*.jar"/>
+				</fileset>
+				<pathelement location="${catalina.home}/lib/servlet-api.jar" />
+				<pathelement location="${catalina.home}/lib/jsp-api.jar" />
+			</classpath>
+		</javac>
+		
+		<!-- Copy non-class files from source tree (i.e. properties files). -->
+		<copy todir="${build.classes}">
+			<fileset dir="src">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- ==================== Prepare Target ============================== -->
+	<target name="prepare" depends="compile" description="Copies static files to the build directories.">
+		<!-- Create log and data directories if not present. -->
+		<echo message="Creating log and data directories." level="info"/>
+		<mkdir dir="web/up2p/log" />
+		<mkdir dir="web/up2p/data" />
+
+		<!-- Create build directory and copy static content. -->
+		<echo message="Copying static content and libraries." level="info"/>
+		<mkdir dir="${build.home}" />
+		<copy todir="${build.home}">
+			<fileset dir="web/up2p">
+				<patternset>
+					<exclude name="*.bak" />
+					<exclude name="**/*.bak" />
+					<exclude name="**/*~" />
+					<exclude name=".temp" />
+					<exclude name="**/.temp" />
+				</patternset>
+			</fileset>
+		</copy>
+		
+		<!-- Copy shared web application libraries -->
+		<mkdir dir="${catalina.home}/lib" />
+		<copy todir="${catalina.home}/lib">
+			<fileset dir="lib">
+				<patternset id="tomcat.app.lib">
+					<include name="**/*.jar"/>
+					<exclude name="**/xindice*.jar"/>
+					<exclude name="**/xml-apis-*.jar"/>
+					<exclude name="**/xmlrpc-*.jar"/>
+					<exclude name="**/xmldb-*.jar"/>
+				</patternset>
+			</fileset>
+		</copy>
+
+		<!-- Copy instance specific web application libraries. -->
+		<mkdir dir="${build.home}/WEB-INF/lib" />
+		<copy todir="${build.home}/WEB-INF/lib">
+			<fileset dir="lib">
+				<patternset id="tomcat.app.lib">
+					<include name="**/xindice*.jar"/>
+					<include name="**/xml-apis-*.jar"/>
+					<include name="**/xmlrpc-*.jar"/>
+					<include name="**/xmldb-*.jar"/>
+				</patternset>
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- ==================== Compile P2Pedia Target ============================== -->
+		<target name="compile P2Pedia" if="catalina.home" depends="compile" description="Compiles P2Pedia-specific Java classes using Javac.">
+			<echo message="Compiling P2Pedia classes." level="info"/>
+						
+			<!-- Compile P2Pedia src to class files, using existing compiled UP2P code in classpath -->
+			<javac srcdir="../P2Pedia/up2p/src" destdir="${build.classes}" deprecation="on">
+				<classpath>
+					<fileset dir="${build.classes}">
+							<include name="*.class" />
+					</fileset>
+					<fileset dir="lib">
+					 	<include name="**/*.jar"/>
+					</fileset>
+						<pathelement location="${catalina.home}/lib/servlet-api.jar" />
+						<pathelement location="${catalina.home}/lib/jsp-api.jar" />
+				</classpath>
+			</javac>
+
+			<!-- Delete original WebAdapter.properties file so it's replaced by the P2Pedia one. -->
+			<echo message="Removing generic WebAdapter.properties file." level="info"/>
+			<delete file="${build.classes}/up2p/core/WebAdapter.properties"/>
+			
+			<!-- Copy P2Pedia non-class files from source tree (i.e. properties files). -->
+			<copy todir="${build.classes}">
+				<fileset dir="../P2Pedia/up2p/src" >
+					<exclude name="**/*.java" />
+				</fileset>
+			</copy>
+		</target>
+	
+	<!-- ==================== Prepare P2Pedia Target ============================== -->
+		<target name="prepare P2Pedia" depends="compile P2Pedia" description="Copies P2Pedia-specific files to the build directory.">
+			<!-- Create log and data directories if not present. -->
+			<echo message="Creating log and data directories." level="info"/>
+			<mkdir dir="web/up2p/log" />
+			<mkdir dir="web/up2p/data" />
+
+			
+			<!-- Create build directory and copy static content. -->
+					<echo message="Copying static content and libraries." level="info"/>
+					<mkdir dir="${build.home}" />
+					<copy todir="${build.home}">
+						<fileset dir="web/up2p">
+							<patternset>
+								<exclude name="**/data/init/databaseConfig.properties"/>
+								<exclude name="**/web.xml"/>
+								<exclude name="*.bak" />
+								<exclude name="**/*.bak" />
+								<exclude name="**/*~" />
+								<exclude name=".temp" />
+								<exclude name="**/.temp" />
+								<exclude name="init.jsp" />
+							</patternset>
+						</fileset>
+					</copy>
+			
+			<!-- Copy P2Pedia static content. -->
+			<echo message="Copying P2Pedia static content." level="info"/>
+			<copy todir="${build.home}">
+				<fileset dir="../P2Pedia/up2p/web/up2p">
+					<patternset>
+						<exclude name="*.bak" />
+						<exclude name="**/*.bak" />
+						<exclude name="**/*~" />
+						<exclude name=".temp" />
+						<exclude name="**/.temp" />
+					</patternset>
+				</fileset>
+				
+			</copy>
+			
+			
+			<!-- Copy shared web application libraries -->
+			<copy todir="${catalina.home}/lib">
+				<fileset dir="lib">
+					<patternset id="tomcat.app.lib">
+						<include name="**/*.jar"/>
+						<exclude name="**/xindice*.jar"/>
+						<exclude name="**/xml-apis-*.jar"/>
+						<exclude name="**/xmlrpc-*.jar"/>
+						<exclude name="**/xmldb-*.jar"/>
+					</patternset>
+				</fileset>
+			</copy>
+
+			<!-- Copy instance specific web application libraries. -->
+			<mkdir dir="${build.home}/WEB-INF/lib" />
+			<copy todir="${build.home}/WEB-INF/lib">
+				<fileset dir="lib">
+					<patternset id="tomcat.app.lib">
+						<include name="**/xindice*.jar"/>
+						<include name="**/xml-apis-*.jar"/>
+						<include name="**/xmlrpc-*.jar"/>
+						<include name="**/xmldb-*.jar"/>
+					</patternset>
+				</fileset>
+			</copy>
+		</target>
+	
+	
+	<!-- ==================== Clean Target ================================ -->
+	<target name="clean" if="catalina.home" description="Cleans build and deployed files.">
+		<delete dir="${build.home}" />
+		<delete dir="${deploy.home}" />
+		<delete dir="${schematool.home}" />
+		<delete dir="${xindice.home}" />
+	</target>
+
+
+	<!-- ==================== Clean Class Files =========================== -->
+	<target name="cleanClassFiles" unless="noCompile" description="Deletes compiled class files.">
+		<delete dir="${build.classes}" />
+	</target>
+
+	<!-- ==================== Full clean then rebuild ===================== -->
+	<target name="clean build" description="Full clean, then build and deploy U-P2P.">
+		<antcall target="catalina check" />
+		<antcall target="clean" />
+		<antcall target="rebuild" />
+	</target>
+
+	
+
+	<!-- ==================== Scrub Database Target ======================= -->
+	<target name="scrub database" description="Scrubs the deployment database and copies it over with the build database.">
+		<antcall target="catalina check" />
+		<echo message="Scrubbing deployment log and database files" level="info"/>
+
+		<!-- Call each target if needed. -->
+		<available property="client.deployed" file="${client.deploy.home}" />
+		<antcall target="scrub client" />
+
+	</target>
+
+	<!-- ==================== Scrubs client database and log files ======== -->
+	<target name="scrub client" if="client.deployed" description="Scrubs client database and log files.">
+		<echo message="Scrubbing client database and log files." level="info"/>
+		<!-- Deletes client database in the deployment. -->
+		<mkdir dir="${client.deploy.home}/data" />
+		<delete>
+			<fileset dir="${client.deploy.home}/data" includes="*" />
+		</delete>
+
+		<!-- Copies the fresh client database to the deployment. -->
+		<copy todir="${client.deploy.home}/data">
+			<fileset dir="${client.build.home}/data" />
+		</copy>
+
+		<!-- Deletes client log files in the deployment. -->
+		<mkdir dir="${client.deploy.home}/log" />
+		<delete>
+			<fileset dir="${client.deploy.home}/log" includes="*" />
+		</delete>
+	</target>
+
+	
+	<!-- ==================== Rebuild then scrub log and database files === -->
+	<target name="rebuild scrub" description="Rebuilds (without clean) and scrubs the log and database files.">
+		<antcall target="catalina check" />
+		<antcall target="rebuild" />
+		<antcall target="scrub database" />
+	</target>
+	
+	<!-- ==================== Build JavaDoc =============================== -->
+	<target name="javadoc build" description="Generated the API documentation for U-P2P.">
+		<echo message="Building javadoc API documentation" level="info"/>
+		<javadoc destdir="${docs.dir}" sourcepath="src"
+				 Windowtitle="U-P2P API">
+		<Header>U-P2P Version ${client.version}</Header>
+		<bottom><![CDATA[<i>Copyright &#169; 2003-2011 Carleton University.</i>]]></bottom>
+		</javadoc>
+	</target>
+</project>

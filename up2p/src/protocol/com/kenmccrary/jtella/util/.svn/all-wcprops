@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/u-p2p/!svn/ver/560/u-p2p/trunk/src/protocol/com/kenmccrary/jtella/util
+END
+SocketFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/u-p2p/!svn/ver/560/u-p2p/trunk/src/protocol/com/kenmccrary/jtella/util/SocketFactory.java
+END
+Log.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/u-p2p/!svn/ver/93/u-p2p/trunk/src/protocol/com/kenmccrary/jtella/util/Log.java
+END
+BoundedQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/u-p2p/!svn/ver/93/u-p2p/trunk/src/protocol/com/kenmccrary/jtella/util/BoundedQueue.java
+END
+UniqueIDGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/u-p2p/!svn/ver/93/u-p2p/trunk/src/protocol/com/kenmccrary/jtella/util/UniqueIDGenerator.java
+END
+LoggingThreadGroup.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/u-p2p/!svn/ver/112/u-p2p/trunk/src/protocol/com/kenmccrary/jtella/util/LoggingThreadGroup.java
+END

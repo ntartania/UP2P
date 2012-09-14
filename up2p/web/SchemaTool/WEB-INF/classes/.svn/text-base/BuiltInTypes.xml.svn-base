@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemaTypes>
+	<type name="string">
+		<shortDescription>Text</shortDescription>
+		<description>Text characters including letters, numbers, symbols and spaces.</description>
+		<example>The quick brown fox jumps over the lazy dog!</example>
+		<example>Comment &#231;a va?</example>
+		<example>Falsches &#xdc;ben von Xylophonmusik qu&#xe4;lt jeden gr&#xf6;&#xdf;eren Zwerg.</example>
+	</type>
+	
+	<type name="NMTOKEN">
+		<shortDescription>Text token</shortDescription>
+		<description>A set of text characters with no spaces in between them.</description>
+		<example>USA</example>
+		<example>ASPCA</example>
+		<example>Token1</example>
+		<example>en-us</example>
+	</type>
+
+	<type name="decimal">
+		<shortDescription>Decimal number</shortDescription>
+		<description>Any decimal number either negative or positive and with or without fraction digits.</description>
+		<example>-1234.23</example>
+		<example>1239012</example>
+		<example>0.4123412</example>
+	</type>
+
+	<type name="float">
+		<shortDescription>Floating point number</shortDescription>
+		<description>A 32-bit IEEE floating point number.</description>
+		<example>1.3423e120</example>
+		<example>-34.2e12</example>
+		<example>3.14159265</example>
+		<example>0.0</example>
+		<example>0</example>
+		<example>5230</example>
+	</type>
+
+	<type name="integer">
+		<shortDescription>Integer number</shortDescription>
+		<description>A whole integer number with no fraction digits.</description>
+		<example>-34</example>
+		<example>-93475</example>
+		<example>0</example>
+		<example>40</example>
+		<example>711203</example>
+	</type>
+
+	<type name="nonNegativeInteger">
+		<shortDescription>Positive integer</shortDescription>
+		<description>An integer with a value greater than or equal to zero.</description>
+		<example>0</example>
+		<example>1234</example>
+	</type>
+
+	<type name="nonPositiveInteger">
+		<shortDescription>Negative integer</shortDescription>
+		<description>An integer with a value less than or equal to zero.</description>
+		<example>0</example>
+		<example>-231</example>
+		<example>-125000</example>
+	</type>
+
+	<type name="date">
+		<shortDescription>Date</shortDescription>
+		<description>A date in the Gregorian calendar given in the numeric format YYYY-MM-DD, where YYYY is the year, MM is the month and DD is the day.</description>
+		<example>2001-03-16 is March 16, 2001 A.D.</example>
+		<example>1934-07-22 is July 22, 1934 A.D.</example>
+		<example>0001-01-01 is January 01, 1 A.D.</example>
+		<example>-0145-12-31 is December 31, 145 B.C.</example>
+	</type>
+
+	<type name="gYear">
+		<shortDescription>Year</shortDescription>
+		<description>A year in the Gregorian calendar given in a four digit, numeric format. Additional digits and a preceeding '-' sign are allowed.</description>
+		<example>2004</example>
+		<example>1972</example>
+		<example>-0100 is 100 B.C.</example>
+	</type>
+
+	<type name="gMonth">
+		<shortDescription>Month</shortDescription>
+		<description>A month in the Gregorian calendar given in a two digit, numeric format.</description>
+		<example>01 is January</example>
+		<example>02 is February</example>
+		<example>12 is December</example>
+	</type>
+
+	<type name="gDay">
+		<shortDescription>Day in a Month</shortDescription>
+		<description>A day of a month in the Gregorian calendar given in a two digit, numeric format.</description>
+		<example>01 is the first day of the month.</example>
+		<example>02 is second day of the month.</example>
+		<example>30 is the thirtieth day of the month.</example>
+	</type>
+
+	<type name="time">
+		<shortDescription>Time</shortDescription>
+		<description>An instance of time that recurs every day given in format HH:MM:SSTZZ:ZZ where HH is the hour, MM is minutes, SS is seconds, TZZ:ZZ is the optional time zone indicator with T being + or - and ZZ:ZZ being the hours and minutes offset from UTC.</description>
+		<example>22:31:44-05:00 is 10:32pm and 44 seconds Eastern Standard Time</example>
+		<example>01:42:00 is 1:42am in the local time zone</example>
+	</type>
+
+	<type name="anyURI">
+		<shortDescription>Internet address</shortDescription>
+		<description>A Uniform Resource Identifier (URI) that denotes a location on a network or the World-Wide-Web. It can be relative or absolute, can use any protocol scheme and can end with an optional fragment identifier.</description>
+		<example>http://www.w3.org/TR/xmlschema-2/#anyURI</example>
+		<example>../mydoc/page1.doc</example>
+		<example>ftp://www.redhat.com</example>
+	</type>
+
+	<type name="language">
+		<shortDescription>Language</shortDescription>
+		<description>A two letter language code (ISO 639), optionally followed by '-' and a two letter country code (ISO 3166) or dialect. See <a href="http://www.ietf.org/rfc/rfc1766.txt">RFC 1766</a> for complete details.</description>
+		<example>en-us</example>
+		<example>en-gb</example>
+		<example>en-cockney</example>
+		<example>de</example>
+		<example>zh</example>
+		<example>fa-ir</example>
+	</type>
+	
+	<type name="boolean">
+		<shortDescription>Boolean (true or false)</shortDescription>
+		<description>The Boolean values true or false.</description>
+		<example>true</example>
+		<example>false</example>
+	</type>
+	
+</schemaTypes>

@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>U-P2P Readme</title>
+</head>
+<body>
+<h1>Universal Peer-to-Peer (U-P2P)</h1>
+<ul>
+<li><b>Version:</b> 3.2.0</li>
+<li><b> Revision: </b> 359</li>
+<li><b>Distribution:</b> Available in binary or source</li>
+<li><b>Home Page:</b> <a href="http://sites.google.com/a/nmai.ca/home/research-projects/universal-peer-to-peer-home"
+title="U-P2P Home Page">http://sites.google.com/a/nmai.ca/home/research-projects/universal-peer-to-peer-home</a></li>
+</ul>
+
+<p>Welcome to U-P2P! Universal Peer-to-Peer is a framework for sharing files
+and discovering new communities in a peer-to-peer network.</p>
+
+<p>To get started with U-P2P, consult the Universal Peer-to-Peer User's
+Guide.</p>
+
+<p>To jump right in, launch U-P2P by running the <code>startup</code>
+script in the Apache Tomcat <code>Bin</code> directory and open a web browser to <a
+href="http://localhost:8080/up2p"><code>http://localhost:8080/up2p</code></a>.
+</p>
+
+<h3>Project Contents</h3>
+<p>There are two distributions of U-P2P. One is a binary release with Tomcat
+and the other is a source release with source code for U-P2P. This file covers
+both releases.</p>
+
+<p>Each distribution contains the following parts:</p>
+<ul>
+<li>LICENSE - the General Public License version 2, applicable to U-P2P
+<li>x.LICENSE - licenses for other software used in this project
+<li>readme.html - this file
+</ul>
+
+<h3>Documentation</h3>
+<p>Documentation is available in the "docs' subdirectory of the source distribution, or in the root of the binary distribution.
+<p>Consult the <b>Universal Peer-to-Peer User's Guide</b> for information on
+getting started with U-P2P.</p>
+
+<p>The documentation is in Adobe PDF<sup>&reg;</sup> format and you may need
+the latest <a href="http://www.adobe.com/products/acrobat/readstep2.html"
+title="Download the Adobe Acrobat Reader">free reader</a> from Adobe.</p>
+
+<h3>Source Code</h3>
+<p>If you've downloaded the binary release and want to take a peek at the
+source code, head over to the <a
+href="http://u-p2p.sourceforge.net">U-P2P home page</a> or SourceForge
+and grab it.</p>
+<p>The source code is also available from an SVN repository.</p>
+
+<h3>License</h3>
+<p>The source code and binary forms of the files and resources for
+the U-P2P project are made available under the
+<a href="http://www.gnu.org/licenses/gpl.html">General Public
+License (GPL)</a> found in the LICENSE file in the root directory.</p>
+
+<p>U-P2P is distributed with portions of open-source software
+including: <a href="http://jakarta.apache.org/tomcat">Jakarta Tomcat</a>,
+<a href="http://logging.apache.org/log4j">Apache Log4j</a>,
+<a href="http://xml.apache.org/xindice/">Apache Xindice</a>,
+<a href="http://xml.apache.org/xalan-j">Xalan-J</a>,
+<a href="http://xml.apache.org/xerces-j">Xerces-J</a>,
+<a href="http://www.junit.org">JUnit</a>,
+<a href="http://jtella.sourceforge.net/">JTella</a>
+and files from the <a href="http://www.bouncycastle.org">Legion of the Bouncy
+Castle</a>.
+See the license files for each of these applications for applicable
+license terms and conditions. The eXist database uses additional libraries
+including <a href="http://www.antlr.org">ANTLR</a>, <a
+href="http://jakarta.apache.org/commons/">Jakarta Commons</a> and <a
+href="http://ws.apache.org/xmlrpc/">Apache XML-RPC</a>.</p>
+
+<h3>Known Issues</h3>
+<p>The following issues are known to occur in U-P2P:</p>
+<ul>
+<li>When removing resources from a community a refresh of the page may be required for changes to appear.
+<li>Deleting a community without deleting all its contained resources beforehand can cause errors if the community is recreated on the same node. This is due to a caching issue, and can be fixed by restarting the U-P2P node.
+<li>Shutting down Tomcat is sometimes (always!) prevented by a running instance of U-P2P.
+Although Tomcat may claim that it has shutdown, it is still resident in memory. This prevents U-P2P from initializing properly if it is restarted. Workaround: After running the shutdown script, manually kill Tomcat's java process.
+</ul>
+<hr>
+<span style="font-size: smaller">Copyright &copy; 2003-2010 Carleton
+University</span>
+</body>
+</html>

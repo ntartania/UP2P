@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?><batch><article><revision>3</revision><editSummary>Added a section on the weather.</editSummary><author>Anonymous</author><title>Ottawa Travel (F)</title><parentUri>up2p:2cf62e4a1ef5e4f22b5e582af6bfd836/e265353d976becc4f92d50a9acafa2e4</parentUri><ancestry><uri>up2p:2cf62e4a1ef5e4f22b5e582af6bfd836/e265353d976becc4f92d50a9acafa2e4</uri>
+<uri>up2p:2cf62e4a1ef5e4f22b5e582af6bfd836/524211ba145b9240c46c929f76fc72bb</uri>
+</ancestry><timestamp>2011-06-21T15:28:54Z</timestamp><content>== Overview ==
+Ottawa is the capital of Canada. The city is situated along the Ontario side of the Ottawa River, opposite Gatineau, Quebec. The metropolitan population of Ottawa is 1.1 million and is currently the fourth largest city in Canada, and the second largest in Ontario after Toronto.
+
+== History ==
+Ottawa started as a humble lumber town, then called Bytown, named after Colonel John By. Colonel By oversaw the construction of the Rideau Canal, now a UNESCO World Heritage site, much of which was done by hand, between 1826 and 1832. Lumber mills were built along the Ottawa River in the mid-nineteenth century and those brought employment and wealth to the growing population. The centre of action then, as now, was the ByWard Market. While it's still the centre of the city's nightlife, it has changed appreciably from the rough and tumble early days of brothels and taverns.
+
+In 1857, Queen Victoria chose Ottawa as the capital of Canada. The choice was controversial, partly because it sidestepped the rivalry between Toronto and Montreal (then, as now, Canada's largest cities), and partly because the new capital was still a tiny outpost in the middle of nothing much &#151; an American newspaper famously commented that it was impregnable, as any invaders would get lost in the woods looking for it.
+
+During the latter half of the nineteenth century, the telephone was demonstrated to the Canadian public for the first time and the city was electrified. The first electric streetcar service was started in 1891. A menu from 1892 states that, "the first instance in the entire world of an entire meal being cooked by Electricity" was in Ottawa.
+Today, the major economic sectors are the public service, travel and tourism and the high-tech industry. Nortel Networks, a company that built a significant part of the backbone of the world's internet, maintains large research and development facilities in the region on Moodie Dr at Carling Avenue. Ottawa has proudly remained a green city and is situated at the confluence of three rivers (Ottawa, Rideau and Gatineau) as well as the Rideau canal. Many residents make regular use of Ottawa's parks and green spaces, bikeways and cross country ski trails. Many national attractions are located in Ottawa: Parliament Hill; the National Library and Archives; the National Gallery; as well as the Museums of Civilization, Contemporary Photography, Nature, War and Science &amp; Technology.
+
+== Weather ==
+Ottawa is the fourth coldest capital city by annual average temperature, but it has the second coldest January, only topped by Ulan Bator, Mongolia. Add to that nearly 3m (10') of snow per average winter and throw in an ice storm from time to time, winter can be a challenge but locals do a great job of handling it particularly with recreation. Summers are (normally) short, hot and humid. Dress for the weather!</content></article><article><revision>1</revision><author>Anonymous</author><title>Searching for a Resource (U-P2P Help)</title><timestamp>2011-06-21T15:35:24Z</timestamp><content>= Overview =
+U-P2P allows for searches on resource meta-data based on the specific type of resource being shared (determined by the currently active community).
+
+= Searching for a Resource =
+To search for a resource follow these steps:
+# Navigate to the community which defines the type of resource you wish to search for. The currently active community is highlighted in the community selection bar (top of the screen). Alternatively, click on the "More" link in the top right of the screen will display a drop box of all subscribed communities with the active community highlighted. Select a community by clicking on the respective link in the drop down menu.
+# Navigate to the Search page for your chosen community by clicking the tab in the top left of the screen.
+# The search page for the community should provide a number of fields, each of which searches on a different component of the resource meta-data. For example, a community for sharing eBooks might provide fields to search by title, author, publisher or publishing date. If the community author did not explicitly provide a search page U-P2P will dynamically generate a search page based on the community resource schema. Fields left blank are not considered by the search, and if multiple fields are filled out the resulting resources must fulfil all of the search criteria (search terms are logically AND'ed together). Entering a single * in any field indicates that the field should match all resources (i.e. a single "*" in the title field will return all resources in the community). Note that searching for * is a special "show all" search, and wild cards / regular expressions are not generally supported.
+# Launch the search by clicking the provided submit button, and you will be redirected to the search results page (see the [[Search Results and Trust Metrics (U-P2P Help)|Search Results and Trust Metrics]] article for more information.</content></article><article><attachments><filename>file:up2p_logo.png</filename></attachments><revision>1</revision><author>Anonymous</author><title>Universal Peer to Peer</title><timestamp>2011-06-21T15:37:53Z</timestamp><content>= Overview =
+Universal Peer to Peer (UP2P) is a research project underway in the [[Network Management and Artificial Intelligence Lab]] at [[Carleton University]] aiming to build a schema-based P2P infrastructure, exchanging files and their metadata described in XML. This system relies on the idea that documents are described by specific metadata, formatted according to some metadata schema, and any peer can define arbitrary schemas to describe the documents it hosts. A peer may use several different schemas, to describe different types of documents (e.g. music files, research papers, photographs...). Each schema is shared among a group of peers and defines a community, which will support specific searches. Searches written with the music schema will only be broadcast among peers who use this music schema, etc..
+
+{{file:up2p_logo.png|The Universal Peer to Peer Logo}}
+
+The overlapping communities of peers allow a variety of documents to be exchanged within interest communities on the same infrastructure, and as messages are only sent to relevant peers, the system will scale to larger numbers of peers.The latest version of U-P2P supports links. This means that a document shared in the network may contain a link to another document, also shared in the network.For example, a science paper shared in the community of science papers could contain a link towards a Bibtex entry shared in the bibtex community. The beauty of this is that the link will work (that is, UP2P is capable of retrieving the linked file) wherever this linked file is stored in the network, as long as it is available, a search will be sent out and the user will be prompted to download the document. If it's stored locally, it will be shown immediately.
+
+= Demo =
+A live demo of UP2P can be accessed [[http://inm-04.sce.carleton.ca:8080/up2p|here]].
+
+= Downloads =
+U-P2P is currently available from the [[http://www.nmai.ca/research-projects/universal-peer-to-peer-home/downloads|project downloads page]], either as a binary release deployed in Apache Tomcat v.5.5 (copy it to your hard disk and run it!), or as Source Code (with all the required libraries and an Apache ant build file, which can take care of all the compiling and deployment for you). The Source code is available from a zip file or from the SVN. Details of how to set-up and run U-P2P from the zip releases is found in the [[http://inm-04.sce.carleton.ca:8080/up2p/up2p-user-guide.pdf|User Guide]], also available for download from the [[http://sourceforge.net/projects/u-p2p/|SourceForge project page]].
+
+= Latest News =
+
+* June 4th, 2010: U-P2P v3.2.0 is now available from the [[http://www.nmai.ca/research-projects/universal-peer-to-peer-home/downloads|project downloads page]].
+* April 28th, 2009: UP2P v3, supporting link navigation between resources, was presented at LDOW2009 last week. The source code and a binary deployment were released today on our SF.net download page.
+* February 18th, 2009: A separate release of JTella has been made available for download on our sourceforge page. The main interest is that the implementation is fully documented, which can be useful for a developer who wants to reuse or modify this part.
+* January 28th, 2009: UP2P v2.0.3 released with some major bug fixes. JTella seems to be working quite well, and the ditrect file uploads work. Likely the last release before introduction of the tuple-space architecture.
+
+= Publications =
+* We will present a demo of U-P2P at the workshop "Linked Data On the Web" co-located with the WWW conference 2009, on april 20th, 2009.
+* A follow-up of "Towards Semantically Enhanced File Sharing" was submitted for publication to the Journal of Parallel and Distributed Databases, for a special issue about Data Management in Social Media. It is available as Technical Report SCE-09-04 in the [[http://www.nmai.ca/publications|publications file cabinet]].
+* Our paper "Towards Semantically Enhanced P2P File-Sharing" was presented and published in the proceedings of the SEMELS'08 conference in Monterrey, Mexico (November 2008).</content></article><article><revision>3</revision><editSummary>Added a sub-section on bus travel.</editSummary><author>Anonymous</author><title>Ottawa Travel (D)</title><parentUri>up2p:2cf62e4a1ef5e4f22b5e582af6bfd836/fb5d7679abe43d730a5d1fbee53ac6c6</parentUri><ancestry><uri>up2p:2cf62e4a1ef5e4f22b5e582af6bfd836/fb5d7679abe43d730a5d1fbee53ac6c6</uri>
+<uri>up2p:2cf62e4a1ef5e4f22b5e582af6bfd836/524211ba145b9240c46c929f76fc72bb</uri>
+</ancestry><timestamp>2011-06-21T15:26:06Z</timestamp><content>== Overview ==
+Ottawa is the capital of Canada. The city is situated along the Ontario side of the Ottawa River, opposite Gatineau, Quebec. The metropolitan population of Ottawa is 1.1 million and is currently the fourth largest city in Canada, and the second largest in Ontario after Toronto.
+
+Unique as a North American capital, the city is bilingual. English is the first language of a majority of the population, but French is the first language of a significant number. Staff in most stores and restaurants speak both well and, in general, bilingualism is common.
+
+Ottawa is home to many of the world's cultures as thousands of immigrants from around the world now call Ottawa home. The city is probably best known as the nation's capital but has become one of the fastest growing cities in North America owing to the booming high-tech business sector.
+
+== Bus Travel ==
+There is a Voyageur/Greyhound terminal in Ottawa with regular service to Montreal (departure on the hour from 6 a.m. to midnight), Toronto and all other cities in North America. The bus terminal is downtown on the corner of Catherine Street and Kent Street, between Bronson Avenue and Bank Street. Though the bus terminal is downtown, a 15-20 minute walk will get you to most hotels and downtown attractions. Alternatively, a 5-10 minute local bus ride will do the same. (Bus #4, with its stop around the corner from the terminal on Kent Street, is the bus that you will want to take.)
+
+Greyhound busses coming from Montreal also usually make an intermediary "University of Ottawa" stop (actually at Laurier Station near the corner of Laurier Avenue East and Waller Street) and stop before going to the Catherine Street terminal. This stop is closer walking distance to the Byward Market, the Rideau Canal, and Parliament Hill, and is a more central city transit hub. It may be necessary to request the stop with the driver.
+
+A taxi to most downtown hotels should cost between $8 and $15, and buses are $3.25 one-way ($2.50 with pre-purchased tickets) or $7.50 (purchased only on the bus) for an all-day pass.</content></article><article><revision>1</revision><author>Anonymous</author><title>Search Results and Trust Metrics (U-P2P Help)</title><timestamp>2011-06-21T15:36:16Z</timestamp><content>= Overview =
+U-P2P provides a dynamic display of search results which includes both information on the meta-data of the search results, and information on the trust levels of the peers serving the resources.
+
+= Resource Content Display =
+U-P2P provides a dynamic view of resource content from the search result screen. U-P2P examines the resource schema and provides a number of additional fields in the search result table. For example, a search in the Root Community allows you to view community categories, descriptions, keywords and more directly from the search result table. To activate these additional columns follow these steps:
+# Perform a search in a community of your choice (see the [[Searching for a Resource (U-P2P Help)|Searching for a Resource]] help article for more information).
+# Once search results have been received a drop down box called "Add a Column" will become visible at the top of the search results table. This drop down box contains all the additional resource meta-data fields detected by U-P2P. To display one of these fields in the search results table simply click the desired field in the "Add Column" drop down box.
+# To remove one of the dynamically added columns click the "Remove" button in the column header.
+
+
+= Trust Metrics =
+U-P2P provides a number of trust metrics to help you determine which resources are the most relevant to your searches:
+
+=== Peer Similarity ===
+The peer similarity is a percentage (0 - 100) which is determined by comparing the contents of your local repository to the contents of the remote source's repository within the specified community. This means that peers which are hosting the same resources as you (and should in theory have similar interests and ideas about resource quality as you) will have higher peer similarity values.
+
+=== Peer Popularity ===
+The peer popularity metric is a measure of how many incoming connections a given peer has open. High quality peers should accumulate more connections from other peers, and therefore become more "central" to the network.
+
+=== Sources / Resource Popularity ===
+The sources metric is simply a measure of the number of available sources for a given resource.
+
+=== Network Distance === 
+This metric represents the number of network "hops" (intermediate U-P2P peers) between you and the remote host. A network distance of "0" indicates that a direct connection exists between your node and the remote source node.
+
+= Search Display Options =
+=== Metric Combination Methods ===
+By default all the metrics of a given type for a resource are averaged together to generate the overall metric value for the resource. This behaviour can be dynamically toggled between using the average, minimum, and maximum metric values using the "Metric Combination Method" links at the top of the search result table.
+
+=== Sorting Options ===
+By default the search result table is sorted based on the similarity metrics of the search results. This can be changed using the "Sort By" links at in the column headers of each of the trust metric columns.</content></article><article><attachments><filename>file:up2p_logo.png</filename></attachments><revision>1</revision><author>Anonymous</author><title>P2Pedia Syntax Cheat Sheet</title><timestamp>2011-06-21T15:33:36Z</timestamp><content>= Overview =
+This article provides a summary of the wiki formatting options supported by P2Pedia. P2Pedia uses the [[http://www.wikicreole.org/|Creole wiki syntax]]. Edit this article to see examples of all supported elements.
+
+= Text Formatting Elements =
+**Bold text** 
+\\ (Forced line breaks) \\
+//Italic text//
+
+Empty line starts a new paragraph.
+
+= Structure Elements =
+
+= Heading 1 =
+== Heading 2 ==
+=== Heading 3
+
+Up to 6 levels of headings are supported, and the trailing = symbols are optional.
+
+* Unordered List Item
+** Nested Unordered List Item
+
+# Ordered List Item
+## Nested Ordered List Item
+
+|=  |= table |= header |
+| a | table | row |
+| b | table | row |
+
+{{{
+**Escaped wiki formatting**
+}}}
+
+(Horizontal Rule)
+----
+
+= Link Elements =
+
+P2Pedia search link: [[P2Pedia Syntax Cheat Sheet|Syntax Cheat Sheet]] or [[P2Pedia Syntax Cheat Sheet]]
+
+Link to Wikipedia page: [[Wikipedia:Ferrari|Ferrari Wikipedia Page]] or [[Wikipedia:Ferrari]]
+
+External link: [[http://www.google.ca|Google]] or [[http://www.google.ca]] or http://www.google.ca
+
+U-P2P URI link (use the database browser provided in the "U-P2P URI Link" tool to determine the U-P2P URI):\\
+[[up2p:d9643ccbea26fc2545acc76b14190c91/d9643ccbea26fc2545acc76b14190c91|Root Community]]
+
+Image attachment (must be on its own line): 
+{{file:up2p_logo.png|The Universal Peer to Peer Logo}}
+
+Image link:
+{{https://www.google.com/a/cpanel/nmai.ca/images/logo.gif|NMAI Logo}}</content></article><article><attachments><filename>file:parliament_240px.jpg</filename></attachments><revision>4</revision><editSummary>Added a sub-section on outdoor attractions.</editSummary><author>Anonymous</author><title>Ottawa Travel (G)</title><parentUri>up2p:2cf62e4a1ef5e4f22b5e582af6bfd836/3fca421b2b9410352b01d9dae4036f14</parentUri><ancestry><uri>up2p:2cf62e4a1ef5e4f22b5e582af6bfd836/3fca421b2b9410352b01d9dae4036f14</uri>
+<uri>up2p:2cf62e4a1ef5e4f22b5e582af6bfd836/fb5d7679abe43d730a5d1fbee53ac6c6</uri>
+
+<uri>up2p:2cf62e4a1ef5e4f22b5e582af6bfd836/524211ba145b9240c46c929f76fc72bb</uri>
+</ancestry><timestamp>2011-06-21T15:29:30Z</timestamp><content>== Overview ==
+Ottawa is the capital of Canada. The city is situated along the Ontario side of the Ottawa River, opposite Gatineau, Quebec. The metropolitan population of Ottawa is 1.1 million and is currently the fourth largest city in Canada, and the second largest in Ontario after Toronto.
+
+Unique as a North American capital, the city is bilingual. English is the first language of a majority of the population, but French is the first language of a significant number. Staff in most stores and restaurants speak both well and, in general, bilingualism is common.
+
+Ottawa is home to many of the world's cultures as thousands of immigrants from around the world now call Ottawa home. The city is probably best known as the nation's capital but has become one of the fastest growing cities in North America owing to the booming high-tech business sector.
+
+== Attractions ==
+=== Parliament Hill ===
+{{file:parliament_240px.jpg|Parliament Hill - The seat of Canada's federal government.}}
+
+The primary attraction for most visitors is Parliament Hill. Parliament Hill is in the middle of downtown Ottawa, overlooking the Ottawa River. Not only is the building a fine example of the Gothic revival style, it makes an excellent starting point to visit all other points of interest in the area. Tours of the building are available daily with multiple tours (in both official languages) available at staggered times throughout the day. If you have a group of greater than 10 people, you must make a reservation in advance by calling the reservations office at 613-996-0896. The Centre Block tour is the most popular as it includes inside views of the House of Commons, the Senate, and the newly renovated Library of Parliament. Same-day tickets are free and available on a first-come-first-served basis from 9:00 AM. Pick up your ticket as early as possible to have the best chance of securing a start time that works for you. Tours last from 20 to 60 minutes depending on building activity. From July 2 to Labour Day (early September), tours of the East Block are also available; tour guides take you through the restored offices of some of the Fathers of Confederation (Sir John A. Macdonald, Sir George-Etienne Cartier, Governor General Lord Dufferin and the original Privy Council Office) explaining the beginnings of the Dominion of Canada while historical characters let you in on the daily lives of Canada's past politicians. Tours last about an hour and free same-day tickets can be picked up at the Info-tent on the Hill by West Block. If there are no more tickets available, or you have to wait for your time, a fine self-guided walking tour around the grounds of Parliament Hill will keep you busy. Free booklets are available at the visitors' centre. One of the nicer, unexpected views, looking from the bottom up, can be accessed at the back of the Parliament Buildings -- that vantage point also provides a river view of the Canadian Museum of Civilization, across the river in downtown Gatineau (a sector that was formerly the city of Hull). The walk down from the southwest corner of the Centre Block allows visitors to visit the Hill cats, a group of feral animals housed there by volunteers. Behind the Parliament Buildings at sunset is a sight to remember. You can walk by the Rideau Canal locks (at the east corner) and visit the Bytown Museum at the level of the canal. The locks divide Parliament Hill from the Fairmont Chateau Laurier, a former railway hotel. This hotel once housed the offices of CBC Radio in Ottawa as well as the studio of well-known portrait photographer Yousuf Karsh. Several framed Karsh photographs are hung in the hotel lounge. His (and his wife's) home suite is now available for guests and displays a small sampling of framed prints on the walls.
+
+== Outdoors ==
+If you enjoy the outdoors, especially if you are a cyclist, you should definitely visit Gatineau Park just across the river from Ottawa. Bicycles can be rented during the summer months at the northeast corner of the Chateau Laurier. Ottawa and the surrounding area boasts over 170km of public paved trails on which you can run, bike, walk or rollerblade. If you are looking for a place to start, head to the nearest waterway: paved trails line both sides of the Ottawa River, the Rideau Canal, and the Rideau River. The Trans Canada Trail enters Ottawa through the outskirt communities of Carleton Place and Stittsville, then joins up with the Ottawa River at Brittania Bay (near Carling Avenue at Bayshore Drive). It follows the river 13 kilometers east to Parliament Hill, then crosses over to the Quebec side, extending into and beyond Gatineau Park.
+
+In winter, go skating on the largest outdoor skating rink in the world, the Rideau canal. Skates can be rented, and refreshments purchased, from vendors right on the ice. This is also a great place to enjoy a "beaver tail" which is a local specialty - a bit like funnel cake, often enjoyed with lemon and sugar. It is very similar to, fried dough. The city's trail system serves as an excellent cross-country ski trail system, as do the nearly 200km of groomed ski trails in Gatineau Park. Downhill skiing is available across the river in three near-by sites: Camp Fortune (180 m vertical), Edelweiss (200 m vertical) and Mont Cascades (165 m vertical).</content></article><article><attachments><filename>file:comm_ex_diagram.png</filename></attachments><revision>1</revision><author>Anonymous</author><title>Resources and Communities (U-P2P Help)</title><timestamp>2011-06-21T15:34:46Z</timestamp><content>Data in UP2P is shared as XML meta-data documents which may have any number of arbitrary file attachments. In order to share a new type of data on the UP2P network you must create or join a "community" which describes the data type. The community definition includes properties describing the data type to be shared, as well as properties of the community itself (such as a description, category, tags, etc.). The community definition contains an XML schema that the data type's meta-data must match, as well as XSLT and CSS stylesheets, HTML pages, and any other arbitrary attachments which are needed to process, search for, and display the community's resources.
+
+{{file:comm_ex_diagram.png|U-P2P communities and share define a specific type of resource. Resources can have any number of arbitrary attachments.}}
+
+= Finding and Joining a Community =
+To view all communities shared on your network follow these steps:
+* Navigate to the U-P2P Root Community. This can be done by selecting Root Community from the community selection bar, or by clicking on the U-P2P logo in the top left of the screen (which will always navigate to the "View Local Resources" page of the Root Community.
+* Navigate to the Search activity (using the activity selection tabs in the top left of the screen), and search for all available communities by running a search for * on the "Title" attribute (this can also be accomplished by clicking the provided link on the Root Community local resources page). Note that a search for * is a special search for all resources, and wild cards and regular expressions are not generally supported.
+* Once the search is launched you will be redirected to the search results page. Search results will asynchronously appear on this page as results are retrieved from the network and the local repository. Joining a community in U-P2P is simply the act of downloading the community definition. Subscribe to your desired communities by using the provided link or the built in batch downloader (see the [[Search Results and Trust Metrics (U-P2P Help)|Search Results and Trust Metrics]] article for more information).
+
+= Creating a Community =
+Once you're familiar with U-P2P you may want to create your own community for sharing resources. Creating a community requires you to create an XML schema (a process which can be aided by the included [[http://inm-04.sce.carleton.ca:8080/up2p/schemaTool.jsp|SchemaTool]]), as well as (optionally) a set of style sheets and HTML pages which define how your resources should be processed and rendered. If these pages are not provided U-P2P will dynamically generate the appropriate community assets. For a reference on the format of the community assets please see the [[http://inm-04.sce.carleton.ca:8080/up2p/up2p-comm-guide.pdf|Community Creation Reference]], and for a step by step tutorial on how to add a community to U-P2P please see the [[http://inm-04.sce.carleton.ca:8080/up2p/up2p-user-guide.pdf|U-P2P User's Guide]].</content></article><article><attachments><filename>file:parliament_240px.jpg</filename></attachments><revision>3</revision><editSummary>Added a section on attractions, and a sub-section on Parliament Hill.</editSummary><author>Anonymous</author><title>Ottawa Travel (E)</title><parentUri>up2p:2cf62e4a1ef5e4f22b5e582af6bfd836/fb5d7679abe43d730a5d1fbee53ac6c6</parentUri><ancestry><uri>up2p:2cf62e4a1ef5e4f22b5e582af6bfd836/fb5d7679abe43d730a5d1fbee53ac6c6</uri>
+<uri>up2p:2cf62e4a1ef5e4f22b5e582af6bfd836/524211ba145b9240c46c929f76fc72bb</uri>
+</ancestry><timestamp>2011-06-21T15:27:46Z</timestamp><content>== Overview ==
+Ottawa is the capital of Canada. The city is situated along the Ontario side of the Ottawa River, opposite Gatineau, Quebec. The metropolitan population of Ottawa is 1.1 million and is currently the fourth largest city in Canada, and the second largest in Ontario after Toronto.
+
+Unique as a North American capital, the city is bilingual. English is the first language of a majority of the population, but French is the first language of a significant number. Staff in most stores and restaurants speak both well and, in general, bilingualism is common.
+
+Ottawa is home to many of the world's cultures as thousands of immigrants from around the world now call Ottawa home. The city is probably best known as the nation's capital but has become one of the fastest growing cities in North America owing to the booming high-tech business sector.
+
+== Attractions ==
+=== Parliament Hill ===
+{{file:parliament_240px.jpg|Parliament Hill - The seat of Canada's federal government.}}
+
+The primary attraction for most visitors is Parliament Hill. Parliament Hill is in the middle of downtown Ottawa, overlooking the Ottawa River. Not only is the building a fine example of the Gothic revival style, it makes an excellent starting point to visit all other points of interest in the area. Tours of the building are available daily with multiple tours (in both official languages) available at staggered times throughout the day. If you have a group of greater than 10 people, you must make a reservation in advance by calling the reservations office at 613-996-0896. The Centre Block tour is the most popular as it includes inside views of the House of Commons, the Senate, and the newly renovated Library of Parliament. Same-day tickets are free and available on a first-come-first-served basis from 9:00 AM. Pick up your ticket as early as possible to have the best chance of securing a start time that works for you. Tours last from 20 to 60 minutes depending on building activity. From July 2 to Labour Day (early September), tours of the East Block are also available; tour guides take you through the restored offices of some of the Fathers of Confederation (Sir John A. Macdonald, Sir George-Etienne Cartier, Governor General Lord Dufferin and the original Privy Council Office) explaining the beginnings of the Dominion of Canada while historical characters let you in on the daily lives of Canada's past politicians. Tours last about an hour and free same-day tickets can be picked up at the Info-tent on the Hill by West Block. If there are no more tickets available, or you have to wait for your time, a fine self-guided walking tour around the grounds of Parliament Hill will keep you busy. Free booklets are available at the visitors' centre. One of the nicer, unexpected views, looking from the bottom up, can be accessed at the back of the Parliament Buildings -- that vantage point also provides a river view of the Canadian Museum of Civilization, across the river in downtown Gatineau (a sector that was formerly the city of Hull). The walk down from the southwest corner of the Centre Block allows visitors to visit the Hill cats, a group of feral animals housed there by volunteers. Behind the Parliament Buildings at sunset is a sight to remember. You can walk by the Rideau Canal locks (at the east corner) and visit the Bytown Museum at the level of the canal. The locks divide Parliament Hill from the Fairmont Chateau Laurier, a former railway hotel. This hotel once housed the offices of CBC Radio in Ottawa as well as the studio of well-known portrait photographer Yousuf Karsh. Several framed Karsh photographs are hung in the hotel lounge. His (and his wife's) home suite is now available for guests and displays a small sampling of framed prints on the walls.</content></article><article><revision>2</revision><editSummary>Added a history section.</editSummary><author>Anonymous</author><title>Ottawa Travel (C)</title><parentUri>up2p:2cf62e4a1ef5e4f22b5e582af6bfd836/524211ba145b9240c46c929f76fc72bb</parentUri><ancestry><uri>up2p:2cf62e4a1ef5e4f22b5e582af6bfd836/524211ba145b9240c46c929f76fc72bb</uri></ancestry><timestamp>2011-06-21T15:28:32Z</timestamp><content>== Overview ==
+Ottawa is the capital of Canada. The city is situated along the Ontario side of the Ottawa River, opposite Gatineau, Quebec. The metropolitan population of Ottawa is 1.1 million and is currently the fourth largest city in Canada, and the second largest in Ontario after Toronto.
+
+== History ==
+Ottawa started as a humble lumber town, then called Bytown, named after Colonel John By. Colonel By oversaw the construction of the Rideau Canal, now a UNESCO World Heritage site, much of which was done by hand, between 1826 and 1832. Lumber mills were built along the Ottawa River in the mid-nineteenth century and those brought employment and wealth to the growing population. The centre of action then, as now, was the ByWard Market. While it's still the centre of the city's nightlife, it has changed appreciably from the rough and tumble early days of brothels and taverns.
+
+In 1857, Queen Victoria chose Ottawa as the capital of Canada. The choice was controversial, partly because it sidestepped the rivalry between Toronto and Montreal (then, as now, Canada's largest cities), and partly because the new capital was still a tiny outpost in the middle of nothing much &#151; an American newspaper famously commented that it was impregnable, as any invaders would get lost in the woods looking for it.
+
+During the latter half of the nineteenth century, the telephone was demonstrated to the Canadian public for the first time and the city was electrified. The first electric streetcar service was started in 1891. A menu from 1892 states that, "the first instance in the entire world of an entire meal being cooked by Electricity" was in Ottawa.
+Today, the major economic sectors are the public service, travel and tourism and the high-tech industry. Nortel Networks, a company that built a significant part of the backbone of the world's internet, maintains large research and development facilities in the region on Moodie Dr at Carling Avenue. Ottawa has proudly remained a green city and is situated at the confluence of three rivers (Ottawa, Rideau and Gatineau) as well as the Rideau canal. Many residents make regular use of Ottawa's parks and green spaces, bikeways and cross country ski trails. Many national attractions are located in Ottawa: Parliament Hill; the National Library and Archives; the National Gallery; as well as the Museums of Civilization, Contemporary Photography, Nature, War and Science &amp; Technology.</content></article><article><revision>2</revision><editSummary>Expanded the overview section.</editSummary><author>Anonymous</author><title>Ottawa Travel (B)</title><parentUri>up2p:2cf62e4a1ef5e4f22b5e582af6bfd836/524211ba145b9240c46c929f76fc72bb</parentUri><ancestry><uri>up2p:2cf62e4a1ef5e4f22b5e582af6bfd836/524211ba145b9240c46c929f76fc72bb</uri></ancestry><timestamp>2011-06-21T15:24:30Z</timestamp><content>== Overview ==
+Ottawa is the capital of Canada. The city is situated along the Ontario side of the Ottawa River, opposite Gatineau, Quebec. The metropolitan population of Ottawa is 1.1 million and is currently the fourth largest city in Canada, and the second largest in Ontario after Toronto.
+
+Unique as a North American capital, the city is bilingual. English is the first language of a majority of the population, but French is the first language of a significant number. Staff in most stores and restaurants speak both well and, in general, bilingualism is common.
+
+Ottawa is home to many of the world's cultures as thousands of immigrants from around the world now call Ottawa home. The city is probably best known as the nation's capital but has become one of the fastest growing cities in North America owing to the booming high-tech business sector.</content></article><article><revision>1</revision><author>Anonymous</author><title>Ottawa Travel (A)</title><timestamp>2011-06-21T15:24:08Z</timestamp><content>== Overview ==
+Ottawa is the capital of Canada. The city is situated along the Ontario side of the Ottawa River, opposite Gatineau, Quebec. The metropolitan population of Ottawa is 1.1 million and is currently the fourth largest city in Canada, and the second largest in Ontario after Toronto.</content></article><article><attachments><filename>file:nmai_logo.gif</filename></attachments><revision>1</revision><author>Anonymous</author><title>Network Management and Artificial Intelligence Lab</title><timestamp>2011-06-21T15:38:32Z</timestamp><content>= Overview =
+The Network Management Lab is part of the Carleton University family of research labs.
+[[Carleton University]] is located in Ottawa, Canada. Ottawa is known as Silicon Valley North, due to a large number of Hi-Tech companies in the area. Ottawa is also the location for a number of federal, provincial, and regional telecommunication research institutions.
+
+{{file:nmai_logo.gif|The NMAI Logo}}
+
+= Research Areas =
+* Agent-based systems: check out for example our [[Software Agent Imitation project]], applied to RoboCup players.
+* Applications of artificial intelligence techniques to network systems management: our current project is Operating Systems Discovery.
+* Web Services: we are currently collaborating with Alcatel on a Web Service Registry Scalability project.
+* Peer-to-peer systems: check out our [[Universal Peer to Peer|Universal P2P]] project.
+* Telecommunication networks and system service management (JAIN, feature interaction problem)</content></article><article><revision>1</revision><author>Anonymous</author><title>Directly Uploading a Resource (U-P2P Help)</title><timestamp>2011-06-21T15:37:10Z</timestamp><content>= Overview =
+U-P2P resources are stored as XML files with associated attachments. Once these XML files are generated they can be easily reused by using the direct resource upload feature to bypass the Create system of a community. Resources can also be generated by third party tools, and batch uploads are supported so that new communities can be quickly populated.
+
+= Using the Direct Upload Form =
+To access the direct upload form follow these steps:
+# Navigate to the community which defines the type of resource you want to upload. The currently active community is highlighted in the community selection bar (top of the screen). Alternatively, click on the "More" link in the top right of the screen will display a drop box of all subscribed communities with the active community highlighted. Select a community by clicking on the respective link in the drop down menu.
+# Navigate to the Create page for your chosen community by clicking the tab in the top left of the screen.
+# Click on the "Click Here to Upload an Existing Resource" link at the top of the Create page (above the community's provided creation widget). This will open the direct resource upload form.
+# Use the provided file browsing dialogue to locate the XML file you wish to upload. If the resource has any attachments, remember to use the "Add an Attachment" button to locate and add the associated attachments as well. U-P2P will display a warning notification if it detects a missing attachment upon upload. **WARNING:** If you forget to include required attachments the resource will still be uploaded and shared, but any links to resource attachments will be unavailable.
+# Click the "Upload" button to complete the process. At this point U-P2P will process the resource and redirect you to the viewing page for your new resource. Note that U-P2P validates the resource XML against the community schema, and the upload will fail if the resource does not match the required schema.
+
+= Batch Uploads =
+U-P2P supports batch XML files to help quickly populate communities. These batch files must have the following format:
+* The document must contain a single root node. The name of the root node is unimportant (however, &lt;batch&gt; is recommended).
+* Every child of the root node must be the root node of a complete XML definition of a community resource.
+
+To flag an upload as a batch upload check the "Batch Upload" check box in the direct upload form. Make sure to include all attachments required by any resources in the batch file. When U-P2P processes the batch file it will automatically separate the XML batch file into separate XML files for each resource, and the attachments associated with each resource will be properly moved and associated with their respective resources. U-P2P will display notifications for the number of batch resources detected, the number of resources successfully uploaded, and any required attachments which were not detected.</content></article></batch>

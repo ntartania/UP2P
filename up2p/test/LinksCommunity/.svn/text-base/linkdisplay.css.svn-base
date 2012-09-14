@@ -1,0 +1,26 @@
+table#display_table {
+	border: 4px solid #4481d3;
+}
+
+table#display_table tr{
+	padding: 5px;
+	border-spacing: 1px;
+}
+
+table#form_table {
+	margin: 0 auto;
+	border: 4px solid #4481d3;
+}
+
+table#form_table tr, table#form_table td{
+	padding: 5px;
+	border-spacing: 1px;
+}
+
+table#title_box {
+	border: 4px solid #4481d3;
+	text-align: center;
+	width: 100%;
+	margin: 0 auto;
+}
+	

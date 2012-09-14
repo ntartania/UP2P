@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<exist>
+  <db-connection database="native" files="../data" 
+		   pageSize="4096" cacheSize="48M" free_mem_min="10">
+		   <pool min="1" max="15" sync-period="300000"/>
+  </db-connection>
+  <serializer enable-xinclude="yes" enable-xsl="no"
+	  indent="yes" add-exist-id="none" match-tagging-elements="yes"
+	  match-tagging-attributes="no"/>
+
+  <indexer stemming="no" caseSensitive="no" suppress-whitespace="both" 
+        index-depth="1" tokenizer="org.exist.storage.analysis.SimpleTokenizer" 
+		validation="no">
+    <stopwords file="WEB-INF/stopword"/>
+    
+  </indexer>
+</exist>

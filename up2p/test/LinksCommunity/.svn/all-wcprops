@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/u-p2p/!svn/ver/359/u-p2p/trunk/test/LinksCommunity
+END
+create_template.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/u-p2p/!svn/ver/296/u-p2p/trunk/test/LinksCommunity/create_template.html
+END
+link_create.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/u-p2p/!svn/ver/359/u-p2p/trunk/test/LinksCommunity/link_create.html
+END
+search_template.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/u-p2p/!svn/ver/296/u-p2p/trunk/test/LinksCommunity/search_template.html
+END
+link_search.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/u-p2p/!svn/ver/296/u-p2p/trunk/test/LinksCommunity/link_search.html
+END
+links.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/u-p2p/!svn/ver/296/u-p2p/trunk/test/LinksCommunity/links.xsl
+END
+linkdisplay.css
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/u-p2p/!svn/ver/296/u-p2p/trunk/test/LinksCommunity/linkdisplay.css
+END
+links.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/u-p2p/!svn/ver/296/u-p2p/trunk/test/LinksCommunity/links.xsd
+END

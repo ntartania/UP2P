@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="jmolTutorial">
+		<xs:annotation>
+			<xs:documentation>A biology tutorial using JMOL</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+		<xs:all>
+			<xs:element name="title"/>
+			<xs:element name="author"/>
+			<xs:element name="PDBFile" type="xs:anyURI"/>
+			<xs:element name="InitialParameters"/>
+			<xs:element name="TutorialText">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="Section" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:all>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Section">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="SectionTitle"/>
+				<xs:element name="SectionText">
+					<xs:complexType mixed="true">
+						<xs:sequence>
+							<xs:element name="jmolButton" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+								<xs:all>
+									<xs:element name="ButtonParameters"/>
+									<xs:element name="ButtonName"/>
+								</xs:all>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+				  </xs:complexType>
+				</xs:element>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

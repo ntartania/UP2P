@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	UP2Pedia Community Schema
+	
+	By: Alexander Craig
+	    alexcraig1@gmail.com
+		
+	This file is part of the Universal Peer to Peer Project
+	http://www.nmai.ca/research-projects/universal-peer-to-peer
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="article">
+		<xsd:annotation>
+			<xsd:documentation>A UP2Pedia article</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="title" type="xsd:string" minOccurs="1" maxOccurs="1" />
+				<xsd:element name="timestamp" type="xsd:string" minOccurs="1" maxOccurs="1" />
+				<xsd:element name="author" type="xsd:string" minOccurs ="0" maxOccurs="1" />
+				<xsd:element name="editSummary" type="xsd:string" minOccurs ="0" maxOccurs="1" />
+				<xsd:element name="parentUri" type="xsd:string" minOccurs="0" maxOccurs="1" />
+				<xsd:element name="revision" minOccurs="0" maxOccurs="1" type="xsd:nonNegativeInteger" />
+				<xsd:element ref="ancestry" minOccurs="0" maxOccurs="1" />
+				<xsd:element ref="attachments" minOccurs="0" maxOccurs="1" />
+				<xsd:element name="content" type="xsd:string" minOccurs ="1" maxOccurs="1" />
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="ancestry">
+		<xsd:complexType mixed="false">
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element name="uri" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="attachments">
+		<xsd:complexType mixed="false">
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element name="filename" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

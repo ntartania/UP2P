@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmolTutorial>
+<title>The restriction endonuclease Bgl II</title>
+<author> Leo Laub </author>
+<PDBFile>file:1DFM.pdb</PDBFile> 
+<InitialParameters>set specular on; moveTo 0 0 0 0 50 0; set spin y 20; spin on; select all; labels off; restrict not water; spacefill on; wireframe off; backbone off; color cpk; ribbons off; cartoons on;</InitialParameters>
+<TutorialText>
+  <Section>
+  <SectionTitle>I. Introduction to Restriction Endonucleases</SectionTitle>
+<SectionText>
+
+Restriction endonucleases are enzymes that can cleave specific sequences of double stranded DNA by cutting through the sugar-phosphate backbone of each strand. Currently, the exact mechanism behind this nucleolytic activity is unknown. However, in bacterial cells, they play an important role in the protection of the host genome from bacteriophage infection. Specifically, they target invasive genetic material for cleavage, preventing it from becoming incorporated into the host genome (Pingoud and Jeltsch, 1997).
+
+Given they are involved in nucleolytic activity, it is vital that restriction endonucleases can target particular sequences for cleavage with exquisite specificity to avoid damaging endogenous genetic material. Restriction endonucleases accomplish this by binding non-specifically to DNA and sliding up or down it until reaching the target sequence. Cleavage only occurs if the target sequence is a perfect match; one nucleotide difference reduces nucleolytic activity by over one million-fold (Lukacs et al. 2000).
+
+Scientists have categorized restriction endonuclases into three groups: type I, II, and III. The most studied group is type II, with more than 3,000 restriction endonucleases already identified. The orthodox type II endonucleases are characterized as those that recognize and cleave palindromic sequences of 4-8 bp in the presence of Mg2+. Unlike type I and III restriction endonucleases, the type II enzymes do not require ATP hydrolysis for full functionality. A variety of unorthodox type II restriction endonucleases also exist and are grouped into separate type II subgroups (Pingoud and Jeltsch, 2001).
+
+</SectionText>
+</Section>
+
+<Section>
+<SectionTitle>General Structure of Bgl II and Interactions with DNA</SectionTitle>
+<SectionText>
+
+Bgl II is a type II restriction endonuclease of 223 amino acids that targets the sequence AGATCT by encircling DNA from the major groove side (Lukacs et al. 2001). It is composed of two identical monomers 
+    <jmolButton>
+    <ButtonParameters>moveTo 1 0 1000 0 138.0; select all; labels off; spacefill off; color cpk; wireframe off; ribbons off; cartoons on; spin on; backbone off; select protein; backbone off; cartoons on; select *a; color blue; select *b; color magenta;</ButtonParameters>
+        <ButtonName>animation</ButtonName>
+    </jmolButton>
+    that are bound together by two pairs of a-helices.
+    
+    <jmolButton>
+    <ButtonParameters>spin off; moveTo 1 712 -81 697 171.1 156; select all; labels off; spacefill off; color cpk; wireframe off; ribbons off; cartoons on; backbone off; select protein; backbone off; cartoons on; color gray; select :a and (99-116 or 144-158); color red; select :b and (99-116 or 144-158); color indianred; spin off; </ButtonParameters>
+    <ButtonName>a-helices</ButtonName>
+    </jmolButton>
+    This binding is mediated by hydrogen bonds between Asn98 residues on each of the a4 helices 
+    
+    <jmolButton>
+        <ButtonParameters>spin off; moveTo 2 -238 971 -4 88.9 2000; select all; labels off; spacefill off; color cpk; wireframe off; ribbons off; cartoons on; backbone off; select protein; backbone off; cartoons on; color gray; select :a and (99-116 or 144-158); color red; select :b and (99-116 or 144-158); color indianred; select 98; wireframe 50; color deepskyblue; monitor 801 2618; monitor 800 2619; set monitor off; select atomno=879; label a4 helix; set labeloffset -10 20; select atomno=2667; label a4 helix; set labeloffset 10 -10;select atomno=2613; label Asn 98; set labeloffset 70 10; spin off;</ButtonParameters>
+        <ButtonName>view</ButtonName>
+    </jmolButton>
+    as well as by hydrophobic interactions between Pro 100, Leu 103, and Val 107, residues on each monomer 
+   
+   <jmolButton>
+        <ButtonParameters>labels off; spin off;   moveTo 1 -238 971 -4 88.9 137 0 3; delay 1; moveTo 1 70 -993 -99 93.1 134; delay 1;moveTo 1 711 -113 694 162.5 733; select all; labels off; spacefill off; color cpk; wireframe off; ribbons off; cartoons on; backbone off; select protein; backbone off; cartoons on; color gray; select :a and (99-116 or 144-158); color red; select :b and (99-116 or 144-158); color indianred; select 159-164; wireframe off; cartoons off; ribbons off; spacefill off; wireframe 1; select 98; wireframe 50; color deepskyblue; monitor 801 2618; set monitor off; monitor 800 2619; spin off; delay 2; select 100; wireframe 200; color yellow; select atomno=2636; label Pro 100; set labeloffset -100 0; set fontsize 20; delay 2; select 103; wireframe 200; color blue; select atomno=2659; label Leu 103; set labeloffset -40 30; delay 2; select 107; wireframe 200; color green;select atomno=872;label Val 107; set labeloffset 40 -20;</ButtonParameters>
+        <ButtonName>view</ButtonName>
+    </jmolButton>
+    . Each pair is part of a larger alpha/beta core composed of six alpha-helices and five beta-sheets
+   <jmolButton>
+        <ButtonParameters>spin off; moveTo 1 553 506 662 112.7 156; delay 1.5; moveTo 1 538 463 705 94.2 319 -40 19; select all; labels off; spacefill off; color cpk; wireframe off; ribbons off; cartoons on; backbone off; select protein; backbone off; cartoons on; color gray; select :a and (2-8 or 165-171 or 116-132 or 82-87 or 63-71); color yellow; select :b and (2-8 or 165-171 or 116-132 or 82-87 or 63-71); color gold; select :a and (10-33 or 48-63 or 144-159 or 94-116); color red; select :b and (10-33 or 48-63 or 144-159 or 94-116); color indianred; select atomno=141; label a2; set fontsize 10; select atomno=468; label a3; set labeloffset 30 0; select atomno=101; label a1; select atomno=35; label B1; color label blue; select atomno=1363; set labeloffset 0 0; label B2; color label blue;set labeloffset 0 18; select atomno=1061; label B6; color label blue;set labeloffset -10 0; select atomno=521; label B3;color label blue; set labeloffset -30 2; spin off; select atomno=699; label B4; color label blue;set labeloffset -7 -8; select atomno=890; label a4; set labeloffset 0 -35; select atomno=1237; label a5; set labeloffset 3 16;select 116-125; cartoon off; trace on; color gray;</ButtonParameters>
+        <ButtonName>view</ButtonName>
+    </jmolButton>
+    . This core contains two important loops (B
+<jmolButton>
+        <ButtonParameters>spin off; moveTo 1 424 702 572 100.7 156; select all; labels off; spacefill off; color cpk; wireframe off; ribbons off; cartoons on; backbone off; select protein; backbone off; cartoons on; color gray; select :b and (137-144); cartoon off; trace off; select :a and (95-99); color red; cartoon off; trace 100; select :b and (95-99); cartoon off; trace 100; color red; spin off; delay 2; moveTo 1 571 814 104 71.2 920 17 19; select :a and (95-99); cartoon off; wireframe 100; select :b and (95-99); cartoon off; wireframe 100;      </ButtonParameters>
+              <ButtonName>view</ButtonName>
+    </jmolButton>
+   
+    and C
+    <jmolButton>
+            <ButtonParameters>spin off; moveTo 1 424 702 572 100.7 156; select all; labels off; spacefill off; color cpk; wireframe off; ribbons off; cartoons on; backbone off; select protein; backbone off; cartoons on; color gray; select :a and (133-143); color purple; trace 100; select :b and (133-143); color purple; trace 100; spin off; delay 2; moveTo 1 710 516 480 152.2 381 10 -23; select :a and (133-143); wireframe 100; cartoon off; select :b and (133-143); cartoon off; wireframe 100;</ButtonParameters>
+	    <ButtonName>view</ButtonName>
+    </jmolButton>
+    ) that contact bases in the DNA major groove. 
+    Below the alpha/beta core of each monomer exists a beta-sandwich subdomain that interacts with the major and minor grooves of the DNA
+    <jmolButton>
+            <ButtonParameters> spin off; moveTo 1 525 568 634 110.4 156; delay 1; moveTo 1 438 449 778 95.5 524 -57 -65; delay .5; moveTo 1 355 25 935 97.6 524 -47 -77;select all; labels off; spacefill off; color cpk; wireframe off; ribbons off; cartoons on; backbone off; select protein; backbone off; cartoons on; color gray; select :a and (33-36 or 177-186 or 194-205 or 219-223); color green; select :b and (33-36 or 175-184 or 194-205 or 219-223); color greenblue; select atomno=1598; label B9; set labeloffset -10 -10; color label white;select atomno=1479; label B8; color label white; select atomno=271; color label white;label B2; set labeloffset -2 0;select atomno=1645; color label white;label B10; set labeloffset -2 10 ; select atomno=1784; color label white;label B11; set labeloffset 0 -15;color label white;spin off; </ButtonParameters>
+	    <ButtonName>view</ButtonName>
+    </jmolButton>.
+    This occurs via two loops: loop A
+     <jmolButton>
+            <ButtonParameters>
+    spin off; moveTo 1 424 702 572 100.7 156; select all; labels off; spacefill off; color cpk; wireframe off; ribbons off; cartoons on; backbone off; select protein; backbone off; cartoons on; color gray; select :a and (38-43); cartoon off; trace on; color deeppink; select :b and (38-43); color magenta; cartoon off; trace on; spin off; delay 2; moveTo 1 -102 984 -149 93.8 227; select :a and (36-45); wireframe 50; select :b and (36-45); wireframe 50;</ButtonParameters>
+    <ButtonName>view</ButtonName>
+    </jmolButton>
+    
+    interacts with bases in the DNA major groove while loop D
+    <jmolButton>
+            <ButtonParameters>
+    spin off; moveTo 1 424 702 572 100.7 156; select all; labels off; spacefill off; color cpk; wireframe off; ribbons off; cartoons on; backbone off; select protein; backbone off; cartoons on; color gray; select :a and (186-193); color blue; select :b and (186-193); color blue; spin off; delay 2; moveTo 1 -168 980 108 87.8 356; select :a and (186-193); wireframe 50; select :b and (186-193); wireframe 50;</ButtonParameters>
+    <ButtonName>view</ButtonName>
+    </jmolButton>
+    
+    
+    interacts with the bases in the DNA minor groove. Additionally, loop D mediates the binding of Bgl II to DNA from the major groove side by encircling the double helix via hydrogen bonding between two tyrosine residues (Tyr 190) (shown green) and a molecule of water (red)
+    <jmolButton>
+            <ButtonParameters>
+    moveTo 1 -131 991 31 87.8 139 1 0; spin off; select all; labels off; spacefill off; color cpk; wireframe off; ribbons off; cartoons on; backbone off; select protein; backbone off; cartoons on; select *a; color blue; select *b; color magenta; select 190; cartoons off; wireframe 50; color green; select atomno=4273; spacefill 200; color red; delay 2; moveTo 1 -96 995 -5 87.7 538 2 0; monitor 1548 4273; set monitor off; monitor 3366 4273; set monitor off;
+</ButtonParameters> 
+    <ButtonName>view</ButtonName>
+    </jmolButton>
+    (Lukacs et al. 2000). Upon binding, the DNA bends ~23 degrees away from the protein.
+    
+    <jmolButton>
+            <ButtonParameters>moveTo 1 682 731 36 164.7 180; spin off; select all; labels off; spacefill off; color cpk; monitor off; wireframe off; ribbons off; cartoons on; backbone off; select protein; backbone off; cartoons off; wireframe on; select *a; color blue; select *b; color magenta;</ButtonParameters>
+    <ButtonName>view</ButtonName>
+    </jmolButton>
+    </SectionText>
+   </Section>
+   <Section>
+   <SectionTitle>III. Recognition of the Bgl II Consensus Sequence</SectionTitle>
+    <SectionText>
+A variety of chemical interactions mediate the specificity of Bgl II for its target sequence, GGATCC. As mentioned previously, four loops (A, B, C, and D) are responsible for protein-base pair interactions. However, only loops B, D, and C allow Bgl II to recognize its target sequence
+    <jmolButton>
+            <ButtonParameters>moveTo 1 987 15 -158 173.7 151 9 0; spin off; select all; labels off; spacefill off; color cpk; monitor off; wireframe off; ribbons off; cartoons on; backbone off; select DNA; cartoon 50; select :b; cartoons off; select :a; backbone off; cartoons on; wireframe off; cartoons on; select :a and (94-99); cartoon off; trace on; color red; select atomno=795; label loop B; set labeloffset 50 0; select :a and (133-143); color purple; select atomno=1113;label loop C; set labeloffset 80 15; select :a and (186-193); color blue; select atomno=1510; set fontsize 20; label loop D; set labeloffset -5 -22;</ButtonParameters>
+            
+            <ButtonName>view</ButtonName>
+    </jmolButton>
+    Loop B contains two residues that make sequence specific DNA contacts. Specifically, Ser 97 contacts the adenine of a T:A base pair via hydrogen bonding while Asn 98 interacts with the guanine of a G:C base pair via hydrogen bonding through a water molecule
+    <jmolButton>
+            <ButtonParameters>moveTo 1 -263 -313 913 164.7 633 -11 -5; spin off; select all; labels off; set monitor off; spacefill off; color cpk; wireframe off; ribbons off; cartoons on; backbone off; select DNA; wireframe off; cartoon off; select :C and (7-12); cartoon 30; select :D and (23-28); cartoon 30; select 24:d or 9:c; wireframe 50; select :b; cartoons off; wireframe off; select :a; backbone off; trace off; cartoons off; wireframe off; color gray; select :a and (94-99); cartoon off; trace on; color red; select :a and (97 or 98); wireframe 50; color cpk;select atomno=4268; spacefill 80; set fontsize 10; label Water; set labeloffset -5 10; monitor 800 4268; monitor 4268 4072; monitor 4268 4075; monitor 793 3768; set monitor off; select atomno= 800; label Asn 98; select atomno=793; label Ser 97;  </ButtonParameters>
+            
+            <ButtonName>view</ButtonName>
+    </jmolButton>
+Loop D also contains two residues that make sequence specific interactions with the DNA. Arg 192 interacts with the thymine and adenine of an A:T base pair as well as with the guanine of a C:G base pair via hydrogen bonding mediated by two water molecules
+    <jmolButton>
+            <ButtonParameters>moveTo 1 152 206 -967 179.1 1123 -28 -46; spin off; select all; labels off; set monitor off; spacefill off; color cpk; wireframe off; ribbons off; cartoons on; backbone off; select DNA; wireframe off; cartoon off; select :C and (7-12); cartoon 30; select :D and (23-28); cartoon 30; select 28:d or 7:c or 8:C; wireframe 50; select :b; cartoons off; wireframe off; select :a; backbone off; trace off; cartoons off; wireframe off; color gray; select :a and (186-193); cartoon off; trace on; color blue; select :a and (192); wireframe 50; color cpk;select atomno=4328, atomno=4271; spacefill 80; set fontsize 10; label Water; monitor 1565 4328; monitor 1565 4271; monitor 4328 3731; monitor 4271 4675; monitor 4271 4154; monitor 3753 4271; set monitor off; select atomno=1565; label Arg 192; select atomno=1548;  </ButtonParameters>
+            
+            <ButtonName>view</ButtonName>
+    </jmolButton>
+    . Alternatively, a pair of Tyr 190 residues from each dimer coordinate hydrogen bonds through one water molecule to interact with two thymines from adjacent T:A base pairs
+    <jmolButton>
+            <ButtonParameters> moveTo 1 -539 -233 810 179.9 897 -25 -18; spin off; select all; labels off; set monitor off; spacefill off; color cpk; wireframe off; ribbons off; cartoons on; backbone off; select DNA; wireframe off; cartoon off; select :C and (7-12); cartoon 30; select :D and (23-28); cartoon 30; select 26:d or 10:c; wireframe 50; select :b; cartoons off; wireframe off; select :a; backbone off; trace off; cartoons off; wireframe off; color gray; select 186-193; cartoon off; trace on; color blue; select 190; wireframe 50; color cpk;select atomno=4248; spacefill 80; set fontsize 10; label Water; monitor 1548 4248; monitor 3366 4248; monitor 4248 4115; monitor 3789 4248; set monitor off; select atomno=1548; label Tyr 190; select atomno=4248; label Water; </ButtonParameters>
+            
+            <ButtonName>view</ButtonName>
+    </jmolButton>
+    The last two residues that allow the protein to detect specific sequences of DNA are attached to loop C. Ser 141 recognizes an A:T base pair by binding to an adenine via bidentate hydrogen bonds. Asn 140 recognizes the same base pair by forming a hydrogen bond with the associated thymine. Asn 140 also binds a cytosine bound to the guanine associated with Asn 98 
+    <jmolButton>
+            <ButtonParameters>moveTo 1 -812 -410 416 130.2 691 12 -20; spin off; select all; labels off; set monitor off; spacefill off; color cpk; wireframe off; ribbons off; cartoons on; backbone off; select DNA; wireframe off; cartoon off; select :C and (7-12); cartoon 30; select :D and (23-28); cartoon 30; select 23:d or 12:c or 11:C; wireframe 50; select :b; cartoons off; wireframe off; select :a; backbone off; trace off; cartoons off; wireframe off; color gray; select :a and (133-143); cartoon off; trace on; color purple; select :b; cartoon off; trace off;select :a and (140 or 141); wireframe 50; color cpk; monitor 1143 4054; monitor 1143 4051; monitor 1137 3831; monitor 1133 3812; set monitor off; select atomno=1143; label Ser 141; color label red; select atomno=1137; label Asn 140;color label red; </ButtonParameters>
+            
+            <ButtonName>view</ButtonName>
+    </jmolButton>
+  </SectionText>
+     </Section>
+     <Section>
+     <SectionTitle>IV. The Bgl II Active Site</SectionTitle>
+    <SectionText>
+    After identifying the correct consensus sequence, Bgl II cleaves the phosophdiester bond between the adenine and guainine bases (A|GATCT), yielding 3'-OH and 5'-phosphate ends. Unfortunately, the exact process by which this occurs in BglII is currently unclear. Typically, however, the catalytic activity of restriction endonucleases occur via either an associative or dissociative mechanism.
+    
+    The associative mechanism involves a base that generates a hydroxide ion to function as a nucleophile. The hydroxide ion attacks the phosophdiester bond at the phosphorus atom, causing the dissociation of the leaving group. To reach the transition state, in which the phosophorus atom is partially bound by five substituents, a Lewis acid must be available to stabilize the resultant negative charge on the phosphorus. An acid must also be present to allow dissociation of the leaving group via a protonation step. 
+    
+    The dissociative mechanism operates in much the same way, however, it does not require a base to produce a strong nucleophile. Instead, a strong base is necessary to stabilize the leaving group (Pingoud and Jeltsch, 2001). 
+    
+  While the precise mechanism by which Bgl II hydrolyzes the phosphodiester bond of DNA is unknown, more has been determined regarding the structure of its active site. Specifically, some metal cofactor sits in a position that allows interactions with Asp 84, Val 94, a phosphate oxygen, and three molecules of water. One of these water molecules likely functions as the nucleophile in the hydrolysis reaction, given its optimal location relative to the phosodiester bond
+    
+  <jmolButton>
+            <ButtonParameters>moveTo 1 -855 -408 -320 177.7 2000 -36 10; select all; spin off; labels off; spacefill off; color cpk; wireframe off; ribbons off; cartoons on; backbone off; select protein; backbone off; cartoons on; restrict :a, :c, :d; select *a; color gray; cartoons off; backbone 10; select :a and (84 or 93 or 69 or 95 or 94); wireframe 40; color cpk; select atomno=4314, atomno=686, atomno=3734; spacefill 100; select :c, :d; wireframe 40; cartoon 10; select atomno=4245, atomno=764,atomno=4352, atomno=4659; spacefill 100; monitor 4659 4245; monitor 4352 4245;monitor 686 4245; monitor 4314 4245; monitor 764 4245; monitor 3734 4245; select atomno=764; label Val 94; select atomno=686; label Asp 84; select atomno=3720; label Site of Hydolysis Rxn; select atomno=4245; label Metal Cofactor; set labeloffset 10 -5; select atomno=4314; label Nucleophile; set labeloffset -10 0; set monitor off;  </ButtonParameters>
+            
+            <ButtonName>view</ButtonName>
+    </jmolButton>
+    . The catalytic center is further supported by the residues Asn 69, Glu 93, and Gln 95 (Lukacs et al. 2000).
+ While the identity of the metal cofactor has yet to be determined, homologous endonucleases are typically occupied by one or more divalent cations, such as Mg2+ (Pingoud and Jeltsch, 2001). 
+ 
+ </SectionText>
+    </Section>
+    <Section>
+     <SectionTitle>VI. References</SectionTitle>
+
+    <SectionText>
+      Aggarwal, A.K. Structure and function of restriction endonucleases. Current Opinion in Structural Biology. 1995. 5:11-19. 
+      
+      Lukacs, C., Kucera, R., Schildkraut, I., Aggarwal, A.K. Understanding the immutability of restriction enzymes: crystal structure of Bgl II and its DNA substrate at 1.5 A resolution. Nature Structural Biology. 2000. 2:134-140. 
+    
+      Lukacs, C., Kucera, R., Schildkraut, I., Aggarwal, A.K. Structure of free Bgl II reveals an unprecedented scissor-like motion for opening an endonuclease. Nature Structural Biology. 2001. 8:126-130.
+    
+      Pingoud, A., Jeltsch, A. Recognition and leavage of DNA by type-II restriction endonucleases. Eur. J. Biochem. 1997. 246:1-22. 
+    
+      Pingoud, A., Jeltsch, A. Structure and function of type II restriction endonucleases. Nucleic Acids Research. 2001. 29:3705-3727. 
+    
+    </SectionText>
+    </Section>
+</TutorialText>
+</jmolTutorial>

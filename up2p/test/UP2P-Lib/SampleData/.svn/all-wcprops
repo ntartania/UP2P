@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/u-p2p/!svn/ver/796/u-p2p/trunk/test/UP2P-Lib/SampleData
+END
+bibtexml-batch-sample-medium.xml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/u-p2p/!svn/ver/796/u-p2p/trunk/test/UP2P-Lib/SampleData/bibtexml-batch-sample-medium.xml
+END
+bibtexml-batch-sample-tiny.xml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/u-p2p/!svn/ver/796/u-p2p/trunk/test/UP2P-Lib/SampleData/bibtexml-batch-sample-tiny.xml
+END
+bibtexml-batch-sample-small.xml
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/u-p2p/!svn/ver/796/u-p2p/trunk/test/UP2P-Lib/SampleData/bibtexml-batch-sample-small.xml
+END
+bibtexml-batch-sample-large.xml
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/u-p2p/!svn/ver/796/u-p2p/trunk/test/UP2P-Lib/SampleData/bibtexml-batch-sample-large.xml
+END

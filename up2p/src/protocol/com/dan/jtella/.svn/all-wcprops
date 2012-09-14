@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/u-p2p/!svn/ver/596/u-p2p/trunk/src/protocol/com/dan/jtella
+END
+PushResponseInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/u-p2p/!svn/ver/93/u-p2p/trunk/src/protocol/com/dan/jtella/PushResponseInterface.java
+END
+PushWaits.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/u-p2p/!svn/ver/146/u-p2p/trunk/src/protocol/com/dan/jtella/PushWaits.java
+END
+GetHostsFromCache.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/u-p2p/!svn/ver/140/u-p2p/trunk/src/protocol/com/dan/jtella/GetHostsFromCache.java
+END
+ConnectedHostsListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/u-p2p/!svn/ver/93/u-p2p/trunk/src/protocol/com/dan/jtella/ConnectedHostsListener.java
+END
+GWebCaches.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/u-p2p/!svn/ver/140/u-p2p/trunk/src/protocol/com/dan/jtella/GWebCaches.java
+END
+HostsChangedEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/u-p2p/!svn/ver/93/u-p2p/trunk/src/protocol/com/dan/jtella/HostsChangedEvent.java
+END

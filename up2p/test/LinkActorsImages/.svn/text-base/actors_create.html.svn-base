@@ -1,0 +1,67 @@
+<div class="link-community">
+<h1>Create a New Actor Entry</h2>
+<form action="create" method="post" enctype="multipart/form-data">
+<div id="input-tabs">
+	<script type="text/javascript" language="Javascript" src="treeField.js">//</script>
+	<ul>
+		<li><a href="#tabs-required">Basic Information</a></li>
+		<li><a href="#tabs-optional">Films</a></li>
+	</ul>
+	
+	<!-- Required data entry -->
+	<div id="tabs-required">
+		<table>
+		<tr><td><input type="text" size="65" name="/actor/name"></td><td> The name of the actor</td></tr>
+		<tr>
+			<td><select name="/actor/gender"><option value="Male">Male</option><option value="Female">Female</option></select></td>
+			<td> The actor's (or actress') gender</td>
+		</tr>
+		<tr><td><input type="file" name="/film/image"></td><td> A picture of the actor</td></tr>
+		<tr><td><br /><input type="text" size="65" name="up2p:filename" /></td><td><br /> Filename (optional)</td></tr>
+		</table>
+	</div>
+	
+	<!-- Optional data entry -->
+	<div id="tabs-optional">
+		<button id="add-film" type="button">Add a film</button>
+		<div>
+		<table id="films-table">
+		</table>
+		</div>
+	</div>
+</div>
+<br />
+<input type="submit" value="Submit Actor" /> 
+<input type="reset" value="Reset Form" id="reset-button"/>
+</form>
+
+</div>
+
+<script>
+$(document).ready(function(){
+	var counter = 0;
+	$("*.link-community input:submit, *.link-community input:reset, *.link-community button").button();
+	$("*.link-community input:submit").click(function() { 
+		// Onclick function goes here
+	});
+	
+	$("#input-tabs").tabs();
+	
+	$("#add-film").attr("counter", "1");
+	$("#add-film").click(function () {
+		var counter = parseInt($(this).attr("counter"));
+		var newContent = $("<tr><td><input type=\"text\" readonly=\"true\" id=\"filmTitle" + counter + "\"size=\"65\" name=\"/actor/films/film" + "[" + counter + "]/title\">"
+			+ "<input type=\"hidden\" id=\"filmUri" + counter + "\" name=\"/actor/films/film" + "[" + counter + "]/uri\"></td></tr>");
+		$(this).attr("counter", (counter + 1));
+		newContent.hide();
+		$("#films-table").append(newContent);
+		newContent.show('fast');
+		showTree("filmTitle" + counter, "filmUri" + counter);
+    });
+	
+	$("#reset-button").click(function () {
+		$("#films-table").empty();
+		$("#add-film").attr("counter", "0");
+    });
+});
+</script>

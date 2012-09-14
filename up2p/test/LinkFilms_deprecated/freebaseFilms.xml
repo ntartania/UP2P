@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><community title="Freebase Films"><category>film</category><description>Film listings from Freebase</description><displayLocation>file:film-display.xsl</displayLocation><keywords>film cinema movie</keywords><name>Films</name><schemaLocation>file:FreebaseFilms.xsd</schemaLocation><titleLocation>//film/name</titleLocation></community>

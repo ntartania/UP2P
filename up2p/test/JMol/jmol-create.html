@@ -1,0 +1,177 @@
+<h3> Jmol Tutorials Community <h3>
+<div align="center">
+<p>
+This community does not support creation from an HTML form.
+
+Create your own XML tutorial and upload it using the direct upload form above!
+</p>
+
+<H3>Instructions to create your own tutorial</H3>
+</div>
+<div class=Section1>
+            <p><strong>A tutorial consists of:</strong>
+            </p>
+
+    </div>
+          <ul>
+            <li>A file containing the molecule description</li>
+            <li>The text of the tutorial</li>
+            <li>Buttons to animate the molecule representation in Jmol. These animations will illustrate your tutorial by showing the precise elemtns that you're talking about.</li>
+          </ul>
+ <div class=Section1>
+
+
+<div class=Section1>
+            <p><strong>Editing the text and buttons.</strong>
+            </p>
+            <p>
+            First, copy an existing XML tutorial. Find the fields to place the title of the tutorial, your name, and the name of your molecule file.
+            <br/>
+            The <strong>&lt;InitialParameters&gt;</strong> block should contain the Jmol instructions to display the molecule. See below for a description of the possible instructions.
+            <br/>
+            The <strong>&lt;TutorialText&gt;</strong> block should contain the text of your tutorial, and the buttons.
+            <br/>
+            Create a <strong>&lt;Section&gt;</strong> block for each section of your text, and give it a title. <br/>
+            Within each &lt;Sectiontext&gt; block, write the text of the section. Wherever you want a button, insert a Jmol button like this:<br/>
+            <i>your text</i>
+            <strong>&lt;JmolButton&gt;</strong>
+            <strong>&lt;ButtonParameters&gt;</strong>
+            <i>place here the instructions to animate the molecule in the applet (see below)</i>
+            <strong>&lt;/ButtonParameters&gt;</strong>
+            <strong>&lt;ButtonName&gt;</strong>
+			            <i>write here the text that should appear on the button itself</i>
+            <strong>&lt;/ButtonName&gt;</strong>
+            <strong>&lt;/JmolButton&gt;</strong>
+
+            <br/>
+            <br/>
+            That's it!! Place the pdb file in the same directory as your xml tutorial, then upload them to U-P2P in the Microbiology Tutorials community!!
+            </p>
+
+    </div>
+ <div class=Section1>
+ 				<p>The Jmol isntructions that you can use in your initial Parameters and in the buttons are the following:
+ 				<br/>Blue text indicates code required
+               for every button in the tutorial. Red text is script code, which
+               will vary from one button to the next.
+               You'll need to figure out what commands in the list make what effects,
+               and how to tailor them to your own molecule. <strong>Be sure to
+               terminate each of these commands with a semicolon (;), and do not
+              press <kbd>Enter</kbd> between them.</strong>&nbsp; </font>
+
+            <p><font color="#000000"><font size="4" face="Arial, Helvetica, sans-serif"><code><font color="#0033FF"><strong>
+              <font color="#FF0000">select all; labels off; spacefill off; color cpk; wireframe off; ribbons off; cartoons off; backbone on; select protein; <font color="#0033FF"><strong>backbone off;</strong></font>cartoons on; select *a; color blue; select *b; color magenta;</font>
+              </strong></font></code></font></font>
+
+            <p> <strong><u>Incomplete list of commands, with explanations (see Jmol documentation for more)</u></strong>
+            <center>
+
+              <table WIDTH="90%" border="1" COLS=2 >
+                <tr>
+                  <td class="Normal"> <div class="MsoNormal"><code><strong><font color="#FF0000">select
+                      all </font></strong></code></div></td>
+                  <td class="Normal"> <div class="MsoNormal">The entire molecule
+                      will be affected by subsequent commands.</div></td>
+                </tr>
+                <tr>
+                  <td class="Normal"> <div class="MsoNormal"><code><strong><font color="#FF0000">labels
+                      off </font></strong></code></div></td>
+
+                  <td class="Normal"> <div class="MsoNormal">Turns off labels
+                      (in case another button turned them on).</div></td>
+                </tr>
+                <tr>
+                  <td class="Normal"><code><strong><font color="#FF0000">spacefill
+                    off</font></strong></code></td>
+                  <td class="Normal">Turns off spacefill.</td>
+                </tr>
+                <tr>
+                  <td class="Normal"><code><strong><font color="#FF0000">color
+                    cpk</font></strong></code></td>
+
+                  <td class="Normal">Colors all atoms according to the CPK color
+                    scheme. (default)</td>
+                </tr>
+                <tr>
+                  <td class="Normal"> <div class="MsoNormal"><code><strong><font color="#FF0000">wireframe
+                      off</font></strong></code></div></td>
+                  <td class="Normal"> <div class="MsoNormal">Turns off wireframe,
+                      in order to show other renderings.</div></td>
+                </tr>
+                <tr>
+                  <td class="Normal"><code><strong><font color="#FF0000">ribbons
+                    off</font></strong></code></td>
+
+                  <td class="Normal">Turns off ribbons.</td>
+                </tr>
+                <tr>
+                  <td class="Normal"><code><strong><font color="#FF0000">cartoons
+                    off</font></strong></code></td>
+                  <td class="Normal">Turns off cartoons.</td>
+                </tr>
+                <tr>
+                  <td class="Normal"><code><strong><font color="#FF0000">backbone
+                    on</font></strong></code></td>
+
+                  <td class="Normal">Turns on backbone.</td>
+                </tr>
+                <tr>
+                  <td class="Normal"><code><strong><font color="#FF0000">select
+                    protein</font></strong></code></td>
+                  <td class="Normal">Only protein atoms will be affected by subsequent
+                    commands. </td>
+                </tr>
+                <tr>
+                  <td class="Normal"><code><strong><font color="#FF0000">backbone
+                    off</font></strong></code></td>
+
+                  <td class="Normal">Turns off backbone (so it doesn't interfere
+                    with cartoon).</td>
+                </tr>
+                <tr>
+                  <td class="Normal"> <div class="MsoNormal"><code><strong><font color="#FF0000">cartoons
+                      on </font></strong></code></div></td>
+                  <td class="Normal"> <div class="MsoNormal">Turns on cartoon
+                      rendering </div></td>
+                </tr>
+                <tr>
+                  <td class="Normal"> <div class="MsoNormal"><code><strong><font color="#FF0000">select
+                      *a</font></strong></code></div></td>
+
+                  <td class="Normal"> <div class="MsoNormal">Only chain a(*=all
+                      of it) will be affected from now on.</div></td>
+                </tr>
+                <tr>
+                  <td class="Normal"> <div class="MsoNormal"><code><strong><font color="#FF0000">color
+                      blue</font></strong></code></div></td>
+                  <td class="Normal"> <div class="MsoNormal">Blue color will be
+                      applied (to chain a only).</div></td>
+                </tr>
+
+                <tr>
+                  <td class="Normal"> <div class="MsoNormal"><code><strong><font color="#FF0000">select
+                      *b</font></strong></code></div></td>
+                  <td class="Normal"> <div class="MsoNormal">Only chain b will
+                      be affected.</div></td>
+                </tr>
+                <tr>
+                  <td class="Normal"> <div class="MsoNormal"><code><strong><font color="#FF0000">color
+                      purple</font></strong></code></div></td>
+                  <td class="Normal"> <div class="MsoNormal">Purple will be applied(to
+                      chain b).</div></td>
+
+                </tr>
+              </table>
+              <p align="left"> <strong>Note: Begin each button's list of commands
+                <code>with select all</code> followed by commands to turn on/off
+                each of the possible renderings, as shown in the first eight commands
+                of this example. This way, the reader of your tutorial will not
+                have to click on each and every button in sequence. For ease of
+                readability, after each <code>select</code> command, place the
+                <code>off</code> commands in a group before the <code>on</code>
+                commands, as in the example.</strong></p>
+
+                <p>The best way to learn is to play with existing animations!</p>
+
+            </center>
+      </div>

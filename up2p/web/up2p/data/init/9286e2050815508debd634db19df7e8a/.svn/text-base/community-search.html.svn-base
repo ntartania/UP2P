@@ -1,0 +1,20 @@
+<h3>Search for a Community</h3>
+<p>Enter space-separated keywords in any of the fields below to perform a
+search.</p>
+<form action="search" method="post">
+<table cellpadding="5" border="1" cellspacing="1">
+<tr><th align="left">Title</th><td><input type="text" name="community/@title"> e.g. Root Community</td></tr>
+<tr><th align="left">Short Name</th><td><input type="text" name="community/name"> e.g. mySampleCommunity</td></tr>
+<tr><th align="left">Category</th><td><input type="text" name="community/category"> e.g. audio, video, music, books</td></tr>
+<tr><th align="left">Description</th><td><input type="text" name="community/description"> A short description of the community.</td></tr>
+<tr><th align="left">Keywords</th><td><input type="text" name="community/keywords"> e.g. adventure, short stories, fiction</td></tr>
+<tr><th align="left">Display Stylesheet</th><td><input type="text" name="community/displayLocation"> filename for the display stylesheet</td></tr>
+<tr><th align="left">Search Page</th><td><input type="text" name="community/searchLocation"> filename for the search page</td></tr>
+<tr><th align="left">Create Page</th><td><input type="text" name="community/createLocation"> filename for the create page</td></tr>
+<tr><th align="left">XML Schema</th><td><input type="text" name="community/schemaLocation"> filename for the community schema</td></tr>
+</table>
+<p><span style="font-size: small; font-style: italic">The Root and Network
+Adapter communities themselves will not be returned in a search
+result.</span></p>
+<p><input type="submit" value="Search"></p>
+</form>

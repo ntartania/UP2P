@@ -1,0 +1,17 @@
+<script language="JavaScript" type="text/javascript" src="comm_attach/up2plib-js.js">//</script>
+<div class="bibframe">
+<h1>Search for Publications</h1>
+<form action="search" method="post" id="up2p-lib-search-submit">
+<p>Any terms provided will be combined with AND.</p>
+<table class="bibtable">
+<tr><td>Title:</td><td><input type="text" size="60" name="/entry/*/title" /></td></tr>
+<tr><td>Author:</td><td><input type="text" size="60" name="/entry/*/author" /></td></tr>
+<tr><td>Year:</td><td><input type="text" size="60" name="/entry/*/year" /></td></tr>
+</table>
+<br />
+<button type="button" onclick="submitUp2pLibSearch(0);"/>Launch Network Search</button> 
+<button type="button" onclick="submitUp2pLibSearch(1);"/>Launch Local Search</button>
+<br />
+<input type="reset" name="reset" value="Reset Form" />
+</form>
+</div>

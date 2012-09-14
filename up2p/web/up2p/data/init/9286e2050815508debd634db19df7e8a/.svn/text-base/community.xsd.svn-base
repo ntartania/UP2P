@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     The schema for the Root Community from which all other community
+     are discovered and published. Locations in the schema for display,
+     search, create and schema should be specified using URIs for
+     web-based documents or file:// URLs if using a local file.
+     
+     The 'networkAdapter' section ties a community to a particular
+     adapter configured with the parameters stored in the community
+     definition. If no 'networkAdapter' is specified, the resource
+     will not be published to the peer network.
+     
+     Author: Neal Arthorne <narthorn@connect.carleton.ca>
+     Home page: http://u-p2p.sourceforge.net
+ -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="community">
+    <xsd:complexType>
+      <xsd:all>
+      	<xsd:element name="homeLocation" minOccurs="0">
+          <xsd:complexType>
+            <xsd:simpleContent>
+              <xsd:extension base="xsd:anyURI">
+                <xsd:attribute name="style" use="optional"
+                type="xsd:string" />
+              </xsd:extension>
+            </xsd:simpleContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="displayLocation" minOccurs="0">
+          <xsd:complexType>
+            <xsd:simpleContent>
+              <xsd:extension base="xsd:anyURI">
+                <xsd:attribute name="style" use="optional"
+                type="xsd:string" />
+              </xsd:extension>
+            </xsd:simpleContent>
+          </xsd:complexType>
+        </xsd:element>
+		<xsd:element name="communityDisplayLocation" minOccurs="0">
+          <xsd:complexType>
+            <xsd:simpleContent>
+              <xsd:extension base="xsd:anyURI">
+                <xsd:attribute name="style" use="optional"
+                type="xsd:string" />
+              </xsd:extension>
+            </xsd:simpleContent>
+          </xsd:complexType>
+        </xsd:element>
+		<xsd:element name="headerLogo" type="xsd:anyURI" minOccurs="0" />
+        <xsd:element name="searchLocation" minOccurs="0">
+          <xsd:complexType>
+            <xsd:simpleContent>
+              <xsd:extension base="xsd:anyURI">
+                <xsd:attribute name="style" use="optional"
+                type="xsd:string" />
+              </xsd:extension>
+            </xsd:simpleContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="createLocation" minOccurs="0">
+          <xsd:complexType>
+            <xsd:simpleContent>
+              <xsd:extension base="xsd:anyURI">
+                <xsd:attribute name="style" use="optional"
+                type="xsd:string" />
+              </xsd:extension>
+            </xsd:simpleContent>
+          </xsd:complexType>
+        </xsd:element>
+        <!-- new element to store an optional "results location" stylesheet for the community content or searchResults -->
+        <xsd:element name="resultsLocation" minOccurs="0">
+	   <xsd:complexType>
+	          <xsd:simpleContent>
+	            <xsd:extension base="xsd:anyURI">
+	              <xsd:attribute name="style" use="optional"
+	              type="xsd:string" />
+				  <xsd:attribute name="jscript" use="optional"
+	              type="xsd:string" />
+	             </xsd:extension>
+	         </xsd:simpleContent>
+	     </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="schemaLocation" type="xsd:anyURI" />
+        <xsd:element name="name" type="xsd:string" />
+        <xsd:element name="category" minOccurs="0"
+        type="xsd:string" />
+        <xsd:element name="keywords" minOccurs="0"
+        type="xsd:string" />
+        <xsd:element name="description" minOccurs="0"
+        type="xsd:string" />
+        <xsd:element name="titleLocation" minOccurs="0"
+        type="xsd:string" />
+        <xsd:element name="networkAdapter" minOccurs="0">
+        <!-- deprecated -->
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="param" minOccurs="0"
+              maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:attribute name="description" use="optional"
+                  type="xsd:string" />
+                  <xsd:attribute name="name" use="required"
+                  type="xsd:string" />
+                  <xsd:attribute name="value" use="required"
+                  type="xsd:string" />
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="providerClass" use="required"
+            type="xsd:string" />
+            <xsd:attribute name="providerVersion" use="optional"
+            type="xsd:string" />
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="supportFiles" minOccurs="0">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="file" minOccurs="0"
+              maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:all>
+                    <xsd:element name="location">
+                      <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:anyURI">
+                            <xsd:attribute name="path"
+                            use="optional" type="xsd:string" />
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="description" minOccurs="0"
+                    type="xsd:string" />
+                  </xsd:all>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:all>
+      <xsd:attribute name="title" use="required"
+      type="xsd:string" />
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

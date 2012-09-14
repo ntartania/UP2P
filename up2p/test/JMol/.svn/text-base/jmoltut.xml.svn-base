@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<community title="Microbiology Tutorials">
+	<displayLocation style="file:jmol-display-style.css">file:jmol-resource-view.xsl</displayLocation>
+	<schemaLocation>file:jmol-schema.xsd</schemaLocation>
+	<searchLocation>file:jmol-search.html</searchLocation>
+	<createLocation>file:jmol-create.html</createLocation>
+	<name>tuto</name>
+	<category>biology</category>
+	<keywords>tutorial JMOL biology</keywords>
+	<description>Microbiology tutorials from Kenyon College, using the JMOL applet</description>
+	<titleLocation>//jmolTutorial/title</titleLocation>
+	<supportFiles>
+		<file>
+			<location>file:Jmol.js</location>
+			<description>javascript to manage applet</description>
+		</file>
+		<file>
+			<location>file:JmolAppletSigned.jar</location>
+			<description>Applet to view molecules</description>
+		</file>
+	</supportFiles>
+</community>

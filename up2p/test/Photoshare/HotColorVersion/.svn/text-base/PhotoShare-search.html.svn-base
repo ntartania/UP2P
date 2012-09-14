@@ -1,0 +1,51 @@
+<table width=100% style="background:#ffff99;">
+	<tr>
+		<td style='text-indent:36.0pt'>
+			<h1><span style="color:#f80012;">Photo</span><span style="color:#ff8500;">Share</span></h1>
+			<h3 style="color:#f80012;"> » Search for photos</h3>
+		</td>
+	</tr>
+</table>
+
+<hr>
+
+<p align="center"><span> Search for photos within the </span><span style="color:#f80012;">Photo</span><span style="color:#ff8500;">Share</span><span> community</span></p>
+
+<form action="search" method="post">
+
+<table align="center" cellpadding="5" border="15" cellspacing="1" style="color:#f80012; background:#ffff99; border: 3px solid #ff8500;">
+	<tr>
+		<td>
+			<table cellpadding="5" border="0" cellspacing="1">
+
+				<tr><th align="left">Name </th><td><input type="text" name="PhotoShare/name"></td></tr>
+				<tr><th align="left">Description </th><td><input type="text" name="PhotoShare/description"></td></tr>
+				<tr><th align="left">Format </th><td><select name="PhotoShare/format">
+					<option value="">
+					<option value=".bmp"> bmp 
+					<option value=".gif"> gif 
+					<option value=".jpg"> jpg 
+					<option value=".jpeg"> jpeg 
+					<option value=".tiff"> tiff 
+					</select> File format</td></tr>
+				<tr><th align="left">Keywords </th><td><input type="text" name="PhotoShare/keywords"></td></tr>
+				<tr><th align="left">Location </th><td><input type="text" name="PhotoShare/location"></td></tr>
+			</table>
+		</td>
+		<td>
+			<table cellpadding="5" border="0" cellspacing="1">			
+				<tr><th align="left">Capture Date </th><td><input type="text" name="PhotoShare/capturedate"> (<a href="http://www.w3.org/TR/xmlschema-2/#isoformats">ISO 8601</a>) </td></tr>
+				
+				<tr><th align="left">Resolution </th><td><input type="text" name="PhotoShare/resolution"></td></tr>
+				<tr><th align="left">Dimensions </th><td><input type="text" name="PhotoShare/dimensions"></td></tr>
+				<tr><th align="left">Camera Model </th><td><input type="text" name="PhotoShare/cameramodel"></td></tr>
+				<tr><th align="left">Quality </th><td><input type="text" name="PhotoShare/quality"></td></tr>
+				<tr><th align="left">Capture Time </th><td><input type="text" name="PhotoShare/capturetime"></td></tr>
+			</table>
+		</td>
+	</tr>
+	
+</table>
+
+<p align="center"><input type="submit" value="Search"></p>
+</form>

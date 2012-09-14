@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><article><attachments><filename>file:up2p_logo.png</filename></attachments><revision>1</revision><author>Anonymous</author><title>Universal Peer to Peer</title><timestamp>2011-06-21T15:37:53Z</timestamp><content>= Overview =
+Universal Peer to Peer (UP2P) is a research project underway in the [[Network Management and Artificial Intelligence Lab]] at [[Carleton University]] aiming to build a schema-based P2P infrastructure, exchanging files and their metadata described in XML. This system relies on the idea that documents are described by specific metadata, formatted according to some metadata schema, and any peer can define arbitrary schemas to describe the documents it hosts. A peer may use several different schemas, to describe different types of documents (e.g. music files, research papers, photographs...). Each schema is shared among a group of peers and defines a community, which will support specific searches. Searches written with the music schema will only be broadcast among peers who use this music schema, etc..
+
+{{file:up2p_logo.png|The Universal Peer to Peer Logo}}
+
+The overlapping communities of peers allow a variety of documents to be exchanged within interest communities on the same infrastructure, and as messages are only sent to relevant peers, the system will scale to larger numbers of peers.The latest version of U-P2P supports links. This means that a document shared in the network may contain a link to another document, also shared in the network.For example, a science paper shared in the community of science papers could contain a link towards a Bibtex entry shared in the bibtex community. The beauty of this is that the link will work (that is, UP2P is capable of retrieving the linked file) wherever this linked file is stored in the network, as long as it is available, a search will be sent out and the user will be prompted to download the document. If it's stored locally, it will be shown immediately.
+
+= Demo =
+A live demo of UP2P can be accessed [[http://inm-04.sce.carleton.ca:8080/up2p|here]].
+
+= Downloads =
+U-P2P is currently available from the [[http://www.nmai.ca/research-projects/universal-peer-to-peer-home/downloads|project downloads page]], either as a binary release deployed in Apache Tomcat v.5.5 (copy it to your hard disk and run it!), or as Source Code (with all the required libraries and an Apache ant build file, which can take care of all the compiling and deployment for you). The Source code is available from a zip file or from the SVN. Details of how to set-up and run U-P2P from the zip releases is found in the [[http://inm-04.sce.carleton.ca:8080/up2p/up2p-user-guide.pdf|User Guide]], also available for download from the [[http://sourceforge.net/projects/u-p2p/|SourceForge project page]].
+
+= Latest News =
+
+* June 4th, 2010: U-P2P v3.2.0 is now available from the [[http://www.nmai.ca/research-projects/universal-peer-to-peer-home/downloads|project downloads page]].
+* April 28th, 2009: UP2P v3, supporting link navigation between resources, was presented at LDOW2009 last week. The source code and a binary deployment were released today on our SF.net download page.
+* February 18th, 2009: A separate release of JTella has been made available for download on our sourceforge page. The main interest is that the implementation is fully documented, which can be useful for a developer who wants to reuse or modify this part.
+* January 28th, 2009: UP2P v2.0.3 released with some major bug fixes. JTella seems to be working quite well, and the ditrect file uploads work. Likely the last release before introduction of the tuple-space architecture.
+
+= Publications =
+* We will present a demo of U-P2P at the workshop "Linked Data On the Web" co-located with the WWW conference 2009, on april 20th, 2009.
+* A follow-up of "Towards Semantically Enhanced File Sharing" was submitted for publication to the Journal of Parallel and Distributed Databases, for a special issue about Data Management in Social Media. It is available as Technical Report SCE-09-04 in the [[http://www.nmai.ca/publications|publications file cabinet]].
+* Our paper "Towards Semantically Enhanced P2P File-Sharing" was presented and published in the proceedings of the SEMELS'08 conference in Monterrey, Mexico (November 2008).</content></article>

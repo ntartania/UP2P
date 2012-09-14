@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+
+<!--
+  - Licensed to the Apache Software Foundation (ASF) under one or more
+  - contributor license agreements.  See the NOTICE file distributed with
+  - this work for additional information regarding copyright ownership.
+  - The ASF licenses this file to You under the Apache License, Version 2.0
+  - (the "License"); you may not use this file except in compliance with
+  - the License.  You may obtain a copy of the License at
+  -
+  -     http://www.apache.org/licenses/LICENSE-2.0
+  -
+  - Unless required by applicable law or agreed to in writing, software
+  - distributed under the License is distributed on an "AS IS" BASIS,
+  - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  - See the License for the specific language governing permissions and
+  - limitations under the License.
+  -
+  - $Id: webadmin.xml 551435 2007-06-28 03:26:43Z vgritsenko $
+  -->
+
+<webadmin>
+  <methods default="GET">
+    <method id="GET" class="org.apache.xindice.webadmin.webdav.components.Get"/>
+    <method id="COPY" class="org.apache.xindice.webadmin.webdav.components.Copy"/>
+    <method id="DELETE" class="org.apache.xindice.webadmin.webdav.components.Delete"/>
+    <method id="HEAD" class="org.apache.xindice.webadmin.webdav.components.Head"/>
+    <method id="MKCOL" class="org.apache.xindice.webadmin.webdav.components.Mkcol"/>
+    <method id="MOVE" class="org.apache.xindice.webadmin.webdav.components.Move"/>
+    <method id="OPTIONS" class="org.apache.xindice.webadmin.webdav.components.Options"/>
+    <method id="POST" class="org.apache.xindice.webadmin.webdav.components.Post"/>
+    <method id="PROPFIND" class="org.apache.xindice.webadmin.webdav.components.Propfind"/>
+    <method id="PROPPATCH" class="org.apache.xindice.webadmin.webdav.components.Proppatch"/>
+    <method id="PUT" class="org.apache.xindice.webadmin.webdav.components.Put"/>
+    <method id="SEARCH" class="org.apache.xindice.webadmin.webdav.components.Search"/>
+  </methods>
+
+  <dbviewers default="list">
+    <viewer id="list" class="org.apache.xindice.webadmin.viewer.components.ListDatabaseViewer"/>
+  </dbviewers>
+
+  <colviewers default="list">
+    <viewer id="list" class="org.apache.xindice.webadmin.viewer.components.ListCollectionViewer"/>
+    <viewer id="config" class="org.apache.xindice.webadmin.viewer.components.CollectionConfigurationViewer"/>
+    <viewer id="indexes" class="org.apache.xindice.webadmin.viewer.components.CollectionIndexesViewer"/>
+    <viewer id="create" class="org.apache.xindice.webadmin.viewer.components.CreateCollectionViewer"/>
+    <viewer id="delete" class="org.apache.xindice.webadmin.viewer.components.DeleteCollectionViewer"/>
+    <viewer id="meta" class="org.apache.xindice.webadmin.viewer.components.MetadataCollectionViewer"/>
+    <viewer id="upload" class="org.apache.xindice.webadmin.viewer.components.UploadCollectionViewer"/>
+    <viewer id="xpath" class="org.apache.xindice.webadmin.viewer.components.XPathSearchCollectionViewer"/>
+    <viewer id="xupdate" class="org.apache.xindice.webadmin.viewer.components.XUpdateCollectionViewer"/>
+  </colviewers>
+
+  <resviewers default="content">
+    <viewer id="content" class="org.apache.xindice.webadmin.viewer.components.ContentResourceViewer"/>
+    <viewer id="delete" class="org.apache.xindice.webadmin.viewer.components.DeleteResourceViewer"/>
+    <viewer id="meta" class="org.apache.xindice.webadmin.viewer.components.MetadataResourceViewer"/>
+  </resviewers>
+</webadmin>
+    

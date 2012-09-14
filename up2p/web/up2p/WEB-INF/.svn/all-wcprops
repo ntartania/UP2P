@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/u-p2p/!svn/ver/732/u-p2p/trunk/web/up2p/WEB-INF
+END
+stopword
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/up2p/WEB-INF/stopword
+END
+conf.xml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/up2p/WEB-INF/conf.xml
+END
+up2p-taglib.tld
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/u-p2p/!svn/ver/732/u-p2p/trunk/web/up2p/WEB-INF/up2p-taglib.tld
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/u-p2p/!svn/ver/700/u-p2p/trunk/web/up2p/WEB-INF/web.xml
+END

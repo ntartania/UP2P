@@ -1,0 +1,50 @@
+/**
+ * Code Exchange Display Stylesheet
+ *
+ * By: Alexander Craig
+ *     alexcraig1@gmail.com
+ *
+ * This file is part of the Universal Peer to Peer Project
+ * http://www.nmai.ca/research-projects/universal-peer-to-peer
+ */
+
+table.codeview
+{
+	width: 60%;
+	margin: 0 auto;
+	border: 3px solid #4481d3;
+}
+
+table.codeview td, table.codeview th, table.codeview tr
+{
+	padding: 3px;
+	border: 1px solid #000000;
+}
+
+/* Pretty printing styles. Used with prettify.js. */
+
+.str { color: #ff7600; }
+.kwd { color: #6e227e; font-weight: bold; }
+.com { color: #476bd6; }
+.typ { color: #0c0874; }
+.lit { color: #a61d00; font-weight: bold; }
+.pun { color: #660; }
+.pln { color: #000; }
+.tag { color: #008; }
+.atn { color: #606; }
+.atv { color: #080; }
+.dec { color: #606; }
+pre.prettyprint { padding: 2px; }
+
+@media print {
+  .str { color: #060; }
+  .kwd { color: #006; font-weight: bold; }
+  .com { color: #600; font-style: italic; }
+  .typ { color: #404; font-weight: bold; }
+  .lit { color: #044; }
+  .pun { color: #440; }
+  .pln { color: #000; }
+  .tag { color: #006; font-weight: bold; }
+  .atn { color: #404; }
+  .atv { color: #060; }
+}

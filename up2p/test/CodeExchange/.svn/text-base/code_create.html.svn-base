@@ -1,0 +1,44 @@
+<!--
+	Code Exchange "Create" Page
+	
+	By: Alexander Craig
+	    alexcraig1@gmail.com
+		
+	This file is part of the Universal Peer to Peer Project
+	http://www.nmai.ca/research-projects/universal-peer-to-peer
+-->
+<form action="create" method="post" enctype="multipart/form-data" onsubmit="copyValue()">
+<table border="1" cellpadding="5" cellspacing="0">
+<tr>
+<th>Property</th><th>Value</th>
+</tr>
+<tr>
+<td>Filename</td><td><input type="text" name="up2p:filename"> Filename
+for the created object.</td>
+</tr>
+<tr>
+<td>Title</td><td><input type="text" size="20" name="CodeSnippet/Title"></td>
+</tr>
+<tr>
+<td>Language</td><td><input type="text" size="20" name="CodeSnippet/Language"></td>
+</tr>
+<tr>
+<td>Author</td><td><input type="text" size="20" name="CodeSnippet/Author"></td>
+</tr>
+<tr>
+<td>Snippet</td><td><textarea rows="20" cols="75" name="CodeSnippet/Snippet"></textarea></td>
+</tr>
+<tr>
+<td>Tags</td><td><input type="text" size="20" name="CodeSnippet/Tags"></td>
+</tr>
+<tr>
+<td>Description</td><td><textarea rows="20" cols="75" name="CodeSnippet/Description"></textarea></td>
+</tr>
+<tr>
+<td>License</td><td><input type="text" size="20" name="CodeSnippet/License"></td>
+</tr>
+</table>
+<p>
+<input type="submit" value="Create">
+</p>
+</form>

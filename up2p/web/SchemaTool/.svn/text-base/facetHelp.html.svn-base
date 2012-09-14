@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta name="generator" content=
+"HTML Tidy for Windows (vers 1st June 2004), see www.w3.org">
+<title>Constraint Help</title>
+<link href="main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h3>Constraint Help</h3>
+<p>Constraints allow the creation of custom types by restricting the vales that
+are allowed for a type. The different constraints are only available to certain
+types and this makes sense, because some types would not be able to use a
+constraint. For example, a number has a maximum and a minimum value, but text
+characters do not. That is why minimum and maximum value constraints are
+available for numbers and not for text.</p>
+<h4>List of Contraints</h4>
+<p>What follows is a list of constraints and how they affect the value allowed
+for a type.</p>
+<table border="1" cellpadding="10">
+<tr>
+<td>
+<h4>Length</h4>
+<p>The exact number of characters that the values can have.</p>
+<p><i>Example:</i> 'Washington' has a Length of 10.</p>
+<h4>Minimum Length</h4>
+<p>The minimum number of characters that the values can have.</p>
+<p><i>Example:</i> 'ab', 'abc', 'abcde fgh' all have a Minimum Length of 2.</p>
+<h4>Maximum Length</h4>
+<p>The maximum number of characters that the values can have:</p>
+<p><i>Example:</i> 'abc', 'acd', 'abcde' are all allowed for a Maximum Length
+of 5.</p>
+<h4>Pattern</h4>
+<p>A regular expression pattern to which values must conform. Similar to Perl
+Regular Expressions.<br>Read <a
+href="http://www.w3.org/TR/xmlschema-0/#regexAppendix"
+title="Example regular expressions.">examples</a> or the <a
+href="http://www.w3.org/TR/xmlschema-2/#regexs" title="XML Schema definition
+of regular expression patterns">full details</a> in XML Schema Part 2.</p>
+<p><i>Example:</i> a*xy? matches abcdxya, abxyq, a ab cde fgxyz</p>
+<h4>Fixed Value</h4>
+<p>A fixed value that the user may enter.</p>
+<p><i>Example:</i> If 'Red','Green','Blue' are added as Fixed Values, then any
+of 'Red','Green', or 'Blue' is allowed as a value.</p>
+<h4>Whitespace</h4>
+<p>How to treat whitespace in a value. Uses one of three possible values:
+preserve, replace or collapse.</p>
+<ul>
+<li><i>preserve</i>: whitespace characters in the value are left intact</li>
+<li><i>replace</i>: carriage returns and line feeds in the value are replaced
+by spaces</li>
+<li><i>collapse</i>: the actions of replace are performed and then any blocks
+of two or more consecutive spaces are collapsed into one space character</li>
+</ul>
+<h4>Maximum Value Inclusive</h4>
+<p>The maximum value that can be entered, including the value itself.</p>
+<h4>Minimum Value Inclusive</h4>
+<p>The minimum value that can be entered, including the value itself.</p>
+<h4>Maximum Value Exclusive</h4>
+<p>The maximum value that can be entered, excluding the value itself.</p>
+<h4>Minimum Value Exclusive</h4>
+<p>The minimum value that can be entered, excluding the value itself.</p>
+<h4>Total Number of Digits</h4>
+<p>The total number of decimal digits that the value can have, including
+fraction digits.</p>
+<h4>Number of Fraction Digits</h4>
+<p>The total number of fraction digits that the value can have.</p>
+</td>
+</tr>
+</table>
+<form action="addConstraints.jsp" method="post">
+<p><input type="submit" value="&lt; Back"></p>
+</form>
+</body>
+</html>

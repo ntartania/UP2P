@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><article><revision>1</revision><author>Anonymous</author><title>Search Results and Trust Metrics (U-P2P Help)</title><timestamp>2011-06-21T15:36:16Z</timestamp><content>= Overview =
+U-P2P provides a dynamic display of search results which includes both information on the meta-data of the search results, and information on the trust levels of the peers serving the resources.
+
+= Resource Content Display =
+U-P2P provides a dynamic view of resource content from the search result screen. U-P2P examines the resource schema and provides a number of additional fields in the search result table. For example, a search in the Root Community allows you to view community categories, descriptions, keywords and more directly from the search result table. To activate these additional columns follow these steps:
+# Perform a search in a community of your choice (see the [[Searching for a Resource (U-P2P Help)|Searching for a Resource]] help article for more information).
+# Once search results have been received a drop down box called "Add a Column" will become visible at the top of the search results table. This drop down box contains all the additional resource meta-data fields detected by U-P2P. To display one of these fields in the search results table simply click the desired field in the "Add Column" drop down box.
+# To remove one of the dynamically added columns click the "Remove" button in the column header.
+
+
+= Trust Metrics =
+U-P2P provides a number of trust metrics to help you determine which resources are the most relevant to your searches:
+
+=== Peer Similarity ===
+The peer similarity is a percentage (0 - 100) which is determined by comparing the contents of your local repository to the contents of the remote source's repository within the specified community. This means that peers which are hosting the same resources as you (and should in theory have similar interests and ideas about resource quality as you) will have higher peer similarity values.
+
+=== Peer Popularity ===
+The peer popularity metric is a measure of how many incoming connections a given peer has open. High quality peers should accumulate more connections from other peers, and therefore become more "central" to the network.
+
+=== Sources / Resource Popularity ===
+The sources metric is simply a measure of the number of available sources for a given resource.
+
+=== Network Distance === 
+This metric represents the number of network "hops" (intermediate U-P2P peers) between you and the remote host. A network distance of "0" indicates that a direct connection exists between your node and the remote source node.
+
+= Search Display Options =
+=== Metric Combination Methods ===
+By default all the metrics of a given type for a resource are averaged together to generate the overall metric value for the resource. This behaviour can be dynamically toggled between using the average, minimum, and maximum metric values using the "Metric Combination Method" links at the top of the search result table.
+
+=== Sorting Options ===
+By default the search result table is sorted based on the similarity metrics of the search results. This can be changed using the "Sort By" links at in the column headers of each of the trust metric columns.</content></article>

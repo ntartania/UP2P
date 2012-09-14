@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:element name="Paper">
+<xsd:complexType>
+<xsd:all>
+<xsd:element name="Title" type="xsd:string"/>
+<xsd:element minOccurs="0" name="LinkToBibtex" type="xsd:string"/>
+<xsd:element minOccurs="0" name="File" type="xsd:anyURI"/>
+</xsd:all>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>

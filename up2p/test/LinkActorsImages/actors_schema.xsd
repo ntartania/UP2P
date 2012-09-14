@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+<!-- Root element-->
+<xsd:element name="actor">
+<xsd:complexType>
+	<xsd:all>
+		<xsd:element name="name" type="xsd:string" />
+		<xsd:element name="gender" type="xsd:string" />
+		<xsd:element name="image" type="xsd:anyURI" />
+		<xsd:element ref="films" minOccurs="0" />
+	</xsd:all>
+</xsd:complexType>
+</xsd:element>
+
+<!-- Optional elements -->
+<xsd:element name="films">
+<xsd:complexType>
+	<xsd:choice minOccurs="0" maxOccurs="unbounded" >
+		<xsd:element ref="film" />
+	</xsd:choice>
+</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="film">
+<xsd:complexType>
+	<xsd:choice minOccurs="0" maxOccurs="unbounded" >
+		<xsd:element name="title" type="xsd:string" />
+		<xsd:element name="uri" type="xsd:anyURI" />
+	</xsd:choice>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>
+
+
+
+
+
+
+
+
+

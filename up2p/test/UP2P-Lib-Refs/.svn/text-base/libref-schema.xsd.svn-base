@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:element name="libRef">
+<xsd:complexType>
+<xsd:all>
+<xsd:element name="subjectTitle" type="xsd:string"/>
+<xsd:element name="subjectUri" type="xsd:anyURI"/>
+<xsd:element name="predicate" type="xsd:string"/>
+<xsd:element name="objectTitle" type="xsd:string"/>
+<xsd:element name="objectUri" type="xsd:anyURI"/>
+<xsd:element name="displayTitle" type="xsd:string" />
+<xsd:element minOccurs="0" name="comment" type="xsd:string"/>
+</xsd:all>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>

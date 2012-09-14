@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?><batch>
+<entry id="jose_aigaion_2008">
+<article>
+<author>Jose, S.</author>
+<author>Jayakanth, F.</author>
+<title>Aigaion: A Web-based Open Source Software for Managing the Bibliographic References</title>
+<journal>Journal of Information Science and Technology</journal>
+<year>2008</year>
+<volume>1</volume>
+<number>1</number>
+<pages>81--88</pages>
+</article>
+<file>file:Aigaion.pdf</file>
+</entry>
+<entry id="mcilraith_bibster_2004">
+<incollection>
+<author>Haase, Peter</author>
+<author>Broekstra, Jeen</author>
+<author>Ehrig, Marc</author>
+<author>Menken, Maarten</author>
+<author>Mika, Peter</author>
+<author>Olko, Mariusz</author>
+<author>Plechawski, Michal</author>
+<author>Pyszlak, Pawel</author>
+<author>Schnizler, Björn</author>
+<author>Siebes, Ronny</author>
+<author>Staab, Steffen</author>
+<author>Tempich, Christoph</author>
+<title>Bibster - A Semantics-Based Bibliographic Peer-to-Peer System</title>
+<booktitle>The Semantic Web – ISWC 2004</booktitle>
+<publisher>Springer Berlin Heidelberg</publisher>
+<year>2004</year>
+<editor>McIlraith, Sheila A.</editor>
+<editor>Plexousakis, Dimitris</editor>
+<editor>Harmelen, Frank</editor>
+<volume>3298</volume>
+<pages>122--136</pages>
+<address>Berlin, Heidelberg</address>
+</incollection>
+<file>file:BibsterPaper.pdf</file>
+</entry>
+<entry id="broekstra_bibster-semantics-based_2004">
+<inproceedings>
+<author>Broekstra, J.</author>
+<author>Ehrig, M.</author>
+<author>Haase, P.</author>
+<author>Van Harmelen, F.</author>
+<author>Menken, M.</author>
+<author>Mika, P.</author>
+<author>Schnizler, B.</author>
+<author>Siebes, R.</author>
+<title>Bibster - a semantics-based bibliographic peer-to-peer system</title>
+<booktitle>Proceedings of the Second Workshop on Semantics in Peer-to-Peer and Grid Computing, New York, USA</booktitle>
+<year>2004</year>
+<pages>3--22</pages>
+</inproceedings>
+<file>file:BibsterPaperDup.pdf</file>
+</entry>
+<entry id="yu_building_2006">
+<article>
+<author>Yu, Y.</author>
+<author>Jin, H.</author>
+<title>Building a semantic P2P scientific references sharing system with JXTA</title>
+<journal>Frontiers of WWW Research and Development-APWeb 2006</journal>
+<year>2006</year>
+<pages>937--942</pages>
+</article>
+<file>file:SemrexJXTA.pdf</file>
+</entry>
+<entry id="wilde_collaboration_2008">
+<article>
+<author>Wilde, E.</author>
+<author>Anand, S.</author>
+<author>Bucheler, T.</author>
+<author>Jorg, M.</author>
+<author>Nabholz, N.</author>
+<author>Zimmermann, P.</author>
+<title>Collaboration support for bibliographic data</title>
+<journal>International Journal of Web Based Communities</journal>
+<year>2008</year>
+<volume>4</volume>
+<number>1</number>
+<pages>98--109</pages>
+</article>
+<file>file:CollabSupport.pdf</file>
+</entry>
+<entry id="kruk_jeromedl-adding_2005">
+<inproceedings>
+<author>Kruk, S. R</author>
+<author>Decker, S.</author>
+<author>Zieborak, L.</author>
+<title>Jeromedl-adding semantic web technologies to digital libraries</title>
+<booktitle>Database and Expert Systems Applications</booktitle>
+<year>2005</year>
+<pages>716--725</pages>
+</inproceedings>
+<file>file:JeromeDL.pdf</file>
+</entry>
+<entry id="jin_semrex_2006">
+<inproceedings>
+<author>Jin, Hai</author>
+<author>Yu, Yijiao</author>
+<title>SemreX: a Semantic Peer-to-Peer Scientific References Sharing System</title>
+<booktitle>Advanced International Conference on Telecommunications / Internet and Web Applications and Services, International Conference on</booktitle>
+<year>2006</year>
+<volume>0</volume>
+<pages>97</pages>
+<address>Los Alamitos, CA, USA</address>
+<publisher>IEEE Computer Society</publisher>
+</inproceedings>
+<file>file:SemreX(iciw).pdf</file>
+</entry>
+<entry id="ning_semrex_2006">
+<inproceedings>
+<author>Ning, X.</author>
+<author>Jin, H.</author>
+<author>Wu, H.</author>
+<title>Semrex: Towards large-scale literature information retrieval and browsing with semantic association</title>
+<booktitle>e-Business Engineering, 2006. ICEBE&apos;06. IEEE International Conference on</booktitle>
+<year>2006</year>
+<pages>602--609</pages>
+</inproceedings>
+<file>file:SemrexSemanticAssociation.pdf</file>
+</entry>
+<entry id="yuan_semrex-semantic_2006">
+<inproceedings>
+<author>Yuan, P.</author>
+<author>Jin, H.</author>
+<author>Li, Y.</author>
+<author>Chang, B.</author>
+<author>Ning, X.</author>
+<author>Ni, W.</author>
+<author>Huang, L.</author>
+<author>Wu, H.</author>
+<title>SemreX-a Semantic Association based Scientific Literature Sharing System</title>
+<booktitle>Advanced International Conference on Telecommunications and International Conference on Internet and Web Applications and Services (AICT-ICIW&apos;06)</booktitle>
+<year>2006</year>
+</inproceedings>
+<file>file:SemrexLiteratureSharing.pdf</file>
+</entry>
+<entry id="voelkel_semwiki_2006">
+<inproceedings>
+<author>Völkel, Max</author>
+<title>SemWiki: a RESTful distributed Wiki architecture</title>
+<booktitle>Proceedings of the 2006 international symposium on Wikis</booktitle>
+<year>2006</year>
+<series>WikiSym &apos;06</series>
+<pages>141--142</pages>
+<address>New York, NY, USA</address>
+<publisher>ACM</publisher>
+<note>ACM ID: 1149486</note>
+</inproceedings>
+<file>file:Völkel - 2006 - SemWiki a RESTful distributed Wiki architecture.pdf</file>
+</entry>
+<entry id="ritterbush_supporting_2007">
+<article>
+<author>Ritterbush, Jon</author>
+<title>Supporting Library Research with LibX and Zotero -- Two Open Source Firefox Extensions</title>
+<journal>Journal of Web Librarianship</journal>
+<year>2007</year>
+<volume>1</volume>
+<number>3</number>
+<pages>111</pages>
+</article>
+<file>file:Ritterbush - 2007 - Supporting Library Research with LibX and Zotero -.pdf</file>
+</entry>
+<entry id="aumueller_towards_2005">
+<inproceedings>
+<author>Aum\üller, D.</author>
+<author>Auer, S.</author>
+<title>Towards a semantic wiki experience–desktop integration and interactivity in WikSAR</title>
+<booktitle>Semantic Desktop Workshop</booktitle>
+<year>2005</year>
+</inproceedings>
+<file>file:WikSAR.pdf</file>
+</entry>
+<entry id="wilde_usage_2004">
+<article>
+<author>Wilde, E.</author>
+<title>Usage and Management of Collections of References</title>
+<journal>Computer Engineering and Networks Laboratory, Swiss Federal Institute of Technology, Z\ürich, Switzerland, TIK Report</journal>
+<year>2004</year>
+</article>
+<file>file:Wilde_UsageManagementOfReferences.pdf</file>
+</entry>
+</batch>

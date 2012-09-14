@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svnroot/u-p2p/!svn/ver/772/u-p2p/trunk/test/JMol
+END
+jmol-resource-view.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/u-p2p/!svn/ver/772/u-p2p/trunk/test/JMol/jmol-resource-view.xsl
+END
+jmol-create.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/u-p2p/!svn/ver/296/u-p2p/trunk/test/JMol/jmol-create.html
+END
+jmol-search.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/u-p2p/!svn/ver/296/u-p2p/trunk/test/JMol/jmol-search.html
+END
+jmol-display-style.css
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/u-p2p/!svn/ver/296/u-p2p/trunk/test/JMol/jmol-display-style.css
+END
+Jmol.js
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/u-p2p/!svn/ver/296/u-p2p/trunk/test/JMol/Jmol.js
+END
+JmolAppletSigned.jar
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/u-p2p/!svn/ver/296/u-p2p/trunk/test/JMol/JmolAppletSigned.jar
+END
+jmol-schema.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/u-p2p/!svn/ver/296/u-p2p/trunk/test/JMol/jmol-schema.xsd
+END
+jmoltut.xml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/u-p2p/!svn/ver/296/u-p2p/trunk/test/JMol/jmoltut.xml
+END

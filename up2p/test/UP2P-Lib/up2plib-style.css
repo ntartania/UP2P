@@ -1,0 +1,134 @@
+div.up2p-lib-root a {
+	color: #4481D3;
+}
+
+div.up2p-lib-root a:hover, div.up2p-lib-root a:focus {
+	border-bottom: none;
+}
+
+div.up2p-lib-root a.up2p-lib-local, div.up2p-lib-root span.up2p-lib-local {
+	color: #4481d3;
+	font-weight: bold;
+}
+
+div.up2p-lib-root a.up2p-lib-network, div.up2p-lib-root span.up2p-lib-network {
+	color: #ffb842;
+	font-weight: bold;
+}
+
+div.up2p-lib-root a.up2p-lib-downloading, div.up2p-lib-root span.up2p-lib-downloading {
+	color: #4481d3;
+}
+
+.up2p-lib-cites-table td, .up2p-lib-cites-table th {
+	border: 1px solid #4481d3;
+	border-collapse: collapse;
+	padding: 4px;
+}
+
+div.up2p-lib-root {
+	font-size: 12px;
+}
+
+.fieldname {
+	color: #ff6f42;
+	font-weight: bold;
+}
+
+.fieldvalue {
+	color: #4481d3;
+	font-weight: bold;
+}
+
+.bibframe h1, .bibframe h2, .bibframe h3 {
+	margin-bottom: 0.1em;
+	text-decoration: underline;
+}
+
+.bibentry{
+	width: 90%;
+	margin: 8px auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding: 3px;
+	background-color: #eef5ff;
+}
+
+.entrytype {
+	font-weight: bold;
+}
+
+.idvalue {
+	text-decoration: underline;
+	font-size: larger;
+	font-weight: bold;
+}
+
+.up2p-bibtexml-res-title {
+	font-weight: bold;
+}
+
+.up2p-bibtexml-fields {
+	margin-left: 15px;
+}
+
+div.up2p-lib-cites-frame {
+	border: 1px solid #4481d3;
+	padding: 6px;
+}
+
+
+div.bibframe{
+	width: 90%;
+	margin: 0 auto;
+	border: 2px solid #4481d3;
+	border-collapse:collapse;
+	padding: 10px;
+	overflow: auto;
+}
+
+div.bibframe button, div.bibframe input  {
+	margin: 2px;
+}
+
+div.up2p-lib-status-float {
+	position: fixed;
+	background: #ffffff;
+	width: 400px;
+	top: 35%;
+	left: 50%;
+	margin-left: -200px;
+	padding: 5px;
+	padding-top: 2em;
+	border: 2px solid #4481d3;
+}
+
+div#up2p-lib-clear-status {
+	position:absolute;
+	right:5px;
+	top:0.2em;
+}
+
+div#up2p-pdf-view {
+	margin: 10px auto;
+	width: 80%;
+	text-align: center;
+	background-color: #eef5ff;
+	border: 1px solid #4481d3;
+	padding: 10px;
+}
+
+embed#up2p-pdf-embed {
+	width: 100%;
+	height: 600px;
+}
+
+table.up2p-lib-local-res-table {
+	width: 100%;
+}
+
+table.up2p-lib-local-res-table td, table.up2p-lib-local-res-table th {
+	border: 1px solid #aaaaaa;
+	border-collapse: collapse;
+	padding: 0.3em;
+}

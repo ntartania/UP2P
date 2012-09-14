@@ -1,0 +1,35 @@
+<script type="text/javascript" language="Javascript" SRC="treeField.js"></script>
+
+<table id="title_box">
+	<tr>
+		<td>
+			<h3> Search for an RDF Link between two resources </h3>
+		</td>
+	</tr>
+</table>
+
+<hr>
+
+<form action="search" method="post">
+
+<table id="form_table">
+	<tr><th align="left">Subject</th>
+	<td><input type="text" id="SubjectTitle" name="/RDFLink/SubjectTitle">
+	<input type="hidden" id="SubjectUri" name="/RDFLink/SubjectUri">
+	<input type="button" onclick="showTree('SubjectTitle', 'SubjectUri');" value="Browse DB">
+	</td></tr>
+	<tr><th align="left">Predicate</th><td><input type="text" name="RDFLink/Predicate"> </td></tr>
+	<tr><th align="left">Object</th>
+	<td><input type="text" id="ObjectTitle" name="/RDFLink/ObjectTitle">
+	<input type="hidden" id="ObjectUri" name="/RDFLink/ObjectUri">
+	<input type="button" onclick="showTree('ObjectTitle', 'ObjectUri');" value="Browse DB">
+	</td></tr>
+	<tr><th align="left">Comment</th><td><input type="text" name="RDFLink/Comment"></td></tr>
+</table>
+
+<p align="center">&nbsp; &nbsp; &nbsp;
+                    <input type="submit" value="Search">
+                    &nbsp; &nbsp; &nbsp;
+                    <input type="reset" name="reset" value=" Clear ">
+</p>
+</form>

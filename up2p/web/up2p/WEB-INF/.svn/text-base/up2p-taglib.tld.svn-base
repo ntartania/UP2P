@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library
+1.2//EN" "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+
+<taglib>
+	<tlib-version>1.2</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>up2p-taglib</short-name>
+	<uri>http://u-p2p.sourceforge.net/up2p-taglib</uri>
+	<display-name>U-P2P Taglib</display-name>
+	<description>Tags used by U-P2P JSP interface.</description>
+  
+	<tag>
+		<name>layout</name>
+		<tag-class>up2p.jsp.LayoutTag</tag-class>
+		<description>Lays out the U-P2P interface.</description>
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>mode</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>jscript</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<name>search-page</name>
+		<tag-class>up2p.jsp.SearchTag</tag-class>
+		<description>Renders the U-P2P search interface for a
+community.</description>
+	</tag>
+	
+	<tag>
+		<name>create-page</name>
+		<tag-class>up2p.jsp.CreateTag</tag-class>
+		<description>Renders the U-P2P create interface for a
+community.</description>
+	</tag>
+	
+	<tag>
+		<name>home-page</name>
+		<tag-class>up2p.jsp.HomeTag</tag-class>
+		<description>Renders the U-P2P home page for a community (either by fetching the specified HTML page, or by using XSLT to process the community schema).</description>
+	</tag>
+	
+	<tag>
+	    <name>network-adapter-check</name>
+	    <tag-class>up2p.jsp.NetworkAdapterCheck</tag-class>
+	    <body-content>empty</body-content>
+	    <description>Stops the page display (search and create) if the Network
+	    Adapter is not available.</description>
+	    <attribute>
+	    	<name>mode</name>
+	    	<required>true</required>
+	    	<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+	    <name>community-check</name>
+	    <tag-class>up2p.jsp.CommunityCheck</tag-class>
+	    <body-content>empty</body-content>
+	    <description>Stops the page display (search and create) if the
+	    Community ID is not found and forwards to an error page.</description>
+	    <attribute>
+	    	<name>mode</name>
+	    	<required>true</required>
+	    	<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+	    	<name>errorMsg</name>
+	    	<required>true</required>
+	    	<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>

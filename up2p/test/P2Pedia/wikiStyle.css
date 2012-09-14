@@ -1,0 +1,362 @@
+/**
+ * UP2Pedia Style Sheet
+ *
+ * By: Alexander Craig
+ *
+ * This file is part of the Universal Peer to Peer Project
+ * http://www.nmai.ca/research-projects/universal-peer-to-peer
+ *
+ * Based on:
+ * MediaWiki 'monobook' style sheet for CSS2-capable browsers.
+ * Gabriel Wicke - http://wikidev.net/
+ *
+ * License: GPL (http://www.gnu.org/copyleft/gpl.html)
+ */
+ 
+/* General Rules */
+
+.up2pediaArticle, .tool_float {
+	font: small sans-serif;
+}
+
+div.up2pediaArticle {
+	width: 90%;
+	margin: 0 auto;
+	border: 1px solid #aaaaaa;
+	border-collapse:collapse;
+	padding: 10px;
+	overflow: auto;
+}
+
+.up2pediaArticle hr {
+	height: 1px;
+	color: #aaa;
+	background-color: #aaa;
+	border: 0;
+	margin: .2em 0 .2em 0;
+}
+
+.up2pediaArticle h1, .up2pediaArticle h2, .up2pediaArticle h3, .up2pediaArticle h4,
+		.up2pediaArticle h5, .up2pediaArticle h6,
+		.up2pedia-tool-dialog h1, .up2pedia-tool-dialog h2, .up2pedia-tool-dialog h3, .up2pedia-tool-dialog h4,
+		.up2pedia-tool-dialog h5, .up2pedia-tool-dialog h6, .tool_float h3 
+{
+	color: black;
+	margin:0;
+	background: none;
+	font-weight: normal;
+	padding-top: .5em;
+	padding-bottom: .17em;
+	margin-bottom: .2em;
+	border-bottom: 1px solid #aaa;
+}
+.up2pediaArticle h1, .up2pedia-tool-dialog h1 { font-size: 188%; }
+.up2pediaArticle h2, .up2pedia-tool-dialog h2{ font-size: 150%; }
+
+.up2pediaArticle h3, .up2pediaArticle h4, .up2pediaArticle h5, .up2pediaArticle h6,
+		.up2pedia-tool-dialog h3, .up2pedia-tool-dialog h4, .up2pedia-tool-dialog h5, 
+		.up2pedia-tool-dialog h6 
+{
+	border-bottom: none;
+	font-weight: bold;
+}
+.up2pediaArticle h3, .up2pedia-tool-dialog h3{ font-size: 132%; }
+.up2pediaArticle h4, .up2pedia-tool-dialog h4 { font-size: 116%; }
+.up2pediaArticle h5, .up2pedia-tool-dialog h5 { font-size: 100%; }
+.up2pediaArticle h6, .up2pedia-tool-dialog h6 { font-size: 80%;  }
+
+
+.up2pediaArticle ul {
+	line-height: 1.5em;
+	list-style-type: square;
+	margin: .3em 0 0 1.5em;
+	padding: 0;
+}
+.up2pediaArticle ol {
+	line-height: 1.5em;
+	margin: .3em 0 0 3.2em;
+	padding: 0;
+	list-style-image: none;
+}
+.up2pediaArticle li{
+	margin-bottom: .1em;
+}
+
+.toc, .tool_bar {
+	border: 1px solid #aaaaaa;
+	background: #f9f9f9;
+	border-collapse:collapse;
+}
+
+/* Create page rules */
+
+.tool_bar { width: 100%; }
+.tool_bar td { padding: 5px; }
+
+div.up2pedia-content-wrapper {
+	width: 100%;
+	margin: 0 auto;
+	border: 1px solid #aaaaaa;
+}
+
+textarea#content_input, textarea#edit_summary {
+	box-sizing: border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing: border-box;
+	resize: none;
+	width: 100%;
+	border: 1px solid #aaaaaa;
+	padding: 5 px;
+	border-collapse:collapse;
+}
+
+textarea#content_input {
+	height: 400px;
+}
+
+textarea#edit_summary {
+	height: 40px;
+}
+
+.wide-text-entry {
+	width: 90%;
+}
+
+.no_fill {
+	width: 100%;
+	/*border: 1px solid #aaaaaa;*/
+}
+
+.no_fill td {
+	padding: 5px;
+}
+
+div.tool_float {
+	position: fixed;
+	background: #ffffff;
+	width: 400px;
+	top: 35%;
+	left: 50%;
+	margin-left: -200px;
+	padding: 5px;
+	border: 2px solid #aaaaaa;
+}
+
+div.tool_float_hide {
+	position:absolute;
+	right:5px;
+	top:1em;
+}
+
+.up2pediaArticle button, .up2pedia-tool-dialog button, .tool_float button,
+	.up2pediaArticle input, .up2pedia-tool-dialog  input, .tool_float input 
+{
+	color: #000;
+	background: #fff;
+	border: 1px solid #aaaaaa;
+}
+
+input.readonly {
+	background: #f9f9f9;
+}
+
+div.up2pedia-preview-subpanel {
+	width: 95%;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	border: 1px solid #aaaaaa;
+	border-collapse:collapse;
+	padding: 10px;
+	overflow: auto;
+}
+
+/* Home / Viewing page rules */
+
+a.wikiSearch {
+	color: #ff6600;
+}
+
+span.wikiLink, form.wikiLink {
+	display:inline; 
+	margin:0px; 
+	padding:0px;
+	cursor: pointer; 
+	cursor: hand;
+}
+
+.toc {
+	width: 400px;
+}
+
+#preview td, #wiki_render_panel td, #preview_panel td,
+#preview th, #wiki_render_panel th, #preview_panel th {
+	border: 1px solid #aaaaaa;
+	padding: 3px;
+}
+
+table.repos_view td, table.home_view td, table.home_view th {
+	border: 1px solid #aaaaaa;
+	background-color: white;
+	padding: 5px;
+}
+table.home_view {
+	table-layout: fixed;
+	width: 90%;
+}
+
+table.home_view td {
+	word-wrap: break-word;
+	width: 33%;
+}
+
+.img_frame {
+	float: right;
+	overflow: hidden;
+	padding: 5px;
+	text-align: center;
+	margin: 5px 0px 5px 5px;
+	border: 1px solid #aaaaaa;
+	background: #f9f9f9;
+}
+
+.img_caption {
+	width: 300px;
+	margin: 0 auto;
+}
+
+div.centered-div {
+	text-align: center;
+}
+
+/** Community tree view / search page styles */
+div.tree_view {
+	margin: 0px;
+	padding: 5px;
+}
+
+div.tree_view_hide {
+	position:absolute;
+	right:5px;
+	top:1em;
+}
+
+div.tree_view hr {
+}
+
+span.tree_res {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+div.tree_view_indent {
+	margin-left: 0.5em;
+	padding-left: 1em;
+	border-left: 3px solid #4481d3;
+}
+
+div.up2pedia-tree-listing {
+	background: #f9f9f9;
+	border-top: 1px solid #aaaaaa;
+	border-bottom: 1px solid #aaaaaa;
+	padding: 3px;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+div.up2pedia-hidden-listing {
+	background: #ffffff;
+}
+
+a.up2pedia-not-found-link {
+	color: #ffb842;
+}
+
+div.up2pedia-search-tree {
+	width: 70%;
+	float: left;
+}
+
+div.up2pedia-search-peers {
+	width: 30%;
+	float: left;
+}
+
+.up2pedia-search-peers td, .up2pedia-search-peers th {
+	border: 1px solid #aaaaaa;
+	border-collapse: collapse;
+	padding: 4px;
+}
+
+tr.up2pedia-peer-highlight td {
+	background: #e5fff3;
+}
+
+div.up2pedia-article-highlight {
+	background: #e5fff3;
+}
+
+div.up2pedia-peer-float {
+	z-index: 2;
+	position: fixed;
+	background: #ffffff;
+	width: 600px;
+	top: 35%;
+	left: 50%;
+	margin-left: -300px;
+	padding: 5px;
+	border: 2px solid #aaaaaa;
+}
+
+div.up2pedia-peer-hide {
+	position:absolute;
+	right:5px;
+	top:1em;
+}
+
+div#up2pedia-search-table-peers {
+	width: 35%;
+	float: left;
+}
+
+div#up2pedia-search-table-articles {
+	width: 60%;
+	float: right;
+}
+
+table.up2pedia-search-articles {
+	width: 100%;
+}
+
+.up2pedia-search-articles td {
+	border-top: 1px solid #aaaaaa;
+	border-bottom: 1px solid #aaaaaa;
+	padding: 7px;
+	border-collapse: collapse;
+}
+
+div#up2pedia-tree-range-slider {
+	width: 80%;
+	margin-left: 10px;
+	margin-top: 5px;
+	margin-bottom: 8px;
+}
+
+
+/** JQuery Styling */
+div.ui-slider-range {
+	background: #6ca9ff;
+}
+
+div.up2pedia-tool-dialog {
+	font-size: 10pt;
+	outline-color: #f9f9f9;
+}
+
+div.up2pedia-tool-dialog div.ui-dialog-titlebar {
+	height: 10px;
+	background: #f9f9f9;
+}
+
+div.up2pedia-tool-dialog .ui-dialog-titlebar-close.ui-state-hover{
+	background: #aaaaaa;
+}

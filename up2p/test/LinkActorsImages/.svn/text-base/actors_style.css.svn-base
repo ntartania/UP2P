@@ -1,0 +1,81 @@
+/* All pages */
+.link-community {
+	font-size: 0.8em;
+}
+
+div.link-community {
+	width: 700px;
+	margin: auto;
+}
+
+.link-community h1 {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+
+/* Resource view */
+div.resource-view {
+	border: 1px solid #4481d3;
+	padding: 5px;
+}
+
+.resource-view img {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table.resource-view td {
+	padding: 5px;
+}
+
+
+/* Community view */
+.link-community table.repos-view {
+	width: 100%;
+}
+
+.link-community table.repos-view td {
+	border: 1px solid #4481d3;
+	padding: 2px;
+	margin: 2px;
+}
+
+.link-community table.repos-view td.title {
+	width: 65%;
+}
+
+
+/* Create / Search pages */
+.link-community table.input-table {
+	width: 100%;
+}
+
+.link-community td.input-td {
+	width: 70%;
+}
+
+div.search-view {
+	border: 1px solid #4481d3;
+	padding: 5px;
+}
+
+
+/* JQuery styling */
+.link-community .ui-button-text {
+	font-size: 0.8em !important;
+} 
+
+li.ui-corner-top {
+	height: 20px !important;
+}
+
+h3.ui-accordion-header {
+	height: 20px;
+}
+
+h3.ui-accordion-header a, li.ui-corner-top a {
+	padding-top: 2px !important;
+	padding-bottom: 2px !important;
+}

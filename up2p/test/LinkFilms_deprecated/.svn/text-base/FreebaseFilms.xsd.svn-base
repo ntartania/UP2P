@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+      elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- Root Element-->
+  <xs:element name="film">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string"/>
+        <xs:element name="initial_release_date" type="xs:string"/>
+        <xs:element name="directed_by" type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element name="produced_by" type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element name="written_by" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="cinematography" type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element name="edited_by" type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element name="music" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="language" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="country" type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element name="starring" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+
+
+
+
+
+
+
+

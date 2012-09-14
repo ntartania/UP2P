@@ -1,0 +1,5 @@
+UP2P is a peer-to-peer data sharing platform.
+
+It can be used as a standalone application to share any type of documents, in the format of XML files with attachments and links between them, or it can be used as a P2P backend for sharing applications.
+
+UP2P must be deployed on a local apache tomcat server. 

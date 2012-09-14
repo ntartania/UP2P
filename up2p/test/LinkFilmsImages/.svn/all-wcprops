@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/u-p2p/!svn/ver/530/u-p2p/trunk/test/LinkFilmsImages
+END
+films_comm_XSL.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/u-p2p/!svn/ver/529/u-p2p/trunk/test/LinkFilmsImages/films_comm_XSL.xsl
+END
+films_create.html
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/u-p2p/!svn/ver/530/u-p2p/trunk/test/LinkFilmsImages/films_create.html
+END
+films_style.css
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/u-p2p/!svn/ver/529/u-p2p/trunk/test/LinkFilmsImages/films_style.css
+END
+films_search.html
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/u-p2p/!svn/ver/529/u-p2p/trunk/test/LinkFilmsImages/films_search.html
+END
+linked_films_images.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/u-p2p/!svn/ver/529/u-p2p/trunk/test/LinkFilmsImages/linked_films_images.xml
+END
+films_schema.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/u-p2p/!svn/ver/529/u-p2p/trunk/test/LinkFilmsImages/films_schema.xsd
+END
+films_res_XSL.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/u-p2p/!svn/ver/529/u-p2p/trunk/test/LinkFilmsImages/films_res_XSL.xsl
+END

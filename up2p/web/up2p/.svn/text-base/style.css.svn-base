@@ -1,0 +1,298 @@
+/**
+ * Universal Peer to Peer Main Style Sheet
+ *
+ * By: Alexander Craig
+ *
+ * This file is part of the Universal Peer to Peer Project
+ * http://www.nmai.ca/research-projects/universal-peer-to-peer
+ *
+ * License: GPL (http://www.gnu.org/copyleft/gpl.html)
+ */
+
+/* Global styles */
+
+body {
+    font-size: 12pt;
+    background-color: #ffffff;
+    color: black;
+	margin: 0;
+	padding: 0;
+}
+body,td,p,H1 {
+    font-family: sans-serif;
+}
+h1,h2,h3 {
+	color: #2d65b2;
+}
+h1 {
+	padding: 2px;
+	margin: 0 0;
+}
+
+div.up2p_content_area {
+	margin: 1em;
+	margin-bottom: 2.5em;
+}
+
+a:link, a {
+	color:#4481d3;
+	text-decoration: none;
+	cursor: pointer; 
+	cursor: hand;
+	}	
+a:visited {
+	color:#4481d3;
+	border-bottom:none;
+	text-decoration:none;
+	}		
+a:hover,
+a:focus {
+	color:#4481d3;
+	border-bottom:2px solid #ffb842;
+	text-decoration:none;
+	}
+
+button, input{
+	color: #000;
+	background: #fff;
+	border: 1px solid #4481d3;
+}
+
+button:hover,
+button:focus {
+	background: #f6faff;
+}
+
+button:active {
+	background: #f6faff;
+	border: 1px solid #ffb842;
+}
+
+table {
+	border-collapse: collapse;
+	padding: 1px;
+}
+table td, table th {
+	border-collapse: collapse;
+}
+
+.hidden {
+	display: none;
+}
+
+td.noBorder {
+	border: 0px;
+}
+
+div.up2p-root-frame {
+	width: 90%;
+	margin: 0 auto;
+	border: 2px solid #4481d3;
+	border-collapse:collapse;
+	padding: 15px;
+	overflow: auto;
+}
+
+table.up2p-default-table td, table.up2p-default-table th {
+	padding: 5px;
+	border: 1px solid black;
+}
+
+/* Header styles */
+    
+img.header {
+    border: 0;
+}
+	
+span.websiteAdvert {
+	margin: 0 0 0 0;
+	padding: 0;
+	position: fixed;
+	right: 3px;
+	bottom: 3px;
+    background: #ffffff;
+}
+
+span.networkStatus {
+	z-index: 1;
+	position: absolute;
+	bottom: 0.0em;
+	right: 0.65em;
+	background: #f6faff;
+}
+
+div.communityBar {
+	width: 100%;
+	background: #ffffff;
+	font-size: 11pt;
+	border-bottom: 1px solid #4481d2;
+	height: 1.3em;
+	padding-top: 5px;
+}
+
+div.headerBar {
+	background: #f6faff;
+	border-bottom: 1px solid #4481d2;
+	margin-bottom: 2em;
+	position: relative;
+}
+
+div.notify_panel {
+	position: fixed;
+	right: 0.5em;
+	bottom: 2em;
+	width: 50%;
+	font-size: 11pt;
+	border: 1px solid #4481d2;
+	background: #ffffff;
+	z-index: 2;
+	padding: 5px;
+}
+
+span.currentCommunity {
+	font-weight: bold;
+	color: #481d4;
+}
+
+span.communityList {
+	position: absolute;
+	left: 0.70em;
+	right: 70px;
+	overflow: hidden;
+	height: 1.3em;
+}
+
+span.moreLink {
+	position: absolute;
+	font-weight: bold;
+	width: 70px;
+	right: 0px;
+}
+span.moreLink a {
+	color: black;
+}
+
+div.communityBar a:hover,
+div.communityBar a:focus,
+span.networkStatus a:hover,
+span.networkStatus a:focus {
+	border-bottom: 0;
+	font-weight: bold;
+	color: #ffb842;
+	text-decoration:none;
+}
+
+div.fullCommunityList {
+	z-index: 2;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	padding: 5px;
+	background: white;
+	float: right;
+	border: 1px solid #4481d3;
+}
+
+.queryTable td {
+	text-align: center;
+	padding: 5px;
+	border: 2px solid #4481d3;
+}
+
+span.currentActivity {
+	position:relative;
+	z-index: 2;
+	background: #ffffff;
+	font-weight: bold;
+	border: 1px solid #4481d2;
+	border-bottom: 3px solid #ffffff;
+	margin-left: 2px;
+	margin-right: 2px;
+	padding-top: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+span.activity {
+	position:relative;
+	z-index: 2;
+	background: #6ca9ff;
+	color: white;
+	font-weight: bold;
+	margin-left: 2px;
+	margin-right: 2px;
+	border-bottom: 1px solid #6ca9ff;
+	padding-top: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	
+}
+
+span.activity a {
+	color: white;
+}
+
+span.activity a:hover,
+span.activity a:focus {
+	border-bottom: 0;
+	color: #ffb842;
+	text-decoration:none;
+}
+
+ul#notify_panel {
+	margin: 0;
+}
+
+/* Other styles */
+
+table.up2p-net-status-settings {
+	width: 100%;
+}
+
+div.#up2p-full-upload-div {
+	background: #f6faff;
+}
+
+div#up2p-upload-panel{
+	background: #ffffff;
+	border-top: 1px solid #4481d2;
+	width: 100%;
+	margin: 0 auto;
+	padding-bottom: 1em;
+}
+
+div#up2p-upload-panel h4 {
+	margin-top: 1.5em;
+	margin-bottom: 0.25em;
+}
+
+div.up2p-upload-panel-prompt {
+	border-bottom: 1px solid #4481d2;
+	padding-top: 0;
+	margin: 0 auto;
+	width: 100%;  
+	text-align: center;
+}
+
+div.up2p_config {
+	border: 2px solid #4481d3;
+	padding: 10px;
+	width: 800px;
+	margin: auto;
+}
+
+table.up2p_search_results {
+	max-width: 100%;
+	width: auto;
+}
+
+table.up2p_search_results td, table.up2p_search_results th {
+	border: 1px solid #666666;
+	padding: 5px;
+	margin: 2px;
+}
+
+/* JQuery styling */
+*.up2p_config .ui-button-text {
+	font-size: 0.8em !important;
+} 

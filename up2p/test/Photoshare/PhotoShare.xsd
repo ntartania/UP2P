@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:element name="PhotoShare">
+	<xsd:complexType>
+		<xsd:all>
+			<xsd:element name="format" type="Extension"/>
+			<xsd:element name="name" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="resolution" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="dimensions" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="cameramodel" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="quality" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="capturetime" type="xsd:string"/>
+			<xsd:element name="capturedate" type="xsd:date"/>
+			<xsd:element name="location" type="xsd:string"/>
+			<xsd:element name="description" type="xsd:string"/>
+			<xsd:element name="keywords" type="Tags"/>
+			<xsd:element minOccurs="0" name="picture" type="xsd:anyURI"/>
+			<xsd:element minOccurs="0" name="sample" type="xsd:anyURI"/>
+		</xsd:all>
+	</xsd:complexType>
+</xsd:element>
+<xsd:simpleType name="Extension">
+	<xsd:restriction base="xsd:string">
+		<xsd:enumeration value=".bmp"/>
+		<xsd:enumeration value=".gif"/>
+		<xsd:enumeration value=".jpeg"/>
+		<xsd:enumeration value=".jpg"/>
+		<xsd:enumeration value=".tiff"/>
+	</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="Tags">
+	<xsd:list itemType="xsd:string"/>
+</xsd:simpleType>
+</xsd:schema>

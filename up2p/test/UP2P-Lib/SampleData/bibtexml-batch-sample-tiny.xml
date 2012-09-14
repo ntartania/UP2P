@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch>
+	<entry id="bailey">  
+		<article>    
+			<author>Bailey, D. H.</author>      
+			<author>Swarztrauber, P. N.</author>     
+			<title>The fractional Fourier transform and applications</title>    
+			<journal>SIAM Rev.</journal>
+			<volume>33</volume>;      
+			<number>3</number>    
+			<pages>389-404</pages>    
+			<year>1991</year>
+		</article>
+	</entry>
+	
+	<entry id="bay1">
+		<article>      
+			<author>Bayliss, A.</author>     
+			<author>Goldstein, C. I.</author>      
+			<author>Turkel, E.</author>    
+			<title>An iterative method for the Helmholtz equation</title>     
+			<journal>J. Comp. Phys.</journal>    
+			<volume>49</volume>
+			<pages>443-457</pages>    
+			<year>1983</year>  
+		</article>
+	</entry>
+	
+	<entry id="ernst">
+		<techreport>
+			<author>Ernst, O.</author>
+			<author>Golub, G.</author>
+			<title>A domain decomposition approach to solving the Helmholtz equation with a radiation boundary condition</title>   
+			<number>NA-92-08</number>
+			<school>Stanford University, Computer Science Department</school> 
+			<year>August 1992</year>
+		</techreport>
+	</entry>
+</batch>

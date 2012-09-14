@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/u-p2p/!svn/ver/525/u-p2p/trunk/test/LinkFilms_deprecated
+END
+film-display.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/u-p2p/!svn/ver/525/u-p2p/trunk/test/LinkFilms_deprecated/film-display.xsl
+END
+FreebaseFilms.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/u-p2p/!svn/ver/525/u-p2p/trunk/test/LinkFilms_deprecated/FreebaseFilms.xsd
+END
+freebaseFilms.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/u-p2p/!svn/ver/525/u-p2p/trunk/test/LinkFilms_deprecated/freebaseFilms.xml
+END

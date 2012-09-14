@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/u-p2p/!svn/ver/532/u-p2p/trunk/test/ServerScripts
+END
+rebuild.sh
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/u-p2p/!svn/ver/532/u-p2p/trunk/test/ServerScripts/rebuild.sh
+END
+collect_logs.sh
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/u-p2p/!svn/ver/532/u-p2p/trunk/test/ServerScripts/collect_logs.sh
+END
+deploy.sh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/u-p2p/!svn/ver/532/u-p2p/trunk/test/ServerScripts/deploy.sh
+END
+kill_java.sh
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/u-p2p/!svn/ver/532/u-p2p/trunk/test/ServerScripts/kill_java.sh
+END
+update_std.sh
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/u-p2p/!svn/ver/532/u-p2p/trunk/test/ServerScripts/update_std.sh
+END
+clean_deploy.sh
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/u-p2p/!svn/ver/372/u-p2p/trunk/test/ServerScripts/clean_deploy.sh
+END
+shutdown_up2p.sh
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/u-p2p/!svn/ver/532/u-p2p/trunk/test/ServerScripts/shutdown_up2p.sh
+END

@@ -1,0 +1,144 @@
+<!--
+	UP2Pedia "Create" Page
+	
+	By: Alexander Craig
+	    alexcraig1@gmail.com
+		
+	This file is part of the Universal Peer to Peer Project
+	http://www.nmai.ca/research-projects/universal-peer-to-peer
+-->
+
+<script type="text/javascript" src="comm_attach/p2pedia.js"></script>
+<script type="text/javascript" src="comm_attach/creole_parser.js"></script>
+<script type="text/javascript" language="Javascript" SRC="treeField.js"></script>
+<div class="up2pediaArticle">
+<strong>Article Mode: 
+	<a onclick="showResourcePanel('create_panel');">Create</a> | 
+	<a onclick="up2pediaEditRender('content_input', 'preview_render'); showResourcePanel('preview_panel');">Preview</a>
+</strong>
+</div>
+<br />
+
+<!-- CREATE PANEL -->
+<div class="up2pediaArticle" id="create_panel">
+<h2>Create a New Article</h2>
+<form action="create" method="post" enctype="multipart/form-data" id="create_form" onsubmit="copyValue()">
+<input type="hidden" id="up2pedia-community-id" name="up2p:community"/>
+
+<!-- METADATA BAR -->
+<table class="no_fill"><tr><td><strong>Title:</strong></td><td><strong>Filename:</strong></td></tr>
+<tr><td>
+<input type="text" size="45" id="title_input" class="wide-text-entry up2pedia-colored" name="article/title" />
+</td><td>
+<input type="text" size="45" id="file_input" class="wide-text-entry up2pedia-colored" name="up2p:filename" />
+</td><td>
+<input type="hidden" id="ver_input" name="article/parentResId" />
+<input type="hidden" id="rev_input" name="article/revision" value="1">
+<input type="hidden" id="ancestry_input" name="article/ancestry/uri" />
+</td></tr></table>
+
+<!-- TOOL BAR -->
+<h5>Tools:</h5>
+<table class="tool_bar"><tr>
+<td><strong>Text</strong><br/>
+<button type="button" onclick="wrapAtCaret('**', '**', '**Example Bolded text**');">Bold</button> | 
+<button type="button" onclick="wrapAtCaret('//', '//', '//Example Italic text//');">Italic</button>
+</td>
+
+<td><strong>Structure</strong><br/>
+<button type="button" onclick="wrapAtCaret('= ', ' =\n', '= Example Heading 1 =\n== Example Heading 2 ==\n');">Heading</button> | 
+<button type="button" onclick="prefixSelectionLines('# ', '# Example Ordered List Item\n## Example Nested Ordered List Item\n');">Ordered List</button> | 
+<button type="button" onclick="prefixSelectionLines('* ', '* Example Unordered List Item\n** Example Nested Unordered List Item\n');">Unordered List</button> | 
+<button type="button" onclick="addAtCaret('----\n');">Horizontal Rule</button> | 
+<button type="button" onclick="addAtCaret('|=|=table|=header|\n|a|table|row|\n|b|table|row|\n');">Table</button> |
+<button type="button" onclick="wrapAtCaret('<ref>', '</ref>', '<ref>Example  Citation</ref>');">Citation Footnote</button>
+</td>
+
+<td><strong>Links / Attachments</strong><br/>
+<button type="button" onclick="openToolWindow('creole_link');">Link</button> | 
+<button type="button" onclick="openToolWindow('up2p_uri_link');">U-P2P URI Link</button> | 
+<button type="button" onclick="openToolWindow('img_link');">Image Link</button> | 
+<button type="button" onclick="openToolWindow('img_attach');">Image</button>
+</td>
+</tr>
+</table>
+
+<!-- INPUT AREA -->
+<div class="up2pedia-textarea-wrapper">
+<textarea id="content_input" class="up2pedia-colored"></textarea>
+<input id="content_submission" type="hidden" name="up2p:rawxml" />
+</div>
+<br />
+
+<!-- ATTACHMENTS -->
+<table class="tool_bar"><tr>
+<td><strong>Attachments:</strong> (Note: Image attachments will automatically be added here)<br /><button type="button" onclick="addWikiAttachment();">Add New</button></td>
+<td id="wiki_attach"></td></tr></table>
+<br />
+<!-- SUBMISSION -->
+<input type="button" class="button" value="Finalize Article" onclick="finalizeArticle();" />&#160;
+<input type="button" class="button" value="Preview Article" 
+		onclick="up2pediaEditRender('content_input', 'preview_render'); showResourcePanel('preview_panel');" />
+</form>
+</div>
+<!-- END - CREATE PANEL -->
+
+<!-- TOOL DIVS -->
+<div id="creole_link" class="hidden"><form>
+<div class="tool_float_hide"><span onclick="closeToolWindows()">(X)</span></div>
+<h3>Insert Link</h3>
+Full page name or target URL  (see below):<br />
+<input type="text" size="60" id="creole_link_url" /><br />
+Text to display:<br />
+<input type="text" size="60" id="creole_link_text" /><br />
+<input id="creole_link_external" type="radio" name="creole_link" value="external" checked="checked" />To an external site (<strong>URL</strong>)<br />
+<input id="creole_link_up2p" type="radio" name="creole_link" value="up2pedia" />To a UP2Pedia page (<strong>exact page name</strong>)<br />
+<input id="creole_link_wikipedia" type="radio" name="creole_link" value="wikipedia" />To a Wikipedia page (<strong>exact page name</strong>)<br />
+<button type="reset" onclick="addLink();">Add Link</button>
+</form></div>
+
+<div id="up2p_uri_link" class="hidden"><form>
+<div class="tool_float_hide"><span onclick="closeToolWindows();">(X)</span></div>
+<h3>Insert U-P2P URI Link</h3>
+<p>A U-P2P URI link is used to link directly to another resource within U-P2P (in any community, not 
+neccesarily P2Pedia).<br />
+<input type="text" size="60" id="up2p_uri_link_text" />
+<input type="button" onclick="showTree('up2p_uri_link_text', 'up2p_uri_link_uri');" value="Browse Local DB" /><br /><br />
+URI (This field is automatically filled in when you select a resource):<br />
+<input type="text" size="60" id="up2p_uri_link_uri" class="readonly" readonly="readonly" /></p>
+<button type="reset" onclick="addUp2pLink();">Add U-P2P URI Link</button>
+</form></div>
+
+<div id="img_attach" class="hidden"><form>
+<div class="tool_float_hide"><span onclick="closeToolWindows()">(X)</span></div>
+<h3>Image Attachment</h3>
+<p>Add an image attachment to the article. The image will be displayed along with its caption in the article, and the image file will be hosted and shared along with the article itself. These images <strong>will not</strong> render in previews.<br /><br />
+The image to show and attach:<br />
+<span id="img_file_span"><input type="file" size="48" id="img_file" name="up2p:filename" /></span><br />
+The caption for the image:<br />
+<input type="text" size="60" id="img_caption" /><br /></p>
+<button type="reset" onclick="addImageAttachment();">Add Image Attachment</button>
+</form></div>
+
+<div id="img_link" class="hidden"><form>
+<div class="tool_float_hide"><span onclick="closeToolWindows()">(X)</span></div>
+<h3>Image Link</h3>
+<p>Add an image link to an existing URL to the article. The image will be displayed along with its caption in the article, but the image file will not be hosted through U-P2P. This images <strong>will</strong> render in previews.<br /><br />
+The URL of the image to display:<br />
+<input type="text" size="60" id="img_link_url" /><br />
+The caption for the image:<br />
+<input type="text" size="60" id="img_link_caption" /><br /></p>
+<button type="reset" onclick="addImageLink();">Add Image Link</button>
+</form></div>
+
+<!-- PREVIEW PANEL -->
+<div id="preview_panel" class="hidden">
+<div class="up2pedia-preview-subpanel" id="preview_options">
+<strong>
+<input type="button" class="button" value="Finalize Article" onclick="finalizeArticle();" /> | 
+<a onclick="showResourcePanel('create_panel');">Back to Create Panel</a>
+</strong>
+</div>
+<div id="preview_render" class="up2pedia-preview-subpanel" />
+</div>
+<div id="searchFormPlaceholder"></div>

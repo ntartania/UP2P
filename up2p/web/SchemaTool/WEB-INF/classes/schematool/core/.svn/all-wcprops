@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/WEB-INF/classes/schematool/core
+END
+SimpleType.class
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/WEB-INF/classes/schematool/core/SimpleType.class
+END
+NCName.class
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/WEB-INF/classes/schematool/core/NCName.class
+END
+Facet.class
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/WEB-INF/classes/schematool/core/Facet.class
+END
+DateValidator.class
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/WEB-INF/classes/schematool/core/DateValidator.class
+END
+PropertySchema.class
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/WEB-INF/classes/schematool/core/PropertySchema.class
+END
+ResourceSchema.class
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/u-p2p/!svn/ver/4/u-p2p/trunk/web/SchemaTool/WEB-INF/classes/schematool/core/ResourceSchema.class
+END

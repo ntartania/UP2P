@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+  - Licensed to the Apache Software Foundation (ASF) under one or more
+  - contributor license agreements.  See the NOTICE file distributed with
+  - this work for additional information regarding copyright ownership.
+  - The ASF licenses this file to You under the Apache License, Version 2.0
+  - (the "License"); you may not use this file except in compliance with
+  - the License.  You may obtain a copy of the License at
+  -
+  -     http://www.apache.org/licenses/LICENSE-2.0
+  -
+  - Unless required by applicable law or agreed to in writing, software
+  - distributed under the License is distributed on an "AS IS" BASIS,
+  - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  - See the License for the specific language governing permissions and
+  - limitations under the License.
+  -
+  - $Id: web.xml 551444 2007-06-28 04:39:52Z vgritsenko $
+  -->
+
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+                         "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+
+<!--
+  - Xindice Server WebApp Configuration File
+  -
+  - Version: $Revision: 551444 $ $Date: 2007-06-28 00:39:52 -0400 (Thu, 28 Jun 2007) $
+  - Authors: Kimbro Staken (kstaken@xmldatabases.org)
+  -          Vladimir R. Bossicard (vladimir@bossicard.com)
+  -->
+
+<web-app>
+  <display-name>Apache Xindice</display-name>
+  <description>Apache Xindice XMLRPC Server</description>
+
+  <servlet>
+    <servlet-name>xindice</servlet-name>
+    <servlet-class>org.apache.xindice.server.XindiceServlet</servlet-class>
+
+    <!--
+      - This parameter should point to the Xindice Server configuration
+      - file. Relative paths resolved relative to webapp context root and
+      - must point to the resource within context. Absolute paths
+      - (starting with '/') loaded from the file system.
+      -->
+    <init-param>
+      <param-name>xindice.configuration</param-name>
+      <param-value>WEB-INF/config/system.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>webadmin.configuration</param-name>
+      <param-value>WEB-INF/config/webadmin.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>mimetable.configuration</param-name>
+      <param-value>WEB-INF/config/MimeTypes.xml</param-value>
+    </init-param>
+
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>xindice</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+  <!--
+    - Security constraint on the Xindice WebApp allows to protect
+    - Xindice XML-RPC server with Basic HTTP Authentication.
+    -
+    - In addition to this configuration, servlet engine should have
+    - "xindice" realm configuration. For Jetty config, see tools/jetty/main.xml
+    -
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Xindice Server</web-resource-name>
+      <url-pattern>/</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>xindice</role-name>
+    </auth-constraint>
+  </security-constraint>
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>xindice</realm-name>
+  </login-config>
+  <security-role>
+    <role-name>xindice</role-name>
+  </security-role>
+   -->
+</web-app>

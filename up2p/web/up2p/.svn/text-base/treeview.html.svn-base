@@ -1,0 +1,36 @@
+<html>
+	<head>
+	<title>Local Resource Browser</title>
+	<style>
+	body{
+		font-size: 11pt;
+		background-color: #ffffff;
+		font-family: sans-serif;
+		color: black;
+		margin-bottom: 30px;
+	}
+	
+	.treeUriLink {
+		color: #4481d3;
+	}
+	
+	.trigger{
+	  cursor: pointer;
+	  cursor: hand;
+	}
+	
+	.branch{
+	  cursor: pointer;
+	  cursor: hand;
+	  margin-left: 16px;
+	}
+	</style>
+	<script type="text/javascript" src="jquery-1.5.1.min.js"></script>
+	<script type="text/javascript" language="Javascript" SRC="treeview.js"></script>
+	</head>
+	
+	<body>
+	<div id="tree">
+	</div>
+	</body>
+</html>

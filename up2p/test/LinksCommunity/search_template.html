@@ -1,0 +1,54 @@
+<!-- Template for custom search pages required database tree access. -->
+<!-- By Alexander Craig -->
+
+<!-- Script required for database tree browsing -->
+<script type="text/javascript" language="Javascript" SRC="treeField.js"></script>
+
+<!-- Header table, preferrably styled using css -->
+<table id="title_box">
+	<tr>
+		<td>
+			<h3>HEADER TEXT FOR SEARCHING FOR A RESOURCE GOES HERE</h3>
+		</td>
+	</tr>
+</table>
+
+<!-- Horizontal divider -->
+<hr>
+
+<!-- Begin search form -->
+<form action="search" method="post">
+<!-- Table to collect search terms, once again prefferably styled with css -->
+<table id="form_table">
+	<!-- For each field that requires database tree viewing, use the following -->
+	<!-- BEGIN -->
+	<tr><th align="left">FIELD TITLE</th>
+	<td><input type="text" id="NAME_ID" name="XPATH TO NAME FIELD IN DATABASE RECORD">
+	<input type="hidden" id="LINK_ID" name="XPATH TO LINK FIELD IN DATABASE RECORD">
+	<input type="button" onclick="showTree('NAME_ID', 'LINK_ID');" value="Browse DB">
+	</td></tr>
+	<!-- END -->
+	
+	<!-- Note, NAME_ID and LINK_ID should be replaced with descriptive id's for the field, and must be unique ids on this page -->
+	<!-- For example:
+	
+	<tr><th align="left">Subject</th>
+	<td><input type="text" id="SubjectTitle" name="/RDFLink/SubjectTitle">
+	<input type="hidden" id="SubjectUri" name="/RDFLink/SubjectUri">
+	<input type="button" onclick="showTree('SubjectTitle', 'SubjectUri');" value="Browse DB">
+	</td></tr>
+	
+	-->
+	
+	<!-- Text fields that do not require database viewing can use the following form: -->
+	<!-- BEGIN -->
+	<tr><th align="left">FIELD TITLE</th><td><input type="text" name="XPATH TO FIELD IN DATABASE RECORD"> </td></tr>
+	<!-- END -->
+</table>
+
+<p align="center">&nbsp; &nbsp; &nbsp;
+                    <input type="submit" value="Search">
+                    &nbsp; &nbsp; &nbsp;
+                    <input type="reset" name="reset" value=" Clear ">
+</p>
+</form>

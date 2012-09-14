@@ -1,0 +1,26 @@
+<!--
+	UP2Pedia "Search" Page	
+	By: Alexander Craig
+	    alexcraig1@gmail.com
+		
+	This file is part of the Universal Peer to Peer Project
+	http://www.nmai.ca/research-projects/universal-peer-to-peer
+-->
+<script type="text/javascript" src="comm_attach/p2pedia.js"></script>
+<div class="up2pediaArticle">
+<h2>Search for an Article</h2>
+<form action="search" method="post">
+<h3>Search by Title</h3>
+<input type="text" size="60" name="/article/title" />
+<h3>Search by Text Contents</h3>
+<input type="text" size="60" name="/article/content" id="text_term" />
+<h3>Search Extent</h3>
+<input type="radio" name="up2p:extent" value="0" checked="true"> Full Search (Local + Network)<br>
+<input type="radio" name="up2p:extent" value="1"> Local Search Only<br>
+<br />
+<input type="submit" value="Search">
+</form>
+<br />
+<button type="button" onclick="searchAll();">Search for All Available Articles</button>
+<form id="up2pedia-hidden-form" class="hidden" />
+</div>

@@ -1,0 +1,37 @@
+<script type="application/javascript">
+<!--
+function installExtension(aEvent)
+{
+  var params = {
+    "Install U-P2P Zotero Extension": { URL: aEvent.target.href,
+             toString: function () { return this.URL; }
+    }
+  };
+  InstallTrigger.install(params);
+
+  return false;
+}
+-->
+</script>
+
+<div class="bibframe">
+<h1>Share a Publication</h1>
+
+<p>This community is for sharing XML formatted BibTeX entries and PDF files, using the <a href="http://bibtexml.sourceforge.net/">BibTeXML</a> format. Creating BibTeXML entries through the web interface is not supported at this time. However, a UP2P-Lib extended version of the <a href="http://www.zotero.org/">Zotero</a> Firefox extension is available which can automatically generate BibTeXML format citation data. We are working with the Zotero developers to include our changes in the base Zotero package, but at this time the UP2P-Lib extension is not compatible with the standard Zotero install.</p>
+
+<p>To <strong>install the UP2P-Lib Zotero extension</strong> and <strong>collect reference data</strong>:</p>
+
+<ol>
+<li>Ensure that you're using <strong>Firefox version 4.0 or later</strong>. Your version of Firefox can be checked from the "Help > About Firefox" menu option. If required, you can update your version of Firefox at the <a href="http://www.mozilla.com/en-US/firefox/new/">Mozilla Firefox</a> site.</li>
+<li>Ensure that you do not already have the standard distribution of Zotero installed. You can check this from the "Tools > Add-ons" menu option (under the "Extensions" tab). If Zotero is already installed, you'll need to remove it before installing the UP2P-Lib specific version. Note that any existing reference data in your Zotero install will be not be deleted, and will still be available once the UP2P-Lib version is installed.</li>
+<li><strong><a href="comm_attach/ZoteroUP2PBuild_v1.0.xpi"
+  onclick="return installExtension(event);">Install the UP2P-Lib Zotero Firefox extension</a></strong>. This will require a restart of Firefox.</li>
+<li>Use Zotero to collect and import citation data from web sources (including UP2P-Lib), or from local files. For more information on importing references through Zotero, please see the <a href="http://www.zotero.org/support/getting_stuff_into_your_library">Zotero help pages</a>.</li>
+</ol>
+
+<p>To <strong>import reference data into UP2P-Lib</strong>:</p>
+<ol>
+<li>Export your desired Zotero items using the UP2P-BibTeXML export translator. To do this, highlight your desired items in the collection view, and select "Export Selected Items..." from the right click menu. Select "U-P2P BibTeXML" as the export format, and optionally select "Export Files" if you'd like to include attachment PDF files with your citation data. You will be prompted to select a location for your export, and a UP2P-Lib batch XML file will be generated in the selected location.</li>
+<li>To import your references into UP2P-Lib, select "Upload an Existing Resource" from the top of this page. Select the XML file you just generated as the resource file, and make sure the "Batch upload" checkbox is checked. If you chose to export files in the last step, you'll also need to attach all the PDF files in the same directory in the attachment file upload box. Click the "Upload Resource" button to finalize the import.</li>
+</ol>
+</div>
