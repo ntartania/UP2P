@@ -38,9 +38,9 @@ public class DocumentResource {
 	Request request;
 	String comid;
 	String docid;
-	UserWebAdapter adapter;
+	DefaultWebAdapter adapter;
 	
-	public DocumentResource(UriInfo uriInfo, Request request, String comid, String rid, UserWebAdapter adapter) {
+	public DocumentResource(UriInfo uriInfo, Request request, String comid, String rid, DefaultWebAdapter adapter) {
 		this.uriInfo = uriInfo;
 		this.request = request;
 		this.comid = comid;

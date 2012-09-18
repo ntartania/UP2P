@@ -66,10 +66,10 @@ public class CommunityResource {
 	
 	//the community id
 	String comid;
-	UserWebAdapter adapter; //TODO: I could change this to be a DefWebAdapter, I would need a different accessfilter (initializes with UserWA)
+	DefaultWebAdapter adapter; //TODO: I could change this to be a DefWebAdapter, I would need a different accessfilter (initializes with UserWA)
 
 	
-	public CommunityResource(UriInfo uriInfo2, Request request2, String co, UserWebAdapter adapter) {
+	public CommunityResource(UriInfo uriInfo2, Request request2, String co, DefaultWebAdapter adapter) {
 		this.request =request2;
 		this.comid = co;
 		this.uriInfo=uriInfo2;
@@ -236,7 +236,7 @@ public class CommunityResource {
 	@Produces(MediaType.TEXT_XML)
 	public String getResource(){
 		
-		Document myResponse= adapter.getCommunityContentAsDOM(comid, false);
+		Document myResponse= (Document) adapter.getCommunityAsDOM(comid, false);
 
 		//transform Document into String
 		StringWriter sw = new StringWriter();

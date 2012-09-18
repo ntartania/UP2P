@@ -59,15 +59,15 @@ public class HostCache {
 	private static HostCache singletonHC;
 
 	
-	private int nextHostIndex;
+	
 	private Set<Host> friends; 
 	//private Set<Host> friendOf; thought it may be useful to know who's connected to me...
 	private Set<Host> blacklist; //list of gnutella-id blacklisted hosts
 	private static Map<GUID,Host> knownHosts; //a list of known network locations to find peers
 	private Set<IPPort> knownLocations; //known locations (IPPort) of friends, bootstrap before we have the GUIDs. 
 	private Set<Host> knownRelays; //a list of possible relay peers
-	private boolean removingAllHosts = false;
-	private ConnectionList activeConnections;
+	
+	
 	/** Name of Logger used by this class. */
     public static final String LOGGER = "protocol.com.kenmccrary.jtella";
 
@@ -91,7 +91,7 @@ public class HostCache {
 		friends = Collections.synchronizedSet(new HashSet<Host>());
 		blacklist=Collections.synchronizedSet(new HashSet<Host>());
 		knownRelays = Collections.synchronizedSet(new HashSet<Host>());
-		nextHostIndex = 0;
+		
 	}
 	
 	/** Gets a host by its GUID.
@@ -111,25 +111,6 @@ public class HostCache {
 	}
 	
 	
-	// Add to beginning, remove from beginning (get newest all the time)
-
-	/*
-	 * EDITED BY: Daniel Meyers, 2003
-	 * <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	 * Adds a host to the cache, or sets the host's state to active
-	 * if it already exists in the cache (does not change the state of the
-	 * passed parameter)
-	 *
-	 * @param host Host object representing the host to add
-	 * @return true if the host was added, false if it was already present
-	 * /
-	public void addknownHost(Host host) {
-		
-		synchronized(knownHosts){		
-		knownHosts.put(host.getGUID(), host);
-		}
-		
-	}*/
 	
 	/**
 	 * add this host to our friendlist
@@ -182,18 +163,7 @@ public class HostCache {
 		friends.remove(host);
 	}
 
-	/**
-	 *  Removes all host from the cache, if all hosts are replying as busy
-	 *  after time limit X it might be an idea to clear the cache and 
-	 *  repopulate from GWebCaches instead of X-Try-Ultrapeers
-	 */
-	public synchronized void removeAllHosts() {
-		removingAllHosts = true;
-		while (!friends.isEmpty()) {
-			friends.remove(0);
-		}
-		removingAllHosts = false;
-	}
+	
 
 	/**
 	 *  Get a list of the Hosts cached

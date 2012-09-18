@@ -10,6 +10,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.Consumes;
 
 
+import up2p.core.DefaultWebAdapter;
 import up2p.core.UserWebAdapter;
 
 import com.sun.jersey.api.NotFoundException;
@@ -17,10 +18,10 @@ import com.sun.jersey.api.NotFoundException;
 public class DownloadResource {
 	
 		private String downloadid;
-		private UserWebAdapter adapter;
+		private DefaultWebAdapter adapter;
 		
 		//constructor for a specific download
-		public DownloadResource(String sid, UserWebAdapter adapter){
+		public DownloadResource(String sid, DefaultWebAdapter adapter){
 			downloadid=sid;		
 			this.adapter = adapter;
 		}

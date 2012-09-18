@@ -11,14 +11,15 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import up2p.core.DefaultWebAdapter;
 import up2p.core.UserWebAdapter;
 
 public class SearchResource {
 
 	//private String communityId;
-	private UserWebAdapter adapter;
+	private DefaultWebAdapter adapter;
 	
-	public SearchResource(UserWebAdapter adapter) {
+	public SearchResource(DefaultWebAdapter adapter) {
 		
 		this.adapter=adapter;
 	}

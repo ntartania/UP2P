@@ -2,6 +2,7 @@ package up2p.rest;
 
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +18,7 @@ import org.w3c.dom.Document;
 import com.sun.jersey.api.NotFoundException;
 
 
+import up2p.core.DefaultWebAdapter;
 import up2p.core.LocationEntry;
 import up2p.core.UserWebAdapter;
 import up2p.core.WebAdapter;
@@ -25,10 +27,10 @@ import up2p.xml.TransformerHelper;
 
 public class SearchSessionResource {
 	private String searchId;
-	private UserWebAdapter adapter;
+	private DefaultWebAdapter adapter;
 	
 	//constructor for a specific search
-	public SearchSessionResource(String sid, UserWebAdapter adapter){
+	public SearchSessionResource(String sid, DefaultWebAdapter adapter){
 		searchId=sid;		
 		this.adapter = adapter;
 	}
@@ -59,7 +61,7 @@ public class SearchSessionResource {
 		sb.append("<?xml version=\"1.0\"?><up2pSearch>");
 		
 		
-		List<SearchResponse> resp= adapter.getSearchResults(searchId);
+		List<SearchResponse> resp= Arrays.asList(adapter.getSearchResults(searchId));
 		
 		
 		//Map<String,String> resmap = FakeUP2P.getInstance().getSearchResults(searchId); //get whatever searchresults are available.

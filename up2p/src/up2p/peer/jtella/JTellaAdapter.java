@@ -87,7 +87,9 @@ import up2p.xml.TransformerHelper;
  */
 
 public class JTellaAdapter extends BasePeerNetworkAdapter implements MessageReceiver, SearchResponseListener, ConnectedHostsListener {
-    /** Location of local file containing cache of Gnutella hosts. */
+  
+
+	/** Location of local file containing cache of Gnutella hosts. */
     //public static final String HOST_CACHE_FILE = "up2p.peer.jtella.hostCache";
 	public static final String HOST_CACHE_FILE = "data" + File.separator + "HostCache.xml";
 	
@@ -206,8 +208,8 @@ public class JTellaAdapter extends BasePeerNetworkAdapter implements MessageRece
     	
 		this.urlPrefix = urlPrefix;
     	this.relayPeerUrl = config.getProperty("networkAdapter.relayPeer", "");
-    	this.serventId = config.getProperty("up2p.gnutella.serventId");
-    	System.out.println("JTELLA:: gnutella servent Id:"+serventId);
+    	this.serventId = config.getProperty(Config.STRACCIATELLA_SERVENT_ID);
+    	System.out.println("JTELLA:: stracciatella servent Id:"+serventId);
     	
     	////////////////////////////////////////////////////set Gnutella Servent ID from config
 		byte[] serventIdasArray = new byte[16];
@@ -219,8 +221,8 @@ public class JTellaAdapter extends BasePeerNetworkAdapter implements MessageRece
 		/////////////////////////////////////////////////////////////////////////////////////////////
 		StracciatellaConnection.setServentIdentifier(serventIdasArray);
     	setWebAdapter(adapter);
-    	initialize(config.getProperty("up2p.gnutella.incoming", "6346"),
-    			Boolean.parseBoolean(config.getProperty("up2p.gnutella.peerdiscovery", "false")));
+    	initialize(config.getProperty(Config.STRACCIATELLA_INCOMING_PORT, "6346"),
+    			Boolean.parseBoolean(config.getProperty("up2p.stracciatella.peerdiscovery", "false")));
     	initializeHostCache();
     	messageTable = new HashMap<String,SearchMessage>();
     	peerIdToClientGuid = new HashMap<String,GUID>();

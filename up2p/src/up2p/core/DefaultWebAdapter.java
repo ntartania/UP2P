@@ -102,6 +102,8 @@ import console.QueryLogWorker;
  */
 public class DefaultWebAdapter implements WebAdapter {
     
+	
+
 	//TODO: make this configuration
 	private static final boolean VALIDATION_ON = true;
 	
@@ -872,7 +874,7 @@ public class DefaultWebAdapter implements WebAdapter {
                    + ".", e);
         }
         
-       if(config.getProperty("up2p.password.salt") == null) {
+       if(config.getProperty(Config.PASSWORD_SALT) == null) {
         	LOG.info("Got null password salt, generating new salt.");
         	SecureRandom saltGenerator = new SecureRandom();
         	HexBinaryAdapter hexConverter = new HexBinaryAdapter();
@@ -884,7 +886,7 @@ public class DefaultWebAdapter implements WebAdapter {
         		for(byte b :salt)
         			System.out.println(b);*/
         	String saltHex = hexConverter.marshal(salt);
-        	config.addProperty("up2p.password.salt", saltHex,
+        	config.addProperty(Config.PASSWORD_SALT, saltHex,
 				"Hex string of the salt bytes used for user authentication.");
         	LOG.info("Saved salt: " + config.getProperty("up2p.password.salt"));
         }
@@ -892,16 +894,16 @@ public class DefaultWebAdapter implements WebAdapter {
         notifications = new ArrayList<UserNotification>();
        
         
-        //Gnutella servent ID generation -------------------------
-        if (config.getProperty("up2p.gnutella.serventId")==null){
+        //stracciatella servent ID generation -------------------------
+        if (config.getProperty(Config.STRACCIATELLA_SERVENT_ID)==null){
     		byte[] serventId = Utilities.generateClientIdentifier(System.currentTimeMillis()+getPort());
     		String idstring = "";
     		for (byte k : serventId){
     			idstring = idstring + String.valueOf(k) + ".";
     		}
-    		config.addProperty("up2p.gnutella.serventId", idstring,
-			"Gnutella Servent Id, stored for persistence over multiple sessions.");
-    		LOG.info("Generated new gnutella servent Id:"+config.getProperty("up2p.gnutella.serventId"));
+    		config.addProperty(Config.STRACCIATELLA_SERVENT_ID, idstring,
+			"stracciatella Servent Id, stored for persistence over multiple sessions.");
+    		LOG.info("Generated new stracciatella servent Id:"+config.getProperty(Config.STRACCIATELLA_SERVENT_ID));
     	} 
             
         //TUPLESPACE!!================
@@ -948,7 +950,7 @@ public class DefaultWebAdapter implements WebAdapter {
         // WARNING: LatestSearchResponses and toRepository must be initialized before this call
         setPort(configPort);
         // Port should be set before initializing the network so that a valid download
-        // port can be advertised at the Gnutella level
+        // port can be advertised at the stracciatella level
         toNetwork = new Core2Network(rootPath, this, config);
         
         //TUPLESPACE initialization for other classes
@@ -1496,6 +1498,7 @@ public class DefaultWebAdapter implements WebAdapter {
     /*
      * @see up2p.core.WebAdapter#getPort()
      */
+    /** listen port*/
     public int getPort() {
         return localPort;
     }
@@ -2460,19 +2463,19 @@ public class DefaultWebAdapter implements WebAdapter {
                     + "'.", e);
         }
         
-        String monitorIP = config.getProperty("up2p.monitoring.ip") ;
-        String monitorport = config.getProperty("up2p.monitoring.port") ;
+        String monitorIP = config.getProperty(Config.MONITORING_IP) ;
+        String monitorport = config.getProperty(Config.MONITORING_PORT) ;
        
         if(monitorIP != null) {
         	
-        	String networkId =getHost()+":"+config.getProperty("up2p.gnutella.incoming", "6346")+"["+urlPrefix+"]";
-        	String gserventId =	config.getProperty("up2p.gnutella.serventId"); //
+        	String networkId =getHost()+":"+config.getProperty(Config.STRACCIATELLA_INCOMING_PORT, "6346")+"["+urlPrefix+"]";
+        	String gserventId =	config.getProperty(Config.STRACCIATELLA_SERVENT_ID); //
         	try {
 				mw = new MonitorWorker(tspace, networkId, gserventId);
 			} catch (SocketException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} //the gnutella incoming port uniquely identifies a node on a given host. 
+			} //the stracciatella incoming port uniquely identifies a node on a given host. 
         	mw.addUDPListener(monitorIP, Integer.parseInt(monitorport));
         	mw.start();
         }
@@ -2645,7 +2648,7 @@ public class DefaultWebAdapter implements WebAdapter {
 	 * @return The hex string of salt bytes that should be used for user authentication.
 	 */
 	public String getSaltHex() {
-		return config.getProperty("up2p.password.salt");
+		return config.getProperty(Config.PASSWORD_SALT);
 	}
 	
 	/**
@@ -2653,7 +2656,7 @@ public class DefaultWebAdapter implements WebAdapter {
 	 * 			if no user has been set.
 	 */
 	public String getPasswordHashHex() {
-		return config.getProperty("up2p.password.hash");
+		return config.getProperty(Config.PASSWORD_HASH);
 	}
 	
 	/**
@@ -2661,7 +2664,7 @@ public class DefaultWebAdapter implements WebAdapter {
 	 * 			if no user has been set.
 	 */
 	public String getUsername() {
-		return config.getProperty("up2p.username");
+		return config.getProperty(Config.UP2P_USERNAME);
 	}
 	
 	/**
@@ -2671,9 +2674,9 @@ public class DefaultWebAdapter implements WebAdapter {
 	 * @param passwordHashHex	A hex string of the user's password's SHA-1 x1000 hash
 	 */
 	public void setUser(String username, String passwordHashHex) {
-		config.addProperty("up2p.username", username,
+		config.addProperty(Config.UP2P_USERNAME, username,
 				"Username required to login to this U-P2P instance.");
-		config.addProperty("up2p.password.hash", passwordHashHex,
+		config.addProperty(Config.PASSWORD_HASH, passwordHashHex,
 				"Hex string of the user's password (digested 1000 times with SHA-1)");
 	}
 
@@ -2708,6 +2711,11 @@ public class DefaultWebAdapter implements WebAdapter {
 	/** check if this pair IP, communtiyId match an expected PUSH*/
 	public boolean checkForPush(String sender, String communityId) {
 		return downloadMgr.checkForPush(sender, communityId);
+	}
+
+	public Config getConfig() {
+	
+		return config;
 	}
 	        
 			

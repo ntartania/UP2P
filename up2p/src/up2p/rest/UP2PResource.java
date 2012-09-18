@@ -2,6 +2,7 @@ package up2p.rest;
 
 import java.io.InputStream;
 import java.net.URI;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.ws.rs.Consumes;
@@ -17,7 +18,9 @@ import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
+import up2p.core.DefaultWebAdapter;
 import up2p.core.UserWebAdapter;
+import up2p.util.Config;
 
 import com.sun.jersey.multipart.MultiPart;
 
@@ -36,7 +39,7 @@ public class UP2PResource {
 	
 	//the community id
 	
-	UserWebAdapter adapter;
+	DefaultWebAdapter adapter;
 	
 	public UP2PResource(){
 		
@@ -50,7 +53,7 @@ public class UP2PResource {
 			return;
         Object o = context.getAttribute("adapter");
         if (o != null)
-            adapter = (UserWebAdapter) o;
+            adapter = ((UserWebAdapter) o).getDefWebAdapter();
         else {
         	System.out.println( "UP2Presource init: servlet not null, adapter null");
         	adapter = null;
@@ -75,7 +78,16 @@ public class UP2PResource {
 	@Produces(MediaType.TEXT_XML)
 	public String sayXMLHello() {
 		getAdapter();
-		return "<?xml version=\"1.0\"?><up2p>up2p global resource</up2p>";
+		String rootCommunityId = adapter.getRootCommunityId();
+		StringBuilder sb = new StringBuilder();
+		sb.append("<?xml version=\"1.0\"?><up2p>");
+		Config config = adapter.getConfig();
+		Map<String,String> props =config.listProperties();
+		props.put("root.community.id", rootCommunityId);
+		for(String pname:props.keySet())
+			sb.append("<ConfigProperty name=\""+ pname+"\" value =\""+props.get(pname)+"\" />");
+		sb.append("</up2p>");
+		return sb.toString();
 	}
 	/*
 	@POST //add a new community 

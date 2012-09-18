@@ -7,7 +7,9 @@ import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Map;
 import java.util.Properties;
+import java.util.TreeMap;
 
 /**
  * Configuration object that holds properties for use by the default components
@@ -21,7 +23,14 @@ import java.util.Properties;
  */
 public class Config {
 
-    /** Name of the property file to load settings from. */
+	  public static final String STRACCIATELLA_SERVENT_ID = "up2p.stracciatella.serventId";
+	  public static final String STRACCIATELLA_INCOMING_PORT = "up2p.stracciatella.incoming";
+	public static final String MONITORING_IP = "up2p.monitoring.ip";
+	public static final String MONITORING_PORT = "up2p.monitoring.port";
+	public static final String PASSWORD_SALT = "up2p.password.salt";
+	public static final String PASSWORD_HASH = "up2p.password.hash";
+	public static final String UP2P_USERNAME = "up2p.username";
+	/** Name of the property file to load settings from. */
     protected String propFile;
 
     /** Property file */
@@ -169,5 +178,13 @@ public class Config {
             }
         }
         return value;
+    }
+    
+    public Map<String,String> listProperties(){
+    	Map<String,String> allprops = new TreeMap<String,String>();
+    	for (String k: properties.stringPropertyNames()){
+    		allprops.put(k, properties.getProperty(k));
+    	}
+    	return allprops;	
     }
 }

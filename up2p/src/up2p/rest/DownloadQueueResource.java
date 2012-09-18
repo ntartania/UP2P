@@ -17,6 +17,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 
+import up2p.core.DefaultWebAdapter;
 import up2p.core.UserWebAdapter;
 
 /*** this class represents the UP2P download queue*/
@@ -25,9 +26,9 @@ public class DownloadQueueResource {
 //private String communityId;
 	
 	
-	private UserWebAdapter adapter;
+	private DefaultWebAdapter adapter;
 	
-	public DownloadQueueResource(UserWebAdapter adapter) {
+	public DownloadQueueResource(DefaultWebAdapter adapter) {
 		this.adapter=adapter;
 	}
 
