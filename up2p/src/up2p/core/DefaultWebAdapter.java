@@ -12,16 +12,13 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.SocketException;
-import java.net.URI;
+import java.net.UnknownHostException;
+
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.net.UnknownHostException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -62,9 +59,6 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
-
-
-import antlr.collections.impl.BitSet;
 
 import stracciatella.Utilities;
 import up2p.search.SearchQuery;

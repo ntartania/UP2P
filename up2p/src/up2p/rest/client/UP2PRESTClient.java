@@ -92,6 +92,39 @@ public class UP2PRESTClient {
 		
 	}
 	
+	/** make a fancy xpath query for string queries, exact or keyword (substring) queries, which may be case sensitive or not
+	 * 
+	 * @param keypath the path to the element we're using for a match
+	 * @param value the value we're looking for
+	 * @param substring true if itś a substring search, false for exact match
+	 * @param casesensitive true if the query term should be taken to be case sensitive
+	 * 
+	 * */
+	private static String getQueryString(String keypath, String value, boolean substring, boolean casesensitive){
+		//example: "/article/content[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'keyword')]"
+		StringBuilder querystring = new StringBuilder();
+		querystring.append(keypath);
+		querystring.append("[");
+		if (substring)
+			querystring.append("contains(");
+		if (!casesensitive)
+			querystring.append("translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')");
+		else
+			querystring.append(".");
+		if(substring)
+			querystring.append(", ");
+		else
+			querystring.append("=");
+		if(!casesensitive)
+			value = value.toLowerCase();
+		querystring.append("'"+value+"'");
+		if(substring)
+			querystring.append(")");
+		querystring.append("]");
+		
+		return querystring.toString();
+	}
+	
 	private ClientResponse postXMLDoc(WebResource r, String doc) throws Exception {
 		
 		ClientResponse response = r.type(MediaType.TEXT_XML)
@@ -478,6 +511,20 @@ public class UP2PRESTClient {
 		ClientResponse resp= postXMLDoc(wr.path("search"),doc);
 		checkResponseStatus(resp, ClientResponse.Status.CREATED);
 		return resp.getLocation();
+	}
+	
+	/**
+	 *  post a new search in some particular community
+	 * @param com the community
+	 * @param keypath the key for the query (an XML path, e.g. /article/title)
+	 * @param value the value for the search (e.g. "ottawa")
+	 * @param substring substring search: true if we are looking for values containing the keyword, false if the key should exactly match the value
+	 * @param sensitive if the matching is supposed to be case sensitive 
+	 * @return the URI to retrieve search results
+	 * @throws Exception if something is wrong with the request (check error message)
+	 */
+	public URI KeyValueSearch(String com, String keypath, String value, boolean substring, boolean sensitive) throws Exception{
+		return postSearch(com, getQueryString(keypath, value, substring, sensitive));
 	}
 	
 	/** close a search session

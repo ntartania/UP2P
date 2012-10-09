@@ -42,6 +42,7 @@
 	<property name="schematool.files" value="web/SchemaTool" />
 	<property name="xindice.files" value="web/xindice" />
 	<property name="prepare.files" value="web/up2p" />
+	<property name="polyester-srcdir" value="/home/adavoust/m-drive/UP2P/EclipseWorkspace/polyester/src"/>
 		
 	<patternset id="client.build.files">
 		<patternset refid="common.exclude" />
@@ -248,7 +249,7 @@
 		<echo message="Compiling classes." level="info"/>
 		<mkdir dir="${build.classes}" />
 		
-		<javac srcdir="../polyester/src" destdir="${build.classes}" deprecation="on">
+		<javac srcdir="${polyester-srcdir}" destdir="${build.classes}" deprecation="on">
 			<classpath>
 				<fileset dir="../polyester/lib">
 					<include name="*" />

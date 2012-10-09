@@ -52,7 +52,7 @@ public class SearchResource {
 			}
 			if (query!= null){
 			
-			System.out.println("community="+comid+ "query="+query);
+			System.out.println("community="+comid+ " | query="+query);
 			
 			/* ********* searching in UP2P [returns query id] *********** 
 			 * note: there are alternative search behaviors, where one can specify the qid, local/global, etc.*/

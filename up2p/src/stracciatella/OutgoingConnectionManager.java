@@ -20,9 +20,11 @@
 package stracciatella;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -49,18 +51,23 @@ class OutgoingConnectionManager {
 	private Timer timer;
 	private StarterPool starterPool;
 	private ConnectionList connectionList;
+	private HostCache hc;
 	
 	// Name of logger used
 	public static final String LOGGER = "protocol.jtella";
 	// Instance of logger
 	public static Logger LOG = Logger.getLogger(LOGGER);
 	
+	private Map<Host, TimerTask> scheduledConnections;
 	
-	OutgoingConnectionManager(ConnectionList cl){
+	public OutgoingConnectionManager(ConnectionList cl, HostCache hc){
 		connectionList = cl;
+		starterPool = new StarterPool(null);
+		scheduledConnections = new HashMap<Host, TimerTask>();
+		//listeners = new Vector<ConnectedHostsListener>(1,1); //TODO: how is this used?
 	}
 	
-	private Vector<ConnectedHostsListener> listeners;
+	//private Vector<ConnectedHostsListener> listeners;
 
 	/*
 	 * Constructs the outgoing connection manager
@@ -82,15 +89,12 @@ class OutgoingConnectionManager {
 		listeners = new Vector<ConnectedHostsListener>(1, 1);
 	}*/
 	
-	/**
-	 * Adds a listener to this connection manager
-	 *
-	 */
-	public void addListener(ConnectedHostsListener listener) {
-		listeners.add(listener);
+	
+	
+	public void shutdown() {
+		timer.cancel();
+		
 	}
-	
-	
 
 	/**
 	 * schedule a connection to a host
@@ -98,19 +102,22 @@ class OutgoingConnectionManager {
 	 * @param waitingtime delay until we try connecting. 0 for immediate attempts.
 	 */
 	public void scheduleConnection(Host h, long waitingtime){
-		timer.schedule(new HostConnectionTask(h), waitingtime);
+		TimerTask task = new HostConnectionTask(h);
+		timer.schedule(task , waitingtime);
+		
 	}
 	
+	
+	
 	/**
-	 * Attempts to add an immediate connection, opening a slot if needed
-	 *
-	 * @param ipAddress host IP address
-	 * @param port port number
+	 * notify that a specific host is known to be online at a specific IP/port location 
+	 * @param h host
+	 * @param ipp optional: the IP/port location where the host was found (may be null)
 	 */
-	private void attemptConnection(Host host) {
+	public void notifyHostOnline(Host h, IPPort ipp){
+		TimerTask task = new HostConnectionTask(h, ipp);
+		timer.schedule(task , 0);
 		
-		ConnectionStarter starter = starterPool.getStarter();
-		starter.setHost(host);
 	}
 
 	/**
@@ -119,6 +126,7 @@ class OutgoingConnectionManager {
 	 */
 	class ConnectionStarter extends Thread {
 		private Host host;
+		private IPPort firstLocation;
 		private ConnectionData connectionData;
 		private StarterPool starterPool;
 		private boolean shutdown;
@@ -129,6 +137,8 @@ class OutgoingConnectionManager {
 			super("ConnectionStarter");
 			this.connectionData = connectionData;
 			this.starterPool = starterPool;
+			firstLocation = null;
+			host = null;
 		}
 
 		void shutdown() {
@@ -141,11 +151,20 @@ class OutgoingConnectionManager {
 		 *
 		 * @param host host to work on
 		 */
-		void setHost(Host host) {
+		public void setHost(Host host) {
 			this.host = host;
 			synchronized (this) {
 				notify();
 			}
+		}
+		
+		/**
+		 * set the first IP/Port location to look. Used when a host is actually found online, 
+		 * to connect where it is found
+		 * @param ipp
+		 */
+		public void setFirstLocation(IPPort ipp) {
+			firstLocation = ipp;
 		}
 
 		/**
@@ -166,9 +185,13 @@ class OutgoingConnectionManager {
 
 				if (null != host) {
 					try {
+						boolean success = false;
 						List<IPPort> trylocations = host.getKnownLocations();
 						Iterator<IPPort> iter = trylocations.iterator();
-						boolean success = false;
+						//try this ip-port location in priority
+						if (firstLocation !=null)
+							success=connectionList.startOutgoingConnection(iter.next());
+						
 						while (iter.hasNext() && !shutdown && !success){
 							success=connectionList.startOutgoingConnection(iter.next());
 						}
@@ -176,6 +199,7 @@ class OutgoingConnectionManager {
 							scheduleConnection(host,RETRY_TIME);
 						
 						host = null;
+						firstLocation =null;
 						starterPool.putStarter(this);
 					}
 					catch (Exception e) {
@@ -184,20 +208,37 @@ class OutgoingConnectionManager {
 				}
 			}
 		}
+
+		
 	}
 	
 	private class HostConnectionTask extends TimerTask{
 
 		private Host h;
+		private IPPort ipp;
 		
 		public HostConnectionTask(Host h){
 			this.h=h;
 		}
 		
+		public HostConnectionTask(Host h, IPPort ipp){
+			this.h =h;
+			this.ipp=ipp;
+		}
+		
 		@Override
 		public void run() {
-			attemptConnection(h);
 			
+			//first check that we're not already connected to this peer 
+			//(in case we had a notification and opened an immediate connection)
+			if (connectionList.hasOutgoingConnectionTo(h.getGUID()))
+				return;
+			
+			ConnectionStarter starter = starterPool.getStarter();
+			if(ipp !=null)
+				starter.setFirstLocation(ipp);
+			starter.setHost(h);
+					
 		}
 	
 	}
@@ -278,8 +319,14 @@ class OutgoingConnectionManager {
 		}
 	}
 
-	public void shutdown() {
-		timer.cancel();
+	/** notification from hostcache that we added this host as a friend.
+	 * */
+	
+	public void notifyFriend(Host host) {
+		scheduleConnection(host,0);
 		
 	}
+
+
+	
 }

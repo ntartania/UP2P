@@ -130,10 +130,8 @@ class IncomingConnectionManager extends Thread {
 	public void run() {
 		while (!isShutdown()) {
 			// clean dead connections
-			int numLive = connectionList.cleanDeadConnections(Connection.CONNECTION_INCOMING);
-			
-			
-
+			//int numLive = connectionList.cleanDeadConnections(Connection.CONNECTION_INCOMING);
+			int numLive = connectionList.getActiveIncomingConnectionCount();
 			/*// check for need to reduce connection count
 			if (numLive > connectionData.getIncommingConnectionCount()) {
 				

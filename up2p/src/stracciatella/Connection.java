@@ -140,7 +140,7 @@ public class Connection implements Runnable {
 	protected long sendTime;
 	
 	// Listeners to notify whenever the ConnectionList changes
-	private List<ConnectedHostsListener> listeners;
+	//private List<ConnectedHostsListener> listeners;
 	
 	///////////////////////
 	protected Map<String,String> connectionProperties; //this stores all the info about the connection as read from the STRACCIATELLA connect headers
@@ -162,7 +162,7 @@ public Connection(Socket socket, ConnectionList clist)
 		 
 		//type = CONNECTION_INCOMING;
 		messageBacklog = Collections.synchronizedList(new LinkedList<MessageData>());
-		listeners = Collections.synchronizedList(new ArrayList<ConnectedHostsListener>());
+		//listeners = Collections.synchronizedList(new ArrayList<ConnectedHostsListener>());
 		initSocket();
 }
 
@@ -223,17 +223,17 @@ public Connection(Socket socket, ConnectionList clist)
 		return connectionProperties.get("Listen-IP");
 	}
 	
-	/**
+	/*
 	 * ADDED BY: Daniel Meyers, 2004
 	 * <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	 * Notifies all listeners of some change to the connection
 	 *
-	 */
+	 * /
 	protected void notifyListeners() { //TODO: check that we don't have a deadlock with shutdown() method in connectionList
 
 		for (ConnectedHostsListener temp :listeners)
 			temp.hostsChanged(new HostsChangedEvent(this));
-	}
+	}*/
 
 
 
@@ -265,11 +265,12 @@ public Connection(Socket socket, ConnectionList clist)
 
 		if ((status == STATUS_OK) || (status == STATUS_FAILED)) {
 			status = STATUS_STOPPED;
-			notifyListeners();
+			
 		}
 		else {
 			status = STATUS_STOPPED;
-		}
+		} //////////////requisite: now, status == stopped
+		connectionList.dropConnection(this); //won't loop because status == stopped.
 
 		// Only close the socket if it is not going to be handed on as
 		// part of the response to a push request
@@ -1130,8 +1131,7 @@ public Connection(Socket socket, ConnectionList clist)
 						keepAlivePing.setTTL((byte)1);
 						prioritySend(keepAlivePing);
 						sequentialReadError++;
-						// Wait briefly to allow data to filter through over the internet
-						//waitMethod(100);
+						
 						break START;
 					}
 					/*catch (Exception e) {
@@ -1195,7 +1195,7 @@ public Connection(Socket socket, ConnectionList clist)
 
 				if (!routeOK) {
 					// indicates an overrun router, too many connections
-					LOGnormal.debug("Connection shut " + "down, overrun router");
+					LOGnormal.debug("Connection shut down, overrun router");
 					shutdown();
 					continue;
 				}
@@ -1214,7 +1214,7 @@ public Connection(Socket socket, ConnectionList clist)
 							+ ":" + String.valueOf(connectionData.getIncomingPort()));
 					send(pong);
 				}
-			}
+			} //end connection running loop
 		} catch (Exception e) {
 			handleConnectionError(e);
 		}

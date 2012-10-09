@@ -42,7 +42,7 @@ public class UP2PResource {
 	DefaultWebAdapter adapter;
 	
 	public UP2PResource(){
-		
+	//note: can get the adapter now as servlet context is null, at least until a first request has been made.
 	}
 	
 	/**
@@ -51,6 +51,8 @@ public class UP2PResource {
 	private void getAdapter() {
 		if (adapter!= null)
 			return;
+		if (context==null)
+			System.out.println("servlet context is null!");
         Object o = context.getAttribute("adapter");
         if (o != null)
             adapter = ((UserWebAdapter) o).getDefWebAdapter();
@@ -67,7 +69,7 @@ public class UP2PResource {
 		return "<html><title>UP2P REST Interface</title>"
 		+ "<body><h1>UP2P REST Interface</h1>" +
 				"<h2>Available URIs:</h2><br/>" +
-				" /community/[cid], = GET returns community contents (root community is ... 00abcd... TBD), POST new documents there (multipart with attachments) <br/>" +
+				" /community/[cid], = GET returns community contents (root community is "+adapter.getRootCommunityId()+"), POST new documents there (multipart with attachments) <br/>" +
 				"/community/[cid]/[docid] =view a document, request TEXT/XML to leave out the attachments or multipart/mixed for the full shebang <br/>" +
 				 "/search/ = POST a query, GET the current results for a queryid (short polling), DELETE a queryid to close search session and results set <br/> "+
 				 "/connections/[active OR hostcache OR blacklist]= GET to view connections of a particular type, POST to blacklist or cache a connection <br/>"+ 
@@ -89,31 +91,13 @@ public class UP2PResource {
 		sb.append("</up2p>");
 		return sb.toString();
 	}
-	/*
-	@POST //add a new community 
-	@Consumes(MediaType.TEXT_XML)
-	public Response addresource(InputStream is) {
-		try{
-			String myres;
-			try {
-				myres= new java.util.Scanner(is).useDelimiter("\\A").next();
-			} catch (java.util.NoSuchElementException e) {
-				myres= "";
-			}
-
-			String respid = FakeUP2P.getInstance().makeCommunity(myres);
-
-			return Response.created(URI.create(respid)).build();
-		} catch (Exception e) {
-			throw new WebApplicationException(e, Response.Status.INTERNAL_SERVER_ERROR);
-		}
-	}*/
+	
 	
 	
 	@Path("community/{community :[a-f0-9]*}")
 	public CommunityResource getCommunity(
 			@PathParam("community") String co) {
-		getAdapter();
+		getAdapter();	
 		return new CommunityResource(uriInfo, request, co, adapter);
 	}
 	
@@ -136,6 +120,7 @@ public class UP2PResource {
 	@Path("search")
 	public SearchResource getSearch() {
 		System.out.println("Identified search request" );
+		getAdapter();
 		return new SearchResource(adapter);
 	}
 }

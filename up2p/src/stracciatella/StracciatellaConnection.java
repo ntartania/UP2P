@@ -76,10 +76,10 @@ public class StracciatellaConnection {
 		// the cache of known gnutella hosts
 		hostCache = HostCache.getHostCache();
 		connectionList = new ConnectionList(connectionData);
+		hostCache.setConnectionList(connectionList);
 	
 		router = initializeRouter();
 		connectionList.setRouter(router);
-		
 		
 
 		// the router routes messages received on the connections
@@ -96,7 +96,9 @@ public class StracciatellaConnection {
 				);
 
 		outgoingConnectionManager =
-			new OutgoingConnectionManager(connectionList);
+			new OutgoingConnectionManager(connectionList, hostCache);
+		hostCache.setOutgoingConnectionManager(outgoingConnectionManager);
+		connectionList.setOutgoingConnectionManager(outgoingConnectionManager);
 
 		// TODO: Configurable "lookup" pings can probably be removed once
 		// active / known host separation is complete. For now, just set the
@@ -243,8 +245,8 @@ public class StracciatellaConnection {
 	 *
 	 */
 	public void addListener(ConnectedHostsListener chl) {
-		outgoingConnectionManager.addListener(chl);
-		incomingConnectionManager.addListener(chl);
+		connectionList.addListener(chl);
+		
 	}
 	
 	
@@ -266,12 +268,12 @@ public class StracciatellaConnection {
 		return connectionList;
 	}
 
-	/**
+	/*
 	 * Cleans dead connections from the connection list
-	 */
+	 * /
 	public void cleanDeadConnections() {
 		connectionList.cleanDeadConnections(Connection.CONNECTION_OUTGOING);
-	}
+	}*/
 
 	
 	
@@ -289,7 +291,16 @@ public class StracciatellaConnection {
 	 * @param port
 	 */
 	public void addFriend(String IP, int port){
-	//TODO: manage through hostcache
+	HostCache.getHostCache().addFriendLocation(IP, port);
+	}
+	
+	/** add an IP-port to contact a friend.
+	 * once the GUID at this location is resolved, the connected host will be added to the friends list.
+	 * @param IP
+	 * @param port
+	 */
+	public void addFriend(String guid){
+	HostCache.getHostCache().friend(HostCache.getHost(GUID.getGUID(guid)));
 	}
 	
 	/**

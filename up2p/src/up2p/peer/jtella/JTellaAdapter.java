@@ -209,7 +209,7 @@ public class JTellaAdapter extends BasePeerNetworkAdapter implements MessageRece
 		this.urlPrefix = urlPrefix;
     	this.relayPeerUrl = config.getProperty("networkAdapter.relayPeer", "");
     	this.serventId = config.getProperty(Config.STRACCIATELLA_SERVENT_ID);
-    	System.out.println("JTELLA:: stracciatella servent Id:"+serventId);
+    	
     	
     	////////////////////////////////////////////////////set Gnutella Servent ID from config
 		byte[] serventIdasArray = new byte[16];
@@ -218,6 +218,10 @@ public class JTellaAdapter extends BasePeerNetworkAdapter implements MessageRece
 			serventIdasArray[i]=Byte.parseByte(k);
 			i++;
 		}
+		System.out.println("JTELLA:: stracciatella servent Id [hex rep]:");
+		for (byte b: serventIdasArray)
+			System.out.print(String.format("%02X ", b));
+		
 		/////////////////////////////////////////////////////////////////////////////////////////////
 		StracciatellaConnection.setServentIdentifier(serventIdasArray);
     	setWebAdapter(adapter);
@@ -253,7 +257,7 @@ public class JTellaAdapter extends BasePeerNetworkAdapter implements MessageRece
 			ConnectionData connData = new ConnectionData();
 			connData.setIncommingConnectionCount(INCOMING_CONNECTIONS_WANTED);
 			connData.setOutgoingConnectionCount(OUTGOING_CONNECTIONS_WANTED);
-			connData.setUltrapeer(true);
+			connData.setUltrapeer(true); //TODO: this should be config, as it now will be used for relays
 			connData.setIncomingPort(Integer.valueOf(DEFAULT_LOCAL_PORT).intValue());
 			connData.setAgentHeader("up2p");
 			connData.setUrlPrefix(getUrlPrefix());

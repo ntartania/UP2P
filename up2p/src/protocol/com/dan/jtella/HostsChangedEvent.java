@@ -16,6 +16,9 @@ import stracciatella.Host;
  */
 public class HostsChangedEvent extends EventObject {
 
+	
+	
+	
 	/**
 	 * Constructor
 	 * 
@@ -23,5 +26,8 @@ public class HostsChangedEvent extends EventObject {
 	 */
 	public HostsChangedEvent(Connection source) {
 		super(source);
+	
 	}
+	
+	
 }

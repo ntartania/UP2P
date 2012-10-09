@@ -47,8 +47,8 @@ import com.sun.jersey.multipart.MultiPart;
 /** a class that represents a list of connections, either the hostcache, or the active connections, or the blacklist*/
 public class ConnectionListResource {
 
-	enum ConnectionType{ HOSTCACHE, ACTIVE, BLACKLIST};
-	
+	enum ConnectionType{ HOSTCACHE, ACTIVE, BLACKLIST, ANY};
+	//note: "any", referred by the uri "../potential" is to list potential connections, i.e. any known host
 	private ConnectionType ctype;
 	
 	
@@ -60,7 +60,9 @@ public class ConnectionListResource {
 			ctype= ConnectionType.ACTIVE;	
 		} else if(type.equalsIgnoreCase("blacklist")){
 			ctype= ConnectionType.BLACKLIST;	
-		} else
+		} else if(type.equalsIgnoreCase("potential")){
+			ctype= ConnectionType.ANY;	
+		}else
 		 throw new NotFoundException("Unknown connection type:"+ type);
 		
 	}
@@ -118,13 +120,16 @@ public class ConnectionListResource {
 				
 			if (ctype==ConnectionType.HOSTCACHE)
 			{
+				String guid =null;
 				String ipAddress=null;
 				int port = 0;
 				String[] theterms=myres.split("[><]"); //split the xml input by tags
 				//<IPAddress>134.117.60.64</IPAddress><port>6346</port>
 				for (int i=0;i<theterms.length;i++){
-
-					if (theterms[i].equalsIgnoreCase("IPAddress")){
+					if (theterms[i].equalsIgnoreCase("GUID")){
+						guid = theterms[i+1];
+					}
+					else if (theterms[i].equalsIgnoreCase("IPAddress")){
 						ipAddress = theterms[i+1];
 					} else
 						if (theterms[i].equalsIgnoreCase("port")){
@@ -132,9 +137,11 @@ public class ConnectionListResource {
 						} 
 
 				}
-				//TODO: add IP/port to connection manager, with some sort of indication that whoever answers is a friend...
-				//Host host = new Host(ipAddress, port,0,0); //ignore sharedfilecount/sharedfilesize
-				JTellaAdapter.getConnection().addFriend(ipAddress, port);
+				
+				if (guid!= null)
+					JTellaAdapter.getConnection().addFriend(guid);
+				else
+					JTellaAdapter.getConnection().addFriend(ipAddress, port);
 				String respid= "up2p:connection/hostcache/"+ipAddress+"/"+port;//TODO: figure out a URI for connections 
 				URI myuri = URI.create(respid);
 
@@ -142,6 +149,11 @@ public class ConnectionListResource {
 
 				return Response.created(myuri).build();
 
+			}
+			if (ctype==ConnectionType.ANY)
+			{
+				//this is for bootstrapping
+				
 			}
 
 		} catch (Exception e) {

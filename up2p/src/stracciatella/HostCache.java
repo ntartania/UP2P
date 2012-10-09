@@ -67,6 +67,8 @@ public class HostCache {
 	private Set<IPPort> knownLocations; //known locations (IPPort) of friends, bootstrap before we have the GUIDs. 
 	private Set<Host> knownRelays; //a list of possible relay peers
 	
+	private OutgoingConnectionManager outgoingConnectionManager;
+	private ConnectionList connectionList;
 	
 	/** Name of Logger used by this class. */
     public static final String LOGGER = "protocol.com.kenmccrary.jtella";
@@ -89,9 +91,25 @@ public class HostCache {
 	private HostCache(){
 		//all different, possibly overlapping subsets of hosts
 		friends = Collections.synchronizedSet(new HashSet<Host>());
+		//TODO: notify addition of new hosts, to automatically try connecting.
 		blacklist=Collections.synchronizedSet(new HashSet<Host>());
 		knownRelays = Collections.synchronizedSet(new HashSet<Host>());
 		
+	}
+	
+	/**
+	 * set the connection list
+	 * @param clist
+	 */
+	public void setConnectionList(ConnectionList clist){
+		connectionList = clist;
+	}
+	/**
+	 * set the outgoing connection manager
+	 * @param mgr
+	 */
+	public void setOutgoingConnectionManager(OutgoingConnectionManager mgr){
+		outgoingConnectionManager = mgr;
 	}
 	
 	/** Gets a host by its GUID.
@@ -118,15 +136,18 @@ public class HostCache {
 	 * @param host
 	 */
 	public void friend(Host host){
-		synchronized(friends){		
+				
 			friends.add(host);
-			}
 			
 		// check: should always be in known hosts.
 		if(!knownHosts.containsKey(host.getGUID())){
 			LOG.warn("warning: HostCache.addfriend() was called on a host not in the known hosts");
 			knownHosts.put(host.getGUID(), host);
 		}
+		
+		//attempt to connect
+		outgoingConnectionManager.notifyFriend(host);
+	
 	}
 	
 	
@@ -299,6 +320,7 @@ public class HostCache {
 	public void blacklistHost(Host h){
 		blacklist.add(h);
 		friends.remove(h);
+		connectionList.notifyBlacklist(h); //notify that this host was added to the blacklist
 	}
 	
 	/**
@@ -307,6 +329,7 @@ public class HostCache {
 	 */
 	public void unBlacklist(GUID guid){
 		blacklist.remove(getHost(guid));
+		//note: no need to notify about the blacklist removal.
 	}
 	
 	/**
@@ -354,7 +377,7 @@ public class HostCache {
 	public void unFriend(GUID guid) {
  
 		friends.remove(HostCache.getHost(guid));
-		
+		connectionList.notifyUnfriend(guid); // will drop outgoing connections to this peer, keep incoming ones.
 	}
 
 	/** Creates an instance of a Host from a Pong message

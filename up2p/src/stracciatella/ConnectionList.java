@@ -30,6 +30,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.LinkedList;
@@ -41,6 +42,10 @@ import java.util.TreeMap;
 
 import org.apache.log4j.Logger;
 
+import protocol.com.dan.jtella.ConnectedHostsListener;
+import protocol.com.dan.jtella.DroppedConnectionEvent;
+import protocol.com.dan.jtella.HostsChangedEvent;
+import protocol.com.dan.jtella.NewConnectionEvent;
 import protocol.com.dan.jtella.PushWaits;
 import protocol.com.kenmccrary.jtella.util.Log;
 import protocol.com.kenmccrary.jtella.util.SocketFactory;
@@ -57,6 +62,10 @@ public class ConnectionList {
 	/** Name of Logger used by this adapter. */
     public static final String LOGGER = "protocol.pingpong.jtella";
 
+	private static final int EVENT_NEWCONNECTION = 0;
+	private static final int EVENT_DROPPEDCONNECTION = 1;
+	private static final int EVENT_CHANGEDCONNECTION = 2;
+
     /** Logger used by this adapter. */
     private static Logger LOG = Logger.getLogger(LOGGER);
 	private Map<GUID, Connection> guid2ConnectionMap; //keyed by GUID
@@ -66,6 +75,9 @@ public class ConnectionList {
 	private Router router;
 	private boolean shutdownflag;
 	private ConnectionData connectionData;
+	private OutgoingConnectionManager outgoingConnectionMgr;
+
+	private List<ConnectedHostsListener> listeners;
 
 	//private List<Connection> connectionsStarting; //stores connections not yet established (no gnutellaId)
 
@@ -88,6 +100,11 @@ public class ConnectionList {
 		return router;
 	}
 	
+	/** set the outgoingConnectionManager*/
+	public void setOutgoingConnectionManager(OutgoingConnectionManager mgr){
+		outgoingConnectionMgr = mgr;
+	}
+	
 	public ConnectionData getConnectionData(){
 		return connectionData;
 	}
@@ -100,25 +117,7 @@ public class ConnectionList {
 		
 	}
 	
-	/**
-	 *  Gets a list containing the connections
-	 *
-	 *  @return list of connections
-	 * /
-	public LinkedList<Connection> getList() {
-		return (new LinkedList<Connection>(currentConnectionMap.values()));
-	}*/
 
-	/**
-	 *  Adds a connection
-	 *UPDATE: connections only added by the "start connection" methods.
-	 *  @param connection new connection
-	 * /
-	void addConnection(Connection connection) {
-		synchronized (currentConnectionMap) {
-			currentConnectionMap.put(connection.getRemoteServentId(), connection);
-		}
-	}*/
 
 	/**
 	 *  Removes a connection
@@ -127,10 +126,7 @@ public class ConnectionList {
 	 */
 	public void dropConnection(GUID g) {
 		Connection c = 	guid2ConnectionMap.get(g);
-		IPPort ipp = c.getRemoteIPPort();
-		guid2ConnectionMap.remove(g);
-		ipport2ConnectionMap.remove(ipp);
-		c.shutdown();
+		dropConnection(c);
 	}
 	
 	/**
@@ -141,7 +137,12 @@ public class ConnectionList {
 	public void dropConnection(Connection c) {
 			guid2ConnectionMap.remove(c.getRemoteHost().getGUID());
 			guid2ConnectionMap.remove(c.getRemoteIPPort());
-			c.shutdown();
+			if(c.getStatus() != Connection.STATUS_STOPPED)
+				c.shutdown();
+			notifyListeners(c, EVENT_DROPPEDCONNECTION);
+			
+			if (hostCache.isFriend(c.getRemoteHost())) //we only notify if it was a friend.
+				outgoingConnectionMgr.notifyFriend(c.getRemoteHost());
 	}
 	
 	
@@ -150,17 +151,45 @@ public class ConnectionList {
 	 *  Check if a connection exists to a host
 	 *
 	 *  @param GUID Gnutella servent id
+	 *  
 	 *  @return true if a connection exists to a per with this ID
 	 */
-	public boolean contains(GUID GUID) {
+	public boolean contains(GUID guid) {
 		//boolean result = false;
-
 		
-			if(guid2ConnectionMap.containsKey(GUID))
+			if(guid2ConnectionMap.containsKey(guid))
 				return true;
 			return false;
 			
 	}
+	
+	
+	/**
+	 * check if we have an incoming connection from a particular peer
+	 * @param guid the peer GUID
+	 * @return true if an incoming connection from this peer exists.
+	 */
+	public boolean hasIncomingConnectionFrom(GUID guid){
+		Connection c= guid2ConnectionMap.get(guid);
+		if (c!=null)
+			if (c.isIncoming())
+				return true;
+		return false;		
+	}
+	
+	/**
+	 * check if we have an outgoing connection to a particular peer
+	 * @param guid
+	 * @return
+	 */
+	public boolean hasOutgoingConnectionTo(GUID guid){
+		Connection c= guid2ConnectionMap.get(guid);
+		if (c!=null)
+			if (c.isOutgoing())
+				return true;
+		return false;		
+	}
+	
 	/**
 	 * checks if we have an active connection to the specified ip-port
 	 * note: dynamic ports and ip addresses make this method not terribly useful.
@@ -187,8 +216,6 @@ public class ConnectionList {
 	 */
 	public boolean startIncomingConnection(Socket socket) {
 		boolean result = false;
-
-		
 		
 		Connection connection;
 		//InputStream inputStream;
@@ -267,7 +294,7 @@ public class ConnectionList {
 					
 					String remoteServentId = connectionProperties.get(ConnectionData.SERVENTID_HEADER);
 					GUID remoteGUID= GUID.getGUID(remoteServentId);
-				//	Host remoteHost = HostCache.getHost(remoteGUID);
+					//	Host remoteHost = HostCache.getHost(remoteGUID);
 					
 					//TODO in future: authenticate, using Station to Station protocol based on public keys.
 					
@@ -287,15 +314,16 @@ public class ConnectionList {
 							
 							return false;
 						}
-						else		if(this.contains(remoteGUID)) { //--is it a duplicate connection ?
-								
+						else	if(this.contains(remoteGUID)) { //--is it a duplicate connection ?
 
 								Connection other = getConnectionByID(remoteGUID);
 								// modify type of other connection, now two way
-								if (other.isOutgoing())
+								if (other.isOutgoing()){
 									other.setType(Connection.CONNECTION_TWOWAY);
+									notifyListeners(other, EVENT_CHANGEDCONNECTION); //connection modified
+								}
 								LOG.info("Incoming connection detected as duplicate of outgoing connection."
-										+ "\nConnection rejected.");
+										+ "\nConnection made 2-way.");
 								String response = ConnectionData.SERVER_ACCEPT_DUPLICATE + ConnectionData.CRLF;
 								
 								bufferedWriter.write(response);
@@ -397,6 +425,7 @@ public class ConnectionList {
 			connectionThread.start();
 			
 			this.addConnection(connection);
+			notifyListeners(connection, EVENT_NEWCONNECTION);// new connection
 			//TODO = parse connectionProperties and set all info for connection
 
  
@@ -426,8 +455,6 @@ public class ConnectionList {
 	 */
 	public boolean startOutgoingConnection(IPPort ipport) {
 		boolean success = true;
-
-
 
 		try {
 			Socket socket = SocketFactory.getSocket(ipport.IP, ipport.port, 10000);
@@ -555,10 +582,13 @@ public class ConnectionList {
 				}
 				if(contains(remoteGUID)){ //duplicate connection
 					Connection other = getConnectionByID(remoteGUID);
-					if(other.isIncoming() && !other.isOutgoing())
+					if(other.isIncoming() && !other.isOutgoing()){
 						other.setType(Connection.CONNECTION_TWOWAY);
+						notifyListeners(other, EVENT_CHANGEDCONNECTION); //this connection has changed
+					}
+						success=true; //still abandon this connection, we already have one.
 
-					success=false; //abandon this connection, we already have one.
+					
 				}
 			}
 
@@ -579,8 +609,8 @@ public class ConnectionList {
 					// add connection to list.
 					this.addConnection(connection);
 
-					//notifyListeners();
-					//TODO: notify listeners?
+					notifyListeners(connection, EVENT_NEWCONNECTION);
+					
 				}
 				catch (IOException ioe) {
 					LOG.error("I/O Exception transmitting ack");
@@ -598,6 +628,26 @@ public class ConnectionList {
 		return success;
 	}
 
+
+
+	//notify all listeners that a particular connection has changed (been created, dropped, or modified)
+	private void notifyListeners(Connection connection, int evtype) {
+		HostsChangedEvent evt;
+		switch(evtype){
+		case(EVENT_NEWCONNECTION):
+			evt = new NewConnectionEvent(connection);
+		break;
+		case(EVENT_DROPPEDCONNECTION):
+			evt= new DroppedConnectionEvent(connection);
+		break;
+		default:
+			evt = new HostsChangedEvent(connection);
+		}
+		
+		for (ConnectedHostsListener chl:listeners)
+			chl.hostsChanged(evt);
+		
+	}
 
 
 	/**
@@ -766,12 +816,12 @@ public class ConnectionList {
 		}
 	}*/
 
-	/**
+	/*
 	 *  Remove any dead connections from the list
 	 *
 	 *  @param type of collection to clean
 	 *  @return number of live connections remaining
-	 */
+	 * /
 	public int cleanDeadConnections(int type) {
 		int liveCount = 0;
 		Log.getLog().logInformation("Live connection list start: ");
@@ -802,7 +852,7 @@ public class ConnectionList {
 
 		return liveCount;
 
-	}
+	}*/
 
 	
 
@@ -857,16 +907,53 @@ public class ConnectionList {
 	}
 
 
+	/** this method is just used to get the connection from the IP/port, and will go back to 
+	 * the hostcache to unfriend the peer based on the peer s GUID*/
 	public boolean unFriend(String iP, int port) {
 		IPPort ipp = new IPPort(iP,port);
 		Connection c= getConnectionByIPPort(ipp);
 		if (c==null)
 			return false;
 		hostCache.unFriend(c.getConnectedServentGUID());
-		this.dropConnection(c);
+		
 		return true;
 		
 	}
+
+
+	/** add a listener. Listeners are notified when a new connection is started or if a connection is dropped*/
+	public void addListener(ConnectedHostsListener chl) {
+		listeners.add(chl);
+		
+	}
+
+
+	/**
+	 * notification that the specified host is now blacklisted. Drop any incoming connection from it.
+	 * Future reconnections will be refused anyway.
+	 * @param h
+	 */
+	public void notifyBlacklist(Host h) {
+		GUID g = h.getGUID();
+		if (hasIncomingConnectionFrom(g))
+			dropConnection(g);
+		
+	}
+
+	/** receive a notification that the identified peer is no longer a friend. Will drop the outgoing 
+	 * connection to the peer, but keep the incoming one.
+	 * TODO: requires a new network message to notify the other peer
+	 * for now, just drop the connection, but accept future incoming connections.
+	 * @param guid
+	 */
+	public void notifyUnfriend(GUID guid) {
+		//for now just do the same as for a blacklisted peer: drop the connection
+		if (hasIncomingConnectionFrom(guid))
+			dropConnection(guid);
+		
+	}
+
+
 
 
 }
