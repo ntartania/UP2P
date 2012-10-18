@@ -283,15 +283,15 @@ public class JTellaAdapter extends BasePeerNetworkAdapter implements MessageRece
 			LOG.info("Peer discovery enabled: " + peerDiscovery);
 			System.out.println("Incoming Gnutella port: " + incomingPort);
 			
-			c = new StracciatellaConnection(connData);
+			c = new SubnetStracciatellaConnection(connData);
 			c.getSearchMonitorSession(this);
 			c.createFileServerSession(this);
 			c.addListener(this);
 			
 						
-			LOG.info("JTellaAdapter:: init: about to start the GnutellaConnection" );
+			LOG.info("JTellaAdapter:: init: about to start the StracciatellaConnection" );
 			c.start();
-			LOG.info("JTellaAdapter:: init: GnutellaConnection started" );
+			LOG.info("JTellaAdapter:: init: StracciatellaConnection started" );
 			LOG.info("JTellaAdapter::  Servent identifier GUID: " + StracciatellaConnection.getServentIdentifier());
 		} 
 		catch(NumberFormatException e) {

@@ -86,7 +86,7 @@ public class StracciatellaConnection {
 
 
 		// This replaces hostfeed as a means of getting hosts for bootstrapping
-		getHostsFromCache = new GetHostsFromCache(hostCache, connectionList, connData);
+		getHostsFromCache = new GetHostsFromCache(hostCache, connectionList, connectionData);
 
 		// Maintains appropriate incoming connections
 		incomingConnectionManager =
@@ -96,7 +96,7 @@ public class StracciatellaConnection {
 				);
 
 		outgoingConnectionManager =
-			new OutgoingConnectionManager(connectionList, hostCache);
+			new OutgoingConnectionManager(connectionList, hostCache, connectionData);
 		hostCache.setOutgoingConnectionManager(outgoingConnectionManager);
 		connectionList.setOutgoingConnectionManager(outgoingConnectionManager);
 

@@ -87,6 +87,7 @@ public class ConnectionList {
 		hostCache = HostCache.getHostCache();
 		shutdownflag= false;
 		this.connectionData = connectionData;
+		listeners = new ArrayList<ConnectedHostsListener>();
 		
 	}
 

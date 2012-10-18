@@ -473,7 +473,7 @@ public class Router extends Thread {
 		
 		
 		//if(connectionData.getPeerLookupEnabled()) {
-		HostCache.getHost(pongMessage); //just makes this host "known"
+		HostCache.getHostCache().getHostFromPONG(pongMessage); //just makes this host "known"
 				
 
 		Connection originator = pingRouteTable.get(m.getMessage().getGUID());

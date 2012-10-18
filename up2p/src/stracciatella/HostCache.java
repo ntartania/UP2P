@@ -381,12 +381,16 @@ public class HostCache {
 	}
 
 	/** Creates an instance of a Host from a Pong message
-	 * @return a host object with the GUID given in the Pong message, with a known location (IP+port) as given in the Pong message. 
+	 *   If the host is already known, its known locations are updated
+	 *   If the host is a friend, we are notified that the friend is online.
 	 * */
-	public static Host getHost(PongMessage pongMessage) {
-		Host h = getHost(pongMessage.getRemoteHostGUID());
-		h.addKnownLocation(pongMessage.getIPAddress(), pongMessage.getPort());
-		return h;
+	public void getHostFromPONG(PongMessage pongMessage) {
+		GUID guid = pongMessage.getRemoteHostGUID();
+		IPPort ipp = new IPPort(pongMessage.getIPAddress(), pongMessage.getPort());
+		Host h = getHost(guid);
+		h.addKnownLocation(ipp);
+		if (isFriend(h) && !connectionList.hasOutgoingConnectionTo(guid))
+			outgoingConnectionManager.notifyHostOnline(h, new IPPort(pongMessage.getIPAddress(), pongMessage.getPort()));
 	}
 
 	/**
@@ -399,6 +403,7 @@ public class HostCache {
 		knownLocations.add(new IPPort(ipAddress, port));
 		
 	}
+
 
 	
 	

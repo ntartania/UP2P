@@ -68,12 +68,26 @@ public class Host {
 		return guid.toRawString();
 	}
 	
-	public void addKnownLocation(String IP, int port){
-		IPPort ipp = new IPPort(IP, port);
+
+	/**
+	 * add a known (i.e. possible) location for this host
+	 * @param ipp the IP/port
+	*/
+	public void addKnownLocation(IPPort ipp) {
 		if(knownLocations.contains(ipp))
 			knownLocations.remove(ipp);
 		// adds IP-port to known locations or moves it to the head of the list
 		knownLocations.addFirst(ipp);
+		
+	}
+	/**
+	 * add a known (i.e. possible) location for this host
+	 * @param IP the IP
+	 * @param port the listening port
+	 */
+	public void addKnownLocation(String IP, int port){
+		IPPort ipp = new IPPort(IP, port);
+		addKnownLocation(ipp);
 	}
 	
 	public void addAccessPath(Host friend, int distance){
@@ -214,6 +228,8 @@ public List<IPPort> getKnownLocations() {
 	Collections.copy(toreturn, knownLocations);
 	return toreturn;
 }
+
+
 
 
 /*

@@ -46,7 +46,7 @@ import protocol.com.kenmccrary.jtella.util.Log;
  * connections in an attempt to quickly achieve connections
  *  
  */
-class OutgoingConnectionManager {
+public class OutgoingConnectionManager {
 	public static final long RETRY_TIME = 60000L;
 	private Timer timer;
 	private StarterPool starterPool;
@@ -58,37 +58,14 @@ class OutgoingConnectionManager {
 	// Instance of logger
 	public static Logger LOG = Logger.getLogger(LOGGER);
 	
-	private Map<Host, TimerTask> scheduledConnections;
 	
-	public OutgoingConnectionManager(ConnectionList cl, HostCache hc){
+	public OutgoingConnectionManager(ConnectionList cl, HostCache hc, ConnectionData data){
 		connectionList = cl;
-		starterPool = new StarterPool(null);
-		scheduledConnections = new HashMap<Host, TimerTask>();
-		//listeners = new Vector<ConnectedHostsListener>(1,1); //TODO: how is this used?
+		starterPool = new StarterPool(data);
+		
 	}
 	
-	//private Vector<ConnectedHostsListener> listeners;
 
-	/*
-	 * Constructs the outgoing connection manager
-	 *
-	 * /
-	OutgoingConnectionManager(
-		Router router,
-		HostCache hostCache,
-		ConnectionList connectionList,
-		ConnectionData connectionData)
-		throws IOException {
-		super(
-			router,
-			connectionList,
-			connectionData,
-			"OutgoingConnectionManager");
-		this.hostCache = hostCache;
-		starterPool = new StarterPool(connectionData);
-		listeners = new Vector<ConnectedHostsListener>(1, 1);
-	}*/
-	
 	
 	
 	public void shutdown() {
